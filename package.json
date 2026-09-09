@@ -1,0 +1,19 @@
+{
+  "name": "bhoomi-setu-static-prototype",
+  "version": "1.0.0",
+  "description": "Bhoomi Setu (ಭೂಮಿ ಸೇತು) — Karnataka Land Acquisition & Statutory Revenue System (32-Screen Static Prototype)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "build": "node build_screens_data.js"
+  },
+  "keywords": [
+    "bhoomi-setu",
+    "land-acquisition",
+    "karnataka-revenue",
+    "stitch-prototype"
+  ],
+  "author": "Antigravity",
+  "license": "MIT"
+}

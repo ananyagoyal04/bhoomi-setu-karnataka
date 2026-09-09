@@ -1,0 +1,3378 @@
+[
+  {
+    "id": "bhoomi_setu_ai_mitigation_recommendations_panel",
+    "buttonsCount": 13,
+    "linksCount": 11,
+    "inputsCount": 2,
+    "sampleButtons": [
+      {
+        "text": "A-",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Decrease font size\" type=\"button\""
+      },
+      {
+        "text": "A",
+        "attrs": "class=\"px-space-1 hover:text-on-surface font-bold\" title=\"Standard font size\" type=\"button\""
+      },
+      {
+        "text": "A+",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Increase font size\" type=\"button\""
+      },
+      {
+        "text": "translate EN | ಕನ್ನಡ",
+        "attrs": "aria-label=\"Language switch\" class=\"flex items-center gap-space-1 border border-outline-variant bg-surface-container-lowest px-space-2 py-0.5 rounded-lg text-primary hover:bg-surface-container transition-colors\" type=\"button\""
+      },
+      {
+        "text": "event_repeat Sync with Revenue Court Cal",
+        "attrs": "class=\"inline-flex items-center gap-space-2 px-space-4 py-space-2 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md transition-colors\" id=\"syncCourtBtn\" type=\"button\""
+      },
+      {
+        "text": "bolt Run Updated Simulation",
+        "attrs": "class=\"inline-flex items-center gap-space-2 px-space-4 py-space-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md shadow-sm transition-colors\" id=\"runSimBtn\" type=\"button\""
+      },
+      {
+        "text": "gavel Draft Sec 64/77 Escrow Motion",
+        "attrs": "class=\"w-full inline-flex items-center justify-center gap-space-2 px-space-4 py-space-2 bg-primary hover:bg-primary-container text-on-primary rounded-lg font-label-md text-label-md transition-colors shadow-sm\" type=\"button\""
+      },
+      {
+        "text": "send Assign to Govt Pleader",
+        "attrs": "class=\"w-full inline-flex items-center justify-center gap-space-2 px-space-4 py-space-2 bg-surface-container-low hover:bg-surface-container text-on-surface rounded-lg font-label-md text-label-md transition-colors\" type=\"button\""
+      },
+      {
+        "text": "domain_verification Generate Joint Notic",
+        "attrs": "class=\"w-full inline-flex items-center justify-center gap-space-2 px-space-4 py-space-2 bg-primary hover:bg-primary-container text-on-primary rounded-lg font-label-md text-label-md transition-colors shadow-sm\" type=\"button\""
+      },
+      {
+        "text": "speed Track Inter-Agency SLA",
+        "attrs": "class=\"w-full inline-flex items-center justify-center gap-space-2 px-space-4 py-space-2 bg-surface-container-low hover:bg-surface-container text-on-surface rounded-lg font-label-md text-label-md transition-colors\" type=\"button\""
+      }
+    ],
+    "sampleLinks": [
+      {
+        "text": "Home",
+        "href": "#",
+        "dataPath": "home"
+      },
+      {
+        "text": "Public Land Directory",
+        "href": "#",
+        "dataPath": "public-land-directory"
+      },
+      {
+        "text": "Survey &amp; Gazette",
+        "href": "#",
+        "dataPath": "survey-gazette"
+      },
+      {
+        "text": "Verify Document",
+        "href": "#",
+        "dataPath": "verify-document"
+      },
+      {
+        "text": "Grievances",
+        "href": "#",
+        "dataPath": "grievances"
+      },
+      {
+        "text": "Helpdesk",
+        "href": "#",
+        "dataPath": "helpdesk"
+      },
+      {
+        "text": "1800-425-9900",
+        "href": "tel:18004259900",
+        "dataPath": ""
+      },
+      {
+        "text": "Sign In",
+        "href": "#",
+        "dataPath": "sign-in"
+      },
+      {
+        "text": "Home",
+        "href": "#",
+        "dataPath": ""
+      },
+      {
+        "text": "Officer Console",
+        "href": "#",
+        "dataPath": ""
+      }
+    ],
+    "sampleInputs": [
+      {
+        "type": "checkbox",
+        "name": "",
+        "placeholder": ""
+      },
+      {
+        "type": "checkbox",
+        "name": "",
+        "placeholder": ""
+      }
+    ]
+  },
+  {
+    "id": "bhoomi_setu_application_form",
+    "buttonsCount": 9,
+    "linksCount": 11,
+    "inputsCount": 2,
+    "sampleButtons": [
+      {
+        "text": "A-",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Decrease font size\" type=\"button\""
+      },
+      {
+        "text": "A",
+        "attrs": "class=\"px-space-1 hover:text-on-surface font-bold\" title=\"Standard font size\" type=\"button\""
+      },
+      {
+        "text": "A+",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Increase font size\" type=\"button\""
+      },
+      {
+        "text": "translate EN | ಕನ್ನಡ",
+        "attrs": "aria-label=\"Language switch\" class=\"flex items-center gap-space-1 border border-outline-variant bg-surface-container-lowest px-space-2 py-0.5 rounded-lg text-primary hover:bg-surface-container transition-colors\" type=\"button\""
+      },
+      {
+        "text": "visibility Preview",
+        "attrs": "class=\"px-space-3 py-1.5 rounded text-primary hover:bg-surface-container font-label-md text-label-md transition-colors flex items-center gap-1\" type=\"button\""
+      },
+      {
+        "text": "swap_horiz Replace",
+        "attrs": "class=\"px-space-3 py-1.5 rounded text-error hover:bg-error-container/30 font-label-md text-label-md transition-colors flex items-center gap-1\" title=\"Replace file\" type=\"button\""
+      },
+      {
+        "text": "save Save Draft as Form 49-B",
+        "attrs": "class=\"order-3 sm:order-1 font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1.5 py-space-2\" id=\"btnSaveDraft\" type=\"button\""
+      },
+      {
+        "text": "arrow_back Previous Step",
+        "attrs": "class=\"px-space-4 py-2.5 rounded bg-surface-container-lowest text-on-surface hover:bg-surface-container font-label-md text-label-md transition-colors flex items-center gap-1.5 shadow-sm\" type=\"button\""
+      },
+      {
+        "text": "Proceed to Document Upload (Step 3) arro",
+        "attrs": "class=\"px-space-6 py-2.5 rounded bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md transition-all flex items-center gap-2 shadow-sm font-semibold\" type=\"submit\""
+      }
+    ],
+    "sampleLinks": [
+      {
+        "text": "Home",
+        "href": "#",
+        "dataPath": "home"
+      },
+      {
+        "text": "Public Land Directory",
+        "href": "#",
+        "dataPath": "public-land-directory"
+      },
+      {
+        "text": "Survey &amp; Gazette",
+        "href": "#",
+        "dataPath": "survey-gazette"
+      },
+      {
+        "text": "Verify Document",
+        "href": "#",
+        "dataPath": "verify-document"
+      },
+      {
+        "text": "Grievances",
+        "href": "#",
+        "dataPath": "grievances"
+      },
+      {
+        "text": "Helpdesk",
+        "href": "#",
+        "dataPath": "helpdesk"
+      },
+      {
+        "text": "1800-425-9900",
+        "href": "tel:18004259900",
+        "dataPath": ""
+      },
+      {
+        "text": "Sign In",
+        "href": "#",
+        "dataPath": "sign-in"
+      },
+      {
+        "text": "home Home",
+        "href": "#",
+        "dataPath": ""
+      },
+      {
+        "text": "Public Land Directory",
+        "href": "#",
+        "dataPath": ""
+      }
+    ],
+    "sampleInputs": [
+      {
+        "type": "text",
+        "name": "projectBudget",
+        "placeholder": ""
+      },
+      {
+        "type": "text",
+        "name": "groundFootprint",
+        "placeholder": ""
+      }
+    ]
+  },
+  {
+    "id": "bhoomi_setu_application_status_tracker",
+    "buttonsCount": 7,
+    "linksCount": 13,
+    "inputsCount": 0,
+    "sampleButtons": [
+      {
+        "text": "A-",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Decrease font size\" type=\"button\""
+      },
+      {
+        "text": "A",
+        "attrs": "class=\"px-space-1 hover:text-on-surface font-bold\" title=\"Standard font size\" type=\"button\""
+      },
+      {
+        "text": "A+",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Increase font size\" type=\"button\""
+      },
+      {
+        "text": "translate EN | ಕನ್ನಡ",
+        "attrs": "aria-label=\"Language switch\" class=\"flex items-center gap-space-1 border border-outline-variant bg-surface-container-lowest px-space-2 py-0.5 rounded-lg text-primary hover:bg-surface-container transition-colors\" type=\"button\""
+      },
+      {
+        "text": "open_in_new",
+        "attrs": "class=\"text-primary hover:text-on-surface p-1\" title=\"View Document\" type=\"button\""
+      },
+      {
+        "text": "open_in_new",
+        "attrs": "class=\"text-primary hover:text-on-surface p-1\" title=\"View Document\" type=\"button\""
+      },
+      {
+        "text": "open_in_new",
+        "attrs": "class=\"text-primary hover:text-on-surface p-1\" title=\"View Document\" type=\"button\""
+      }
+    ],
+    "sampleLinks": [
+      {
+        "text": "Home",
+        "href": "#",
+        "dataPath": "home"
+      },
+      {
+        "text": "Public Land Directory",
+        "href": "#",
+        "dataPath": "public-land-directory"
+      },
+      {
+        "text": "Survey &amp; Gazette",
+        "href": "#",
+        "dataPath": "survey-gazette"
+      },
+      {
+        "text": "Verify Document",
+        "href": "#",
+        "dataPath": "verify-document"
+      },
+      {
+        "text": "Grievances",
+        "href": "#",
+        "dataPath": "grievances"
+      },
+      {
+        "text": "Helpdesk",
+        "href": "#",
+        "dataPath": "helpdesk"
+      },
+      {
+        "text": "1800-425-9900",
+        "href": "tel:18004259900",
+        "dataPath": ""
+      },
+      {
+        "text": "Sign In",
+        "href": "#",
+        "dataPath": "sign-in"
+      },
+      {
+        "text": "ಮುಖಪುಟ | Home",
+        "href": "#",
+        "dataPath": "home"
+      },
+      {
+        "text": "ನನ್ನ ಅರ್ಜಿಗಳು | My Applications",
+        "href": "#",
+        "dataPath": ""
+      }
+    ],
+    "sampleInputs": []
+  },
+  {
+    "id": "bhoomi_setu_available_government_land",
+    "buttonsCount": 16,
+    "linksCount": 11,
+    "inputsCount": 1,
+    "sampleButtons": [
+      {
+        "text": "A-",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Decrease font size\" type=\"button\""
+      },
+      {
+        "text": "A",
+        "attrs": "class=\"px-space-1 hover:text-on-surface font-bold\" title=\"Standard font size\" type=\"button\""
+      },
+      {
+        "text": "A+",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Increase font size\" type=\"button\""
+      },
+      {
+        "text": "translate EN | ಕನ್ನಡ",
+        "attrs": "aria-label=\"Language switch\" class=\"flex items-center gap-space-1 border border-outline-variant bg-surface-container-lowest px-space-2 py-0.5 rounded-lg text-primary hover:bg-surface-container transition-colors\" type=\"button\""
+      },
+      {
+        "text": "All Public Land (38)",
+        "attrs": "class=\"px-space-4 py-space-2 rounded-lg bg-primary text-on-primary font-label-md text-label-md transition-all\" type=\"button\""
+      },
+      {
+        "text": "Agricultural Lease (14)",
+        "attrs": "class=\"px-space-4 py-space-2 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container transition-all font-label-md text-label-md\" type=\"button\""
+      },
+      {
+        "text": "Civic Amenity / Institutional (16)",
+        "attrs": "class=\"px-space-4 py-space-2 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container transition-all font-label-md text-label-md\" type=\"button\""
+      },
+      {
+        "text": "Afforestation / Lake Buffer (8)",
+        "attrs": "class=\"px-space-4 py-space-2 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container transition-all font-label-md text-label-md\" type=\"button\""
+      },
+      {
+        "text": "file_download Download Gazette PDF (All ",
+        "attrs": "class=\"inline-flex items-center gap-space-1 text-primary font-label-md text-label-md hover:underline\" type=\"button\""
+      },
+      {
+        "text": "View Details &amp; Criteria arrow_forwar",
+        "attrs": "class=\"inline-flex items-center gap-space-1 px-space-4 py-space-2 bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:bg-primary-container transition-colors\" type=\"button\""
+      }
+    ],
+    "sampleLinks": [
+      {
+        "text": "Home",
+        "href": "#",
+        "dataPath": "home"
+      },
+      {
+        "text": "Public Land Directory",
+        "href": "#",
+        "dataPath": "public-land-directory"
+      },
+      {
+        "text": "Survey &amp; Gazette",
+        "href": "#",
+        "dataPath": "survey-gazette"
+      },
+      {
+        "text": "Verify Document",
+        "href": "#",
+        "dataPath": "verify-document"
+      },
+      {
+        "text": "Grievances",
+        "href": "#",
+        "dataPath": "grievances"
+      },
+      {
+        "text": "Helpdesk",
+        "href": "#",
+        "dataPath": "helpdesk"
+      },
+      {
+        "text": "1800-425-9900",
+        "href": "tel:18004259900",
+        "dataPath": ""
+      },
+      {
+        "text": "Sign In",
+        "href": "#",
+        "dataPath": "sign-in"
+      },
+      {
+        "text": "Home",
+        "href": "#",
+        "dataPath": ""
+      },
+      {
+        "text": "Public Services",
+        "href": "#",
+        "dataPath": ""
+      }
+    ],
+    "sampleInputs": [
+      {
+        "type": "text",
+        "name": "",
+        "placeholder": "e.g. Varthur, Attibele, Sy No. 104, Hobli..."
+      }
+    ]
+  },
+  {
+    "id": "bhoomi_setu_cadastral_export_reports_hub",
+    "buttonsCount": 18,
+    "linksCount": 8,
+    "inputsCount": 5,
+    "sampleButtons": [
+      {
+        "text": "A-",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Decrease font size\" type=\"button\""
+      },
+      {
+        "text": "A",
+        "attrs": "class=\"px-space-1 hover:text-on-surface font-bold\" title=\"Standard font size\" type=\"button\""
+      },
+      {
+        "text": "A+",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Increase font size\" type=\"button\""
+      },
+      {
+        "text": "translate EN | ಕನ್ನಡ",
+        "attrs": "aria-label=\"Language switch\" class=\"flex items-center gap-space-1 border border-outline-variant bg-surface-container-lowest px-space-2 py-0.5 rounded-lg text-primary hover:bg-surface-container transition-colors\" type=\"button\""
+      },
+      {
+        "text": "download Export Gazette Bundle (428 MB)",
+        "attrs": "class=\"inline-flex items-center gap-space-2 px-space-4 py-space-2 bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:bg-primary-container transition-colors shadow-sm\" onclick=\"triggerExport('rfctlarr')\" type=\"button\""
+      },
+      {
+        "text": "folder_zip Export Spatial Data (1.82 GB)",
+        "attrs": "class=\"inline-flex items-center gap-space-2 px-space-4 py-space-2 bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:bg-primary-container transition-colors shadow-sm\" onclick=\"triggerExport('kgis')\" type=\"button\""
+      },
+      {
+        "text": "table_view Export CAG Financial Audit (8",
+        "attrs": "class=\"inline-flex items-center gap-space-2 px-space-4 py-space-2 bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:bg-primary-container transition-colors shadow-sm\" onclick=\"triggerExport('pfms')\" type=\"button\""
+      },
+      {
+        "text": "download_for_offline Export Compliance D",
+        "attrs": "class=\"inline-flex items-center gap-space-2 px-space-4 py-space-2 bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:bg-primary-container transition-colors shadow-sm\" onclick=\"triggerExport('environmental')\" type=\"button\""
+      },
+      {
+        "text": "Reset Parameters",
+        "attrs": "class=\"px-space-3 py-space-2 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors\" onclick=\"resetQueryFilters()\" type=\"button\""
+      },
+      {
+        "text": "tune Load CAG Template",
+        "attrs": "class=\"px-space-3 py-space-2 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors flex items-center gap-1\" onclick=\"loadStatutoryTemplate('cag')\" type=\"button\""
+      }
+    ],
+    "sampleLinks": [
+      {
+        "text": "Home",
+        "href": "#",
+        "dataPath": "home"
+      },
+      {
+        "text": "Public Land Directory",
+        "href": "#",
+        "dataPath": "public-land-directory"
+      },
+      {
+        "text": "Survey &amp; Gazette",
+        "href": "#",
+        "dataPath": "survey-gazette"
+      },
+      {
+        "text": "Verify Document",
+        "href": "#",
+        "dataPath": "verify-document"
+      },
+      {
+        "text": "Grievances",
+        "href": "#",
+        "dataPath": "grievances"
+      },
+      {
+        "text": "Helpdesk",
+        "href": "#",
+        "dataPath": "helpdesk"
+      },
+      {
+        "text": "1800-425-9900",
+        "href": "tel:18004259900",
+        "dataPath": ""
+      },
+      {
+        "text": "Sign In",
+        "href": "#",
+        "dataPath": "sign-in"
+      }
+    ],
+    "sampleInputs": [
+      {
+        "type": "checkbox",
+        "name": "",
+        "placeholder": ""
+      },
+      {
+        "type": "checkbox",
+        "name": "",
+        "placeholder": ""
+      },
+      {
+        "type": "checkbox",
+        "name": "",
+        "placeholder": ""
+      },
+      {
+        "type": "checkbox",
+        "name": "",
+        "placeholder": ""
+      },
+      {
+        "type": "text",
+        "name": "",
+        "placeholder": "Search archive by Hash or Officer ID..."
+      }
+    ]
+  },
+  {
+    "id": "bhoomi_setu_citizen_dashboard",
+    "buttonsCount": 14,
+    "linksCount": 15,
+    "inputsCount": 0,
+    "sampleButtons": [
+      {
+        "text": "A-",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Decrease font size\" type=\"button\""
+      },
+      {
+        "text": "A",
+        "attrs": "class=\"px-space-1 hover:text-on-surface font-bold\" title=\"Standard font size\" type=\"button\""
+      },
+      {
+        "text": "A+",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Increase font size\" type=\"button\""
+      },
+      {
+        "text": "translate EN | ಕನ್ನಡ",
+        "attrs": "aria-label=\"Language switch\" class=\"flex items-center gap-space-1 border border-outline-variant bg-surface-container-lowest px-space-2 py-0.5 rounded-lg text-primary hover:bg-surface-container transition-colors\" type=\"button\""
+      },
+      {
+        "text": "EN",
+        "attrs": "class=\"px-space-3 py-1 rounded bg-surface-container-lowest text-primary font-semibold shadow-sm\" type=\"button\""
+      },
+      {
+        "text": "ಕನ್ನಡ",
+        "attrs": "class=\"px-space-3 py-1 rounded text-on-surface-variant hover:text-on-surface transition-colors\" type=\"button\""
+      },
+      {
+        "text": "download Download Integrated Land Passbo",
+        "attrs": "class=\"inline-flex items-center gap-space-1 px-space-3 py-space-2 bg-surface-container-low text-on-surface rounded-lg font-label-md text-label-md hover:bg-surface-container transition-colors\" type=\"button\""
+      },
+      {
+        "text": "Acknowledge &amp; Submit",
+        "attrs": "class=\"text-primary font-label-sm text-label-sm font-semibold hover:underline\" type=\"button\""
+      },
+      {
+        "text": "Download Sanction Letter",
+        "attrs": "class=\"text-primary font-label-sm text-label-sm font-semibold hover:underline\" type=\"button\""
+      },
+      {
+        "text": "View Mutation Extract",
+        "attrs": "class=\"text-primary font-label-sm text-label-sm font-semibold hover:underline\" type=\"button\""
+      }
+    ],
+    "sampleLinks": [
+      {
+        "text": "Home",
+        "href": "#",
+        "dataPath": "home"
+      },
+      {
+        "text": "Public Land Directory",
+        "href": "#",
+        "dataPath": "public-land-directory"
+      },
+      {
+        "text": "Survey &amp; Gazette",
+        "href": "#",
+        "dataPath": "survey-gazette"
+      },
+      {
+        "text": "Verify Document",
+        "href": "#",
+        "dataPath": "verify-document"
+      },
+      {
+        "text": "Grievances",
+        "href": "#",
+        "dataPath": "grievances"
+      },
+      {
+        "text": "Helpdesk",
+        "href": "#",
+        "dataPath": "helpdesk"
+      },
+      {
+        "text": "1800-425-9900",
+        "href": "tel:18004259900",
+        "dataPath": ""
+      },
+      {
+        "text": "Sign In",
+        "href": "#",
+        "dataPath": "sign-in"
+      },
+      {
+        "text": "Review Notice",
+        "href": "#",
+        "dataPath": ""
+      },
+      {
+        "text": "View Details &amp; GIS Map arrow_forward",
+        "href": "#",
+        "dataPath": ""
+      }
+    ],
+    "sampleInputs": []
+  },
+  {
+    "id": "bhoomi_setu_climate_flood_hazard_map_overlay",
+    "buttonsCount": 18,
+    "linksCount": 11,
+    "inputsCount": 0,
+    "sampleButtons": [
+      {
+        "text": "A-",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Decrease font size\" type=\"button\""
+      },
+      {
+        "text": "A",
+        "attrs": "class=\"px-space-1 hover:text-on-surface font-bold\" title=\"Standard font size\" type=\"button\""
+      },
+      {
+        "text": "A+",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Increase font size\" type=\"button\""
+      },
+      {
+        "text": "translate EN | ಕನ್ನಡ",
+        "attrs": "aria-label=\"Language switch\" class=\"flex items-center gap-space-1 border border-outline-variant bg-surface-container-lowest px-space-2 py-0.5 rounded-lg text-primary hover:bg-surface-container transition-colors\" type=\"button\""
+      },
+      {
+        "text": "refresh Refresh Cadastre",
+        "attrs": "class=\"inline-flex items-center gap-space-2 px-space-3 py-1.5 bg-surface-container text-on-surface hover:bg-surface-container-high rounded font-label-md text-label-md transition-colors\" type=\"button\""
+      },
+      {
+        "text": "flood Flood Zone (100-Yr) [ACTIVE]",
+        "attrs": "class=\"bg-primary text-on-primary font-label-sm text-label-sm px-space-3 py-1.5 rounded shadow flex items-center gap-1.5 transition-all\" type=\"button\""
+      },
+      {
+        "text": "straighten Rajakaluve Buffer 30m [ACTIVE",
+        "attrs": "class=\"bg-primary text-on-primary font-label-sm text-label-sm px-space-3 py-1.5 rounded shadow flex items-center gap-1.5 transition-all\" type=\"button\""
+      },
+      {
+        "text": "satellite Satellite Ortho-photo",
+        "attrs": "class=\"bg-surface-container-lowest/90 backdrop-blur text-on-surface font-label-sm text-label-sm px-space-3 py-1.5 rounded hover:bg-surface-container-lowest shadow flex items-center gap-1.5 transition-all\" type=\"button\""
+      },
+      {
+        "text": "tag Cadastral Numbers [ACTIVE]",
+        "attrs": "class=\"bg-surface-container-lowest/90 backdrop-blur text-primary font-label-sm text-label-sm px-space-3 py-1.5 rounded hover:bg-surface-container-lowest shadow flex items-center gap-1.5 transition-all\" type=\"button\""
+      },
+      {
+        "text": "add",
+        "attrs": "class=\"w-8 h-8 flex items-center justify-center text-on-surface hover:bg-surface-container transition-colors\" title=\"Zoom In\" type=\"button\""
+      }
+    ],
+    "sampleLinks": [
+      {
+        "text": "Home",
+        "href": "#",
+        "dataPath": "home"
+      },
+      {
+        "text": "Public Land Directory",
+        "href": "#",
+        "dataPath": "public-land-directory"
+      },
+      {
+        "text": "Survey &amp; Gazette",
+        "href": "#",
+        "dataPath": "survey-gazette"
+      },
+      {
+        "text": "Verify Document",
+        "href": "#",
+        "dataPath": "verify-document"
+      },
+      {
+        "text": "Grievances",
+        "href": "#",
+        "dataPath": "grievances"
+      },
+      {
+        "text": "Helpdesk",
+        "href": "#",
+        "dataPath": "helpdesk"
+      },
+      {
+        "text": "1800-425-9900",
+        "href": "tel:18004259900",
+        "dataPath": ""
+      },
+      {
+        "text": "Sign In",
+        "href": "#",
+        "dataPath": "sign-in"
+      },
+      {
+        "text": "Home",
+        "href": "#",
+        "dataPath": ""
+      },
+      {
+        "text": "Officer Console",
+        "href": "#",
+        "dataPath": ""
+      }
+    ],
+    "sampleInputs": []
+  },
+  {
+    "id": "bhoomi_setu_document_verification_queue",
+    "buttonsCount": 17,
+    "linksCount": 10,
+    "inputsCount": 8,
+    "sampleButtons": [
+      {
+        "text": "A-",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Decrease font size\" type=\"button\""
+      },
+      {
+        "text": "A",
+        "attrs": "class=\"px-space-1 hover:text-on-surface font-bold\" title=\"Standard font size\" type=\"button\""
+      },
+      {
+        "text": "A+",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Increase font size\" type=\"button\""
+      },
+      {
+        "text": "translate EN | ಕನ್ನಡ",
+        "attrs": "aria-label=\"Language switch\" class=\"flex items-center gap-space-1 border border-outline-variant bg-surface-container-lowest px-space-2 py-0.5 rounded-lg text-primary hover:bg-surface-container transition-colors\" type=\"button\""
+      },
+      {
+        "text": "All Pending (18)",
+        "attrs": "class=\"bg-primary text-on-primary font-label-sm text-label-sm px-space-3 py-1 rounded whitespace-nowrap\""
+      },
+      {
+        "text": "Deeds &amp; RTC (7)",
+        "attrs": "class=\"bg-surface-container text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm px-space-3 py-1 rounded whitespace-nowrap\""
+      },
+      {
+        "text": "DGPS Shapefiles (4)",
+        "attrs": "class=\"bg-surface-container text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm px-space-3 py-1 rounded whitespace-nowrap\""
+      },
+      {
+        "text": "Bank Mandates (4)",
+        "attrs": "class=\"bg-surface-container text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm px-space-3 py-1 rounded whitespace-nowrap\""
+      },
+      {
+        "text": "Flagged (3)",
+        "attrs": "class=\"bg-surface-container text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm px-space-3 py-1 rounded whitespace-nowrap\""
+      },
+      {
+        "text": "download Download Original",
+        "attrs": "class=\"bg-surface-container text-on-surface px-space-3 py-space-2 rounded font-label-md text-label-md flex items-center gap-space-1 hover:bg-surface-container-high transition-colors\""
+      }
+    ],
+    "sampleLinks": [
+      {
+        "text": "Home",
+        "href": "#",
+        "dataPath": "home"
+      },
+      {
+        "text": "Public Land Directory",
+        "href": "#",
+        "dataPath": "public-land-directory"
+      },
+      {
+        "text": "Survey &amp; Gazette",
+        "href": "#",
+        "dataPath": "survey-gazette"
+      },
+      {
+        "text": "Verify Document",
+        "href": "#",
+        "dataPath": "verify-document"
+      },
+      {
+        "text": "Grievances",
+        "href": "#",
+        "dataPath": "grievances"
+      },
+      {
+        "text": "Helpdesk",
+        "href": "#",
+        "dataPath": "helpdesk"
+      },
+      {
+        "text": "1800-425-9900",
+        "href": "tel:18004259900",
+        "dataPath": ""
+      },
+      {
+        "text": "Sign In",
+        "href": "#",
+        "dataPath": "sign-in"
+      },
+      {
+        "text": "Home",
+        "href": "#",
+        "dataPath": ""
+      },
+      {
+        "text": "Officer Console",
+        "href": "#",
+        "dataPath": ""
+      }
+    ],
+    "sampleInputs": [
+      {
+        "type": "text",
+        "name": "",
+        "placeholder": "Search Survey No, Claimant, Khata..."
+      },
+      {
+        "type": "checkbox",
+        "name": "",
+        "placeholder": ""
+      },
+      {
+        "type": "checkbox",
+        "name": "",
+        "placeholder": ""
+      },
+      {
+        "type": "checkbox",
+        "name": "",
+        "placeholder": ""
+      },
+      {
+        "type": "checkbox",
+        "name": "",
+        "placeholder": ""
+      }
+    ]
+  },
+  {
+    "id": "bhoomi_setu_executive_state_dashboard_1",
+    "buttonsCount": 56,
+    "linksCount": 10,
+    "inputsCount": 11,
+    "sampleButtons": [
+      {
+        "text": "A-",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Decrease font size\" type=\"button\""
+      },
+      {
+        "text": "A",
+        "attrs": "class=\"px-space-1 hover:text-on-surface font-bold\" title=\"Standard font size\" type=\"button\""
+      },
+      {
+        "text": "A+",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Increase font size\" type=\"button\""
+      },
+      {
+        "text": "translate EN | ಕನ್ನಡ",
+        "attrs": "aria-label=\"Language switch\" class=\"flex items-center gap-space-1 border border-outline-variant bg-surface-container-lowest px-space-2 py-0.5 rounded-lg text-primary hover:bg-surface-container transition-colors\" type=\"button\""
+      },
+      {
+        "text": "picture_as_pdf Preview Statutory Mandate",
+        "attrs": "type=\"button\" onclick=\"openCertificateViewer()\" class=\"flex items-center gap-space-2 px-space-3 py-space-2 bg-surface-container-low text-primary hover:bg-surface-container transition-colors rounded-lg font-label-md text-label-md border border-primary/20 hover:border-primary\""
+      },
+      {
+        "text": "file_download Export Gazette Brief (PDF)",
+        "attrs": "class=\"flex items-center gap-space-2 px-space-3 py-space-2 bg-surface-container-low text-on-surface hover:bg-surface-container transition-colors rounded-lg font-label-md text-label-md\""
+      },
+      {
+        "text": "gavel Cabinet Note Dispatch",
+        "attrs": "class=\"flex items-center gap-space-2 px-space-4 py-space-2 bg-primary text-on-primary hover:bg-primary-container transition-colors rounded-lg font-label-md text-label-md shadow-sm\""
+      },
+      {
+        "text": "Inspect File",
+        "attrs": "class=\"px-space-3 py-space-2 bg-surface-container-lowest text-on-surface rounded-lg font-label-md text-label-md hover:bg-surface-container transition-colors\""
+      },
+      {
+        "text": "draw Review &amp; Sign",
+        "attrs": "class=\"px-space-4 py-space-2 bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:bg-primary-container transition-colors shadow-sm flex items-center gap-1\" onclick=\"signDocket('docket-1')\""
+      },
+      {
+        "text": "Inspect File",
+        "attrs": "class=\"px-space-3 py-space-2 bg-surface-container-lowest text-on-surface rounded-lg font-label-md text-label-md hover:bg-surface-container transition-colors\""
+      }
+    ],
+    "sampleLinks": [
+      {
+        "text": "Home",
+        "href": "#",
+        "dataPath": "home"
+      },
+      {
+        "text": "Public Land Directory",
+        "href": "#",
+        "dataPath": "public-land-directory"
+      },
+      {
+        "text": "Survey &amp; Gazette",
+        "href": "#",
+        "dataPath": "survey-gazette"
+      },
+      {
+        "text": "Verify Document",
+        "href": "#",
+        "dataPath": "verify-document"
+      },
+      {
+        "text": "Grievances",
+        "href": "#",
+        "dataPath": "grievances"
+      },
+      {
+        "text": "Helpdesk",
+        "href": "#",
+        "dataPath": "helpdesk"
+      },
+      {
+        "text": "1800-425-9900",
+        "href": "tel:18004259900",
+        "dataPath": ""
+      },
+      {
+        "text": "Sign In",
+        "href": "#",
+        "dataPath": "sign-in"
+      },
+      {
+        "text": "View Legal Track",
+        "href": "#",
+        "dataPath": ""
+      },
+      {
+        "text": "Open in Bhoomi GIS Viewer open_in_new",
+        "href": "#",
+        "dataPath": ""
+      }
+    ],
+    "sampleInputs": [
+      {
+        "type": "text",
+        "name": "",
+        "placeholder": "Filter corridors..."
+      },
+      {
+        "type": "text",
+        "name": "",
+        "placeholder": ""
+      },
+      {
+        "type": "radio",
+        "name": "auth_mode",
+        "placeholder": ""
+      },
+      {
+        "type": "radio",
+        "name": "auth_mode",
+        "placeholder": ""
+      },
+      {
+        "type": "text",
+        "name": "",
+        "placeholder": ""
+      }
+    ]
+  },
+  {
+    "id": "bhoomi_setu_executive_state_dashboard_2",
+    "buttonsCount": 56,
+    "linksCount": 10,
+    "inputsCount": 11,
+    "sampleButtons": [
+      {
+        "text": "A-",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Decrease font size\" type=\"button\""
+      },
+      {
+        "text": "A",
+        "attrs": "class=\"px-space-1 hover:text-on-surface font-bold\" title=\"Standard font size\" type=\"button\""
+      },
+      {
+        "text": "A+",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Increase font size\" type=\"button\""
+      },
+      {
+        "text": "translate EN | ಕನ್ನಡ",
+        "attrs": "aria-label=\"Language switch\" class=\"flex items-center gap-space-1 border border-outline-variant bg-surface-container-lowest px-space-2 py-0.5 rounded-lg text-primary hover:bg-surface-container transition-colors\" type=\"button\""
+      },
+      {
+        "text": "picture_as_pdf Preview Statutory Mandate",
+        "attrs": "type=\"button\" onclick=\"openCertificateViewer()\" class=\"flex items-center gap-space-2 px-space-3 py-space-2 bg-surface-container-low text-primary hover:bg-surface-container transition-colors rounded-lg font-label-md text-label-md border border-primary/20 hover:border-primary\""
+      },
+      {
+        "text": "file_download Export Gazette Brief (PDF)",
+        "attrs": "class=\"flex items-center gap-space-2 px-space-3 py-space-2 bg-surface-container-low text-on-surface hover:bg-surface-container transition-colors rounded-lg font-label-md text-label-md\""
+      },
+      {
+        "text": "gavel Cabinet Note Dispatch",
+        "attrs": "class=\"flex items-center gap-space-2 px-space-4 py-space-2 bg-primary text-on-primary hover:bg-primary-container transition-colors rounded-lg font-label-md text-label-md shadow-sm\""
+      },
+      {
+        "text": "Inspect File",
+        "attrs": "class=\"px-space-3 py-space-2 bg-surface-container-lowest text-on-surface rounded-lg font-label-md text-label-md hover:bg-surface-container transition-colors\""
+      },
+      {
+        "text": "draw Review &amp; Sign",
+        "attrs": "class=\"px-space-4 py-space-2 bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:bg-primary-container transition-colors shadow-sm flex items-center gap-1\" onclick=\"signDocket('docket-1')\""
+      },
+      {
+        "text": "Inspect File",
+        "attrs": "class=\"px-space-3 py-space-2 bg-surface-container-lowest text-on-surface rounded-lg font-label-md text-label-md hover:bg-surface-container transition-colors\""
+      }
+    ],
+    "sampleLinks": [
+      {
+        "text": "Home",
+        "href": "#",
+        "dataPath": "home"
+      },
+      {
+        "text": "Public Land Directory",
+        "href": "#",
+        "dataPath": "public-land-directory"
+      },
+      {
+        "text": "Survey &amp; Gazette",
+        "href": "#",
+        "dataPath": "survey-gazette"
+      },
+      {
+        "text": "Verify Document",
+        "href": "#",
+        "dataPath": "verify-document"
+      },
+      {
+        "text": "Grievances",
+        "href": "#",
+        "dataPath": "grievances"
+      },
+      {
+        "text": "Helpdesk",
+        "href": "#",
+        "dataPath": "helpdesk"
+      },
+      {
+        "text": "1800-425-9900",
+        "href": "tel:18004259900",
+        "dataPath": ""
+      },
+      {
+        "text": "Sign In",
+        "href": "#",
+        "dataPath": "sign-in"
+      },
+      {
+        "text": "View Legal Track",
+        "href": "#",
+        "dataPath": ""
+      },
+      {
+        "text": "Open in Bhoomi GIS Viewer open_in_new",
+        "href": "#",
+        "dataPath": ""
+      }
+    ],
+    "sampleInputs": [
+      {
+        "type": "text",
+        "name": "",
+        "placeholder": "Filter corridors..."
+      },
+      {
+        "type": "text",
+        "name": "",
+        "placeholder": ""
+      },
+      {
+        "type": "radio",
+        "name": "auth_mode",
+        "placeholder": ""
+      },
+      {
+        "type": "radio",
+        "name": "auth_mode",
+        "placeholder": ""
+      },
+      {
+        "type": "text",
+        "name": "",
+        "placeholder": ""
+      }
+    ]
+  },
+  {
+    "id": "bhoomi_setu_financial_escrow_ledger",
+    "buttonsCount": 18,
+    "linksCount": 8,
+    "inputsCount": 1,
+    "sampleButtons": [
+      {
+        "text": "A-",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Decrease font size\" type=\"button\""
+      },
+      {
+        "text": "A",
+        "attrs": "class=\"px-space-1 hover:text-on-surface font-bold\" title=\"Standard font size\" type=\"button\""
+      },
+      {
+        "text": "A+",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Increase font size\" type=\"button\""
+      },
+      {
+        "text": "translate EN | ಕನ್ನಡ",
+        "attrs": "aria-label=\"Language switch\" class=\"flex items-center gap-space-1 border border-outline-variant bg-surface-container-lowest px-space-2 py-0.5 rounded-lg text-primary hover:bg-surface-container transition-colors\" type=\"button\""
+      },
+      {
+        "text": "download PFMS Day-End Scroll",
+        "attrs": "class=\"inline-flex items-center gap-space-2 px-space-4 py-space-2 bg-surface-container-lowest text-on-surface font-label-md text-label-md rounded-lg shadow-sm hover:bg-surface-container transition-colors\" type=\"button\""
+      },
+      {
+        "text": "key Authorize Batch with Class-III DSC",
+        "attrs": "class=\"inline-flex items-center gap-space-2 px-space-4 py-space-2 bg-primary text-on-primary font-label-md text-label-md rounded-lg shadow-sm hover:bg-primary-container transition-colors\" type=\"button\""
+      },
+      {
+        "text": "receipt_long View Voucher",
+        "attrs": "class=\"inline-flex items-center gap-space-1 px-space-3 py-1 bg-surface-container text-on-surface font-label-sm text-label-sm rounded hover:bg-surface-container-high transition-colors\" type=\"button\""
+      },
+      {
+        "text": "Audit Trail",
+        "attrs": "class=\"block ml-auto text-primary hover:underline font-label-sm text-label-sm\" type=\"button\""
+      },
+      {
+        "text": "gavel View Court Deposit",
+        "attrs": "class=\"inline-flex items-center gap-space-1 px-space-3 py-1 bg-surface-container text-tertiary font-label-sm text-label-sm rounded hover:bg-surface-container-high transition-colors\" onclick=\"toggleEscrowDrawer()\" type=\"button\""
+      },
+      {
+        "text": "Audit Trail",
+        "attrs": "class=\"block ml-auto text-primary hover:underline font-label-sm text-label-sm\" type=\"button\""
+      }
+    ],
+    "sampleLinks": [
+      {
+        "text": "Home",
+        "href": "#",
+        "dataPath": "home"
+      },
+      {
+        "text": "Public Land Directory",
+        "href": "#",
+        "dataPath": "public-land-directory"
+      },
+      {
+        "text": "Survey &amp; Gazette",
+        "href": "#",
+        "dataPath": "survey-gazette"
+      },
+      {
+        "text": "Verify Document",
+        "href": "#",
+        "dataPath": "verify-document"
+      },
+      {
+        "text": "Grievances",
+        "href": "#",
+        "dataPath": "grievances"
+      },
+      {
+        "text": "Helpdesk",
+        "href": "#",
+        "dataPath": "helpdesk"
+      },
+      {
+        "text": "1800-425-9900",
+        "href": "tel:18004259900",
+        "dataPath": ""
+      },
+      {
+        "text": "Sign In",
+        "href": "#",
+        "dataPath": "sign-in"
+      }
+    ],
+    "sampleInputs": [
+      {
+        "type": "text",
+        "name": "",
+        "placeholder": "Search Survey No, PFMS Batch, Aadhaar Token..."
+      }
+    ]
+  },
+  {
+    "id": "bhoomi_setu_grievance_hearing_desk",
+    "buttonsCount": 35,
+    "linksCount": 9,
+    "inputsCount": 9,
+    "sampleButtons": [
+      {
+        "text": "A-",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Decrease font size\" type=\"button\""
+      },
+      {
+        "text": "A",
+        "attrs": "class=\"px-space-1 hover:text-on-surface font-bold\" title=\"Standard font size\" type=\"button\""
+      },
+      {
+        "text": "A+",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Increase font size\" type=\"button\""
+      },
+      {
+        "text": "translate EN | ಕನ್ನಡ",
+        "attrs": "aria-label=\"Language switch\" class=\"flex items-center gap-space-1 border border-outline-variant bg-surface-container-lowest px-space-2 py-0.5 rounded-lg text-primary hover:bg-surface-container transition-colors\" type=\"button\""
+      },
+      {
+        "text": "tune Change",
+        "attrs": "class=\"px-space-3 py-space-2 text-primary font-label-md text-label-md hover:bg-surface-container transition-colors rounded-lg flex items-center justify-center gap-space-1\" title=\"Switch bench or jurisdiction\" type=\"button\""
+      },
+      {
+        "text": "print Print Cause List",
+        "attrs": "class=\"inline-flex items-center gap-space-2 px-space-4 py-space-2 bg-surface-container-low hover:bg-surface-container text-on-surface rounded-lg font-label-md text-label-md transition-colors shadow-none\" onclick=\"window.print()\" type=\"button\""
+      },
+      {
+        "text": "send_to_mobile Issue Mass Summons",
+        "attrs": "class=\"inline-flex items-center gap-space-2 px-space-4 py-space-2 bg-secondary text-on-secondary hover:bg-primary-container rounded-lg font-label-md text-label-md transition-colors shadow-none\" onclick=\"alert('Bulk SMS summons and digital WhatsApp notices dispatched to registered petitioners with e-acknowledgement tracking.')\" type=\"button\""
+      },
+      {
+        "text": "add_circle Log New Objection",
+        "attrs": "class=\"inline-flex items-center gap-space-2 px-space-4 py-space-2 bg-primary text-on-primary hover:bg-primary-container rounded-lg font-label-md text-label-md transition-colors shadow-none\" onclick=\"document.getElementById('new-objection-modal').classList.remove('hidden')\" type=\"button\""
+      },
+      {
+        "text": "Dossier",
+        "attrs": "class=\"px-space-3 py-1.5 bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md rounded-lg transition-colors\" onclick=\"openDocketModal('S15-LAO/2025/089', 'Munivenkatappa', 'Sy. No. 48/2B', 'Measurement Dispute')\" type=\"button\""
+      },
+      {
+        "text": "Record Mahazar",
+        "attrs": "class=\"px-space-3 py-1.5 bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md rounded-lg transition-colors\" onclick=\"openMahazarModal('S15-LAO/2025/089')\" type=\"button\""
+      }
+    ],
+    "sampleLinks": [
+      {
+        "text": "Home",
+        "href": "#",
+        "dataPath": "home"
+      },
+      {
+        "text": "Public Land Directory",
+        "href": "#",
+        "dataPath": "public-land-directory"
+      },
+      {
+        "text": "Survey &amp; Gazette",
+        "href": "#",
+        "dataPath": "survey-gazette"
+      },
+      {
+        "text": "Verify Document",
+        "href": "#",
+        "dataPath": "verify-document"
+      },
+      {
+        "text": "Grievances",
+        "href": "#",
+        "dataPath": "grievances"
+      },
+      {
+        "text": "Helpdesk",
+        "href": "#",
+        "dataPath": "helpdesk"
+      },
+      {
+        "text": "1800-425-9900",
+        "href": "tel:18004259900",
+        "dataPath": ""
+      },
+      {
+        "text": "Sign In",
+        "href": "#",
+        "dataPath": "sign-in"
+      },
+      {
+        "text": "Full Analytics",
+        "href": "#",
+        "dataPath": ""
+      }
+    ],
+    "sampleInputs": [
+      {
+        "type": "text",
+        "name": "",
+        "placeholder": "Search Survey No, Petitioner..."
+      },
+      {
+        "type": "text",
+        "name": "",
+        "placeholder": ""
+      },
+      {
+        "type": "text",
+        "name": "",
+        "placeholder": "Full Name of Village Elder / Witness"
+      },
+      {
+        "type": "text",
+        "name": "",
+        "placeholder": "Contact Number or Aadhaar VID"
+      },
+      {
+        "type": "checkbox",
+        "name": "",
+        "placeholder": ""
+      }
+    ]
+  },
+  {
+    "id": "bhoomi_setu_interactive_acquisition_map",
+    "buttonsCount": 19,
+    "linksCount": 8,
+    "inputsCount": 1,
+    "sampleButtons": [
+      {
+        "text": "A-",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Decrease font size\" type=\"button\""
+      },
+      {
+        "text": "A",
+        "attrs": "class=\"px-space-1 hover:text-on-surface font-bold\" title=\"Standard font size\" type=\"button\""
+      },
+      {
+        "text": "A+",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Increase font size\" type=\"button\""
+      },
+      {
+        "text": "translate EN | ಕನ್ನಡ",
+        "attrs": "aria-label=\"Language switch\" class=\"flex items-center gap-space-1 border border-outline-variant bg-surface-container-lowest px-space-2 py-0.5 rounded-lg text-primary hover:bg-surface-container transition-colors\" type=\"button\""
+      },
+      {
+        "text": "swap_horiz",
+        "attrs": "class=\"ml-auto p-space-1 hover:bg-surface-container rounded text-on-surface-variant\" title=\"Switch corridor project\" type=\"button\""
+      },
+      {
+        "text": "ESC",
+        "attrs": "class=\"px-space-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-code-sm text-code-sm hover:bg-surface-container-high transition-colors\" type=\"button\""
+      },
+      {
+        "text": "grid_4x4 Cadastral Polygons (On)",
+        "attrs": "class=\"px-space-3 py-1.5 rounded bg-primary text-on-primary font-label-md text-label-md flex items-center gap-space-2 shadow-sm transition-colors\" id=\"toggle-cadastral\""
+      },
+      {
+        "text": "route Metro Alignment (On)",
+        "attrs": "class=\"px-space-3 py-1.5 rounded bg-surface-container-lowest text-on-surface font-label-md text-label-md flex items-center gap-space-2 shadow-sm border border-outline-variant hover:bg-surface-container transition-colors\" id=\"toggle-metro\""
+      },
+      {
+        "text": "satellite_alt Satellite Imagery",
+        "attrs": "class=\"px-space-3 py-1.5 rounded bg-surface-container-lowest text-on-surface font-label-md text-label-md flex items-center gap-space-2 shadow-sm border border-outline-variant hover:bg-surface-container transition-colors\" id=\"toggle-satellite\""
+      },
+      {
+        "text": "High-Risk Filter (Active)",
+        "attrs": "class=\"px-space-3 py-1.5 rounded bg-error-container text-on-error-container font-label-md text-label-md flex items-center gap-space-2 shadow-sm border border-error/20 hover:bg-error-container/80 transition-colors\" id=\"toggle-risk\""
+      }
+    ],
+    "sampleLinks": [
+      {
+        "text": "Home",
+        "href": "#",
+        "dataPath": "home"
+      },
+      {
+        "text": "Public Land Directory",
+        "href": "#",
+        "dataPath": "public-land-directory"
+      },
+      {
+        "text": "Survey &amp; Gazette",
+        "href": "#",
+        "dataPath": "survey-gazette"
+      },
+      {
+        "text": "Verify Document",
+        "href": "#",
+        "dataPath": "verify-document"
+      },
+      {
+        "text": "Grievances",
+        "href": "#",
+        "dataPath": "grievances"
+      },
+      {
+        "text": "Helpdesk",
+        "href": "#",
+        "dataPath": "helpdesk"
+      },
+      {
+        "text": "1800-425-9900",
+        "href": "tel:18004259900",
+        "dataPath": ""
+      },
+      {
+        "text": "Sign In",
+        "href": "#",
+        "dataPath": "sign-in"
+      }
+    ],
+    "sampleInputs": [
+      {
+        "type": "text",
+        "name": "",
+        "placeholder": "Search Survey No., Khata ID or Landowner..."
+      }
+    ]
+  },
+  {
+    "id": "bhoomi_setu_land_search",
+    "buttonsCount": 20,
+    "linksCount": 11,
+    "inputsCount": 6,
+    "sampleButtons": [
+      {
+        "text": "A-",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Decrease font size\" type=\"button\""
+      },
+      {
+        "text": "A",
+        "attrs": "class=\"px-space-1 hover:text-on-surface font-bold\" title=\"Standard font size\" type=\"button\""
+      },
+      {
+        "text": "A+",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Increase font size\" type=\"button\""
+      },
+      {
+        "text": "translate EN | ಕನ್ನಡ",
+        "attrs": "aria-label=\"Language switch\" class=\"flex items-center gap-space-1 border border-outline-variant bg-surface-container-lowest px-space-2 py-0.5 rounded-lg text-primary hover:bg-surface-container transition-colors\" type=\"button\""
+      },
+      {
+        "text": "download Export Cadastral GeoJSON",
+        "attrs": "class=\"px-space-3 py-space-2 bg-surface-container-lowest border border-outline-variant rounded-lg font-label-md text-label-md text-on-surface hover:bg-surface-container transition-colors flex items-center gap-space-1\" type=\"button\""
+      },
+      {
+        "text": "help_outline User Guide",
+        "attrs": "class=\"px-space-3 py-space-2 bg-surface-container-lowest border border-outline-variant rounded-lg font-label-md text-label-md text-on-surface hover:bg-surface-container transition-colors flex items-center gap-space-1\" title=\"View notification guidelines\" type=\"button\""
+      },
+      {
+        "text": "search",
+        "attrs": "aria-label=\"Search survey number\" class=\"absolute right-1 top-1 h-8 w-8 flex items-center justify-center text-outline hover:text-primary transition-colors\" type=\"button\""
+      },
+      {
+        "text": "All Types",
+        "attrs": "class=\"px-space-3 py-1 text-label-sm font-label-sm rounded-full bg-primary text-on-primary border border-primary transition-all\" type=\"button\""
+      },
+      {
+        "text": "Agricultural",
+        "attrs": "class=\"px-space-3 py-1 text-label-sm font-label-sm rounded-full bg-surface-container-lowest text-on-surface-variant border border-outline-variant hover:bg-surface-container transition-all\" type=\"button\""
+      },
+      {
+        "text": "Industrial Buffer",
+        "attrs": "class=\"px-space-3 py-1 text-label-sm font-label-sm rounded-full bg-surface-container-lowest text-on-surface-variant border border-outline-variant hover:bg-surface-container transition-all\" type=\"button\""
+      }
+    ],
+    "sampleLinks": [
+      {
+        "text": "Home",
+        "href": "#",
+        "dataPath": "home"
+      },
+      {
+        "text": "Public Land Directory",
+        "href": "#",
+        "dataPath": "public-land-directory"
+      },
+      {
+        "text": "Survey &amp; Gazette",
+        "href": "#",
+        "dataPath": "survey-gazette"
+      },
+      {
+        "text": "Verify Document",
+        "href": "#",
+        "dataPath": "verify-document"
+      },
+      {
+        "text": "Grievances",
+        "href": "#",
+        "dataPath": "grievances"
+      },
+      {
+        "text": "Helpdesk",
+        "href": "#",
+        "dataPath": "helpdesk"
+      },
+      {
+        "text": "1800-425-9900",
+        "href": "tel:18004259900",
+        "dataPath": ""
+      },
+      {
+        "text": "Sign In",
+        "href": "#",
+        "dataPath": "sign-in"
+      },
+      {
+        "text": "home Home",
+        "href": "#",
+        "dataPath": ""
+      },
+      {
+        "text": "Open Legal Dossier arrow_forward",
+        "href": "#",
+        "dataPath": ""
+      }
+    ],
+    "sampleInputs": [
+      {
+        "type": "text",
+        "name": "",
+        "placeholder": "e.g. 48/2A or 112/B"
+      },
+      {
+        "type": "radio",
+        "name": "acquisition_filter",
+        "placeholder": ""
+      },
+      {
+        "type": "radio",
+        "name": "acquisition_filter",
+        "placeholder": ""
+      },
+      {
+        "type": "radio",
+        "name": "acquisition_filter",
+        "placeholder": ""
+      },
+      {
+        "type": "radio",
+        "name": "acquisition_filter",
+        "placeholder": ""
+      }
+    ]
+  },
+  {
+    "id": "bhoomi_setu_legal_caveats_registry",
+    "buttonsCount": 14,
+    "linksCount": 11,
+    "inputsCount": 1,
+    "sampleButtons": [
+      {
+        "text": "A-",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Decrease font size\" type=\"button\""
+      },
+      {
+        "text": "A",
+        "attrs": "class=\"px-space-1 hover:text-on-surface font-bold\" title=\"Standard font size\" type=\"button\""
+      },
+      {
+        "text": "A+",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Increase font size\" type=\"button\""
+      },
+      {
+        "text": "translate EN | ಕನ್ನಡ",
+        "attrs": "aria-label=\"Language switch\" class=\"flex items-center gap-space-1 border border-outline-variant bg-surface-container-lowest px-space-2 py-0.5 rounded-lg text-primary hover:bg-surface-container transition-colors\" type=\"button\""
+      },
+      {
+        "text": "cached Sync e-Courts Feed",
+        "attrs": "class=\"inline-flex items-center gap-space-2 px-space-4 py-space-2 bg-surface-container text-on-surface rounded-lg font-label-md text-label-md hover:bg-surface-container-high transition-colors\" type=\"button\""
+      },
+      {
+        "text": "add_circle Lodge Caveat Petition",
+        "attrs": "class=\"inline-flex items-center gap-space-2 px-space-4 py-space-2 bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:bg-primary-container transition-colors shadow-sm\" type=\"button\""
+      },
+      {
+        "text": "tune Reset",
+        "attrs": "class=\"h-10 px-space-3 bg-surface-container text-on-surface-variant hover:text-on-surface rounded-lg font-label-md text-label-md flex items-center gap-space-1 shadow-sm\" type=\"button\""
+      },
+      {
+        "text": "View Dossier",
+        "attrs": "class=\"px-space-3 py-1.5 bg-surface-container-lowest text-primary rounded-lg font-label-sm text-label-sm shadow-sm hover:bg-surface-container-high\" type=\"button\""
+      },
+      {
+        "text": "View Dossier",
+        "attrs": "class=\"px-space-3 py-1.5 bg-surface-container-lowest text-primary rounded-lg font-label-sm text-label-sm shadow-sm hover:bg-surface-container-high\" type=\"button\""
+      },
+      {
+        "text": "forward_to_inbox Request Fast-Track AG C",
+        "attrs": "class=\"w-full text-left p-space-3 bg-surface-container-low hover:bg-surface-container rounded-lg transition-colors flex items-start gap-space-3 group\" type=\"button\""
+      }
+    ],
+    "sampleLinks": [
+      {
+        "text": "Home",
+        "href": "#",
+        "dataPath": "home"
+      },
+      {
+        "text": "Public Land Directory",
+        "href": "#",
+        "dataPath": "public-land-directory"
+      },
+      {
+        "text": "Survey &amp; Gazette",
+        "href": "#",
+        "dataPath": "survey-gazette"
+      },
+      {
+        "text": "Verify Document",
+        "href": "#",
+        "dataPath": "verify-document"
+      },
+      {
+        "text": "Grievances",
+        "href": "#",
+        "dataPath": "grievances"
+      },
+      {
+        "text": "Helpdesk",
+        "href": "#",
+        "dataPath": "helpdesk"
+      },
+      {
+        "text": "1800-425-9900",
+        "href": "tel:18004259900",
+        "dataPath": ""
+      },
+      {
+        "text": "Sign In",
+        "href": "#",
+        "dataPath": "sign-in"
+      },
+      {
+        "text": "description Vakalatnama_GP.pdf Digitally",
+        "href": "#",
+        "dataPath": ""
+      },
+      {
+        "text": "gavel Plaint_OS412_2024.pdf e-Courts Cer",
+        "href": "#",
+        "dataPath": ""
+      }
+    ],
+    "sampleInputs": [
+      {
+        "type": "text",
+        "name": "",
+        "placeholder": "Survey Sy No / CNR No..."
+      }
+    ]
+  },
+  {
+    "id": "bhoomi_setu_ml_delay_prediction_panel",
+    "buttonsCount": 8,
+    "linksCount": 11,
+    "inputsCount": 0,
+    "sampleButtons": [
+      {
+        "text": "A-",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Decrease font size\" type=\"button\""
+      },
+      {
+        "text": "A",
+        "attrs": "class=\"px-space-1 hover:text-on-surface font-bold\" title=\"Standard font size\" type=\"button\""
+      },
+      {
+        "text": "A+",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Increase font size\" type=\"button\""
+      },
+      {
+        "text": "translate EN | ಕನ್ನಡ",
+        "attrs": "aria-label=\"Language switch\" class=\"flex items-center gap-space-1 border border-outline-variant bg-surface-container-lowest px-space-2 py-0.5 rounded-lg text-primary hover:bg-surface-container transition-colors\" type=\"button\""
+      },
+      {
+        "text": "history Audit Run Log",
+        "attrs": "class=\"inline-flex items-center gap-space-2 px-space-4 py-space-2 bg-surface-container text-on-surface rounded-lg font-label-md text-label-md hover:bg-surface-container-high transition-colors\" type=\"button\""
+      },
+      {
+        "text": "refresh Re-evaluate Weights",
+        "attrs": "class=\"inline-flex items-center gap-space-2 px-space-4 py-space-2 bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:bg-primary-container transition-colors shadow-sm\" type=\"button\""
+      },
+      {
+        "text": "picture_as_pdf Export Predictive Dossier",
+        "attrs": "class=\"w-full flex items-center justify-center gap-space-2 px-space-4 py-space-3 bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:bg-primary-container transition-colors shadow-sm\" type=\"button\""
+      },
+      {
+        "text": "send Submit to DC &amp; SLAO-1 Desk",
+        "attrs": "class=\"w-full flex items-center justify-center gap-space-2 px-space-4 py-space-3 bg-surface-container-low text-on-surface rounded-lg font-label-md text-label-md hover:bg-surface-container transition-colors\" type=\"button\""
+      }
+    ],
+    "sampleLinks": [
+      {
+        "text": "Home",
+        "href": "#",
+        "dataPath": "home"
+      },
+      {
+        "text": "Public Land Directory",
+        "href": "#",
+        "dataPath": "public-land-directory"
+      },
+      {
+        "text": "Survey &amp; Gazette",
+        "href": "#",
+        "dataPath": "survey-gazette"
+      },
+      {
+        "text": "Verify Document",
+        "href": "#",
+        "dataPath": "verify-document"
+      },
+      {
+        "text": "Grievances",
+        "href": "#",
+        "dataPath": "grievances"
+      },
+      {
+        "text": "Helpdesk",
+        "href": "#",
+        "dataPath": "helpdesk"
+      },
+      {
+        "text": "1800-425-9900",
+        "href": "tel:18004259900",
+        "dataPath": ""
+      },
+      {
+        "text": "Sign In",
+        "href": "#",
+        "dataPath": "sign-in"
+      },
+      {
+        "text": "Home",
+        "href": "#",
+        "dataPath": ""
+      },
+      {
+        "text": "Officer Console",
+        "href": "#",
+        "dataPath": ""
+      }
+    ],
+    "sampleInputs": []
+  },
+  {
+    "id": "bhoomi_setu_multi_level_approval_workflow",
+    "buttonsCount": 14,
+    "linksCount": 9,
+    "inputsCount": 0,
+    "sampleButtons": [
+      {
+        "text": "A-",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Decrease font size\" type=\"button\""
+      },
+      {
+        "text": "A",
+        "attrs": "class=\"px-space-1 hover:text-on-surface font-bold\" title=\"Standard font size\" type=\"button\""
+      },
+      {
+        "text": "A+",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Increase font size\" type=\"button\""
+      },
+      {
+        "text": "translate EN | ಕನ್ನಡ",
+        "attrs": "aria-label=\"Language switch\" class=\"flex items-center gap-space-1 border border-outline-variant bg-surface-container-lowest px-space-2 py-0.5 rounded-lg text-primary hover:bg-surface-container transition-colors\" type=\"button\""
+      },
+      {
+        "text": "format_bold",
+        "attrs": "class=\"p-1 rounded hover:bg-surface-container hover:text-on-surface transition-colors\" title=\"Bold\" type=\"button\""
+      },
+      {
+        "text": "format_italic",
+        "attrs": "class=\"p-1 rounded hover:bg-surface-container hover:text-on-surface transition-colors\" title=\"Italic\" type=\"button\""
+      },
+      {
+        "text": "format_underlined",
+        "attrs": "class=\"p-1 rounded hover:bg-surface-container hover:text-on-surface transition-colors\" title=\"Underline\" type=\"button\""
+      },
+      {
+        "text": "format_list_bulleted",
+        "attrs": "class=\"p-1 rounded hover:bg-surface-container hover:text-on-surface transition-colors\" title=\"Bulleted List\" type=\"button\""
+      },
+      {
+        "text": "format_list_numbered",
+        "attrs": "class=\"p-1 rounded hover:bg-surface-container hover:text-on-surface transition-colors\" title=\"Numbered List\" type=\"button\""
+      },
+      {
+        "text": "bookmark_add",
+        "attrs": "class=\"p-1 rounded hover:bg-surface-container hover:text-on-surface transition-colors\" title=\"Insert Legal Precedent Template\" type=\"button\""
+      }
+    ],
+    "sampleLinks": [
+      {
+        "text": "Home",
+        "href": "#",
+        "dataPath": "home"
+      },
+      {
+        "text": "Public Land Directory",
+        "href": "#",
+        "dataPath": "public-land-directory"
+      },
+      {
+        "text": "Survey &amp; Gazette",
+        "href": "#",
+        "dataPath": "survey-gazette"
+      },
+      {
+        "text": "Verify Document",
+        "href": "#",
+        "dataPath": "verify-document"
+      },
+      {
+        "text": "Grievances",
+        "href": "#",
+        "dataPath": "grievances"
+      },
+      {
+        "text": "Helpdesk",
+        "href": "#",
+        "dataPath": "helpdesk"
+      },
+      {
+        "text": "1800-425-9900",
+        "href": "tel:18004259900",
+        "dataPath": ""
+      },
+      {
+        "text": "Sign In",
+        "href": "#",
+        "dataPath": "sign-in"
+      },
+      {
+        "text": "View complete cryptographic timestamp lo",
+        "href": "#",
+        "dataPath": ""
+      }
+    ],
+    "sampleInputs": []
+  },
+  {
+    "id": "bhoomi_setu_my_land_list_view",
+    "buttonsCount": 24,
+    "linksCount": 10,
+    "inputsCount": 2,
+    "sampleButtons": [
+      {
+        "text": "A-",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Decrease font size\" type=\"button\""
+      },
+      {
+        "text": "A",
+        "attrs": "class=\"px-space-1 hover:text-on-surface font-bold\" title=\"Standard font size\" type=\"button\""
+      },
+      {
+        "text": "A+",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Increase font size\" type=\"button\""
+      },
+      {
+        "text": "translate EN | ಕನ್ನಡ",
+        "attrs": "aria-label=\"Language switch\" class=\"flex items-center gap-space-1 border border-outline-variant bg-surface-container-lowest px-space-2 py-0.5 rounded-lg text-primary hover:bg-surface-container transition-colors\" type=\"button\""
+      },
+      {
+        "text": "map Map View",
+        "attrs": "class=\"flex items-center gap-space-2 px-space-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-all\" title=\"Switch to Geographic GIS view\" type=\"button\""
+      },
+      {
+        "text": "format_list_bulleted List View",
+        "attrs": "aria-current=\"page\" class=\"flex items-center gap-space-2 px-space-3 py-1.5 rounded-lg bg-surface-container-lowest text-primary font-label-md text-label-md shadow-sm font-semibold cursor-default\" type=\"button\""
+      },
+      {
+        "text": "tune Filters",
+        "attrs": "class=\"flex items-center gap-space-2 px-space-4 py-2 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md transition-colors\" onclick=\"alert('Filtering dialog opened.')\" type=\"button\""
+      },
+      {
+        "text": "picture_as_pdf Export Land Statement (PD",
+        "attrs": "class=\"flex items-center gap-space-2 px-space-4 py-2 rounded-lg bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md transition-colors shadow-sm\" onclick=\"window.print()\" type=\"button\""
+      },
+      {
+        "text": "View Dossier",
+        "attrs": "class=\"px-space-4 py-2 bg-surface-container-lowest text-on-surface hover:bg-surface rounded-lg font-label-md text-label-md transition-colors shadow-sm\" onclick=\"alert('Opening Form 11 Dossier for Survey 48/2A')\" type=\"button\""
+      },
+      {
+        "text": "account_balance_wallet Track Compensatio",
+        "attrs": "class=\"px-space-4 py-2 bg-primary text-on-primary hover:bg-primary-container rounded-lg font-label-md text-label-md transition-colors shadow-sm flex items-center gap-1.5\" type=\"button\""
+      }
+    ],
+    "sampleLinks": [
+      {
+        "text": "Home",
+        "href": "#",
+        "dataPath": "home"
+      },
+      {
+        "text": "Public Land Directory",
+        "href": "#",
+        "dataPath": "public-land-directory"
+      },
+      {
+        "text": "Survey &amp; Gazette",
+        "href": "#",
+        "dataPath": "survey-gazette"
+      },
+      {
+        "text": "Verify Document",
+        "href": "#",
+        "dataPath": "verify-document"
+      },
+      {
+        "text": "Grievances",
+        "href": "#",
+        "dataPath": "grievances"
+      },
+      {
+        "text": "Helpdesk",
+        "href": "#",
+        "dataPath": "helpdesk"
+      },
+      {
+        "text": "1800-425-9900",
+        "href": "tel:18004259900",
+        "dataPath": ""
+      },
+      {
+        "text": "Sign In",
+        "href": "#",
+        "dataPath": "sign-in"
+      },
+      {
+        "text": "home Home",
+        "href": "#",
+        "dataPath": "home"
+      },
+      {
+        "text": "Citizen Services",
+        "href": "#",
+        "dataPath": ""
+      }
+    ],
+    "sampleInputs": [
+      {
+        "type": "text",
+        "name": "",
+        "placeholder": "Filter by Survey No., Khata, or Village..."
+      },
+      {
+        "type": "text",
+        "name": "",
+        "placeholder": "Type your query in Kannada or English..."
+      }
+    ]
+  },
+  {
+    "id": "bhoomi_setu_my_land_map_view",
+    "buttonsCount": 14,
+    "linksCount": 11,
+    "inputsCount": 1,
+    "sampleButtons": [
+      {
+        "text": "A-",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Decrease font size\" type=\"button\""
+      },
+      {
+        "text": "A",
+        "attrs": "class=\"px-space-1 hover:text-on-surface font-bold\" title=\"Standard font size\" type=\"button\""
+      },
+      {
+        "text": "A+",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Increase font size\" type=\"button\""
+      },
+      {
+        "text": "translate EN | ಕನ್ನಡ",
+        "attrs": "aria-label=\"Language switch\" class=\"flex items-center gap-space-1 border border-outline-variant bg-surface-container-lowest px-space-2 py-0.5 rounded-lg text-primary hover:bg-surface-container transition-colors\" type=\"button\""
+      },
+      {
+        "text": "map Map View",
+        "attrs": "class=\"flex items-center gap-space-2 px-space-4 py-space-1 bg-surface-container-lowest text-primary shadow-sm rounded-lg font-label-md text-label-md\" type=\"button\""
+      },
+      {
+        "text": "layers",
+        "attrs": "class=\"h-10 px-space-3 flex items-center justify-center bg-surface-container-low hover:bg-surface-container rounded-lg text-on-surface-variant transition-colors\" title=\"Spatial Layers\" type=\"button\""
+      },
+      {
+        "text": "add",
+        "attrs": "class=\"w-9 h-9 flex items-center justify-center hover:bg-surface-container text-on-surface border-b border-outline-variant transition-colors\" title=\"Zoom In\" type=\"button\""
+      },
+      {
+        "text": "remove",
+        "attrs": "class=\"w-9 h-9 flex items-center justify-center hover:bg-surface-container text-on-surface transition-colors\" title=\"Zoom Out\" type=\"button\""
+      },
+      {
+        "text": "grid_4x4",
+        "attrs": "class=\"w-9 h-9 flex items-center justify-center hover:bg-surface-container text-primary transition-colors\" title=\"Cadastral Overlay Active\" type=\"button\""
+      },
+      {
+        "text": "satellite_alt",
+        "attrs": "class=\"w-9 h-9 flex items-center justify-center hover:bg-surface-container text-on-surface-variant border-t border-outline-variant transition-colors\" title=\"Toggle Satellite Hybrid\" type=\"button\""
+      }
+    ],
+    "sampleLinks": [
+      {
+        "text": "Home",
+        "href": "#",
+        "dataPath": "home"
+      },
+      {
+        "text": "Public Land Directory",
+        "href": "#",
+        "dataPath": "public-land-directory"
+      },
+      {
+        "text": "Survey &amp; Gazette",
+        "href": "#",
+        "dataPath": "survey-gazette"
+      },
+      {
+        "text": "Verify Document",
+        "href": "#",
+        "dataPath": "verify-document"
+      },
+      {
+        "text": "Grievances",
+        "href": "#",
+        "dataPath": "grievances"
+      },
+      {
+        "text": "Helpdesk",
+        "href": "#",
+        "dataPath": "helpdesk"
+      },
+      {
+        "text": "1800-425-9900",
+        "href": "tel:18004259900",
+        "dataPath": ""
+      },
+      {
+        "text": "Sign In",
+        "href": "#",
+        "dataPath": "sign-in"
+      },
+      {
+        "text": "format_list_bulleted List View",
+        "href": "#",
+        "dataPath": "my-land-list"
+      },
+      {
+        "text": "Open Full Parcel Record &amp; Stage Step",
+        "href": "#",
+        "dataPath": "parcel-record-dossier"
+      }
+    ],
+    "sampleInputs": [
+      {
+        "type": "text",
+        "name": "",
+        "placeholder": "Search Survey No. (e.g. 48/2A)..."
+      }
+    ]
+  },
+  {
+    "id": "bhoomi_setu_notifications_center",
+    "buttonsCount": 15,
+    "linksCount": 20,
+    "inputsCount": 0,
+    "sampleButtons": [
+      {
+        "text": "A-",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Decrease font size\" type=\"button\""
+      },
+      {
+        "text": "A",
+        "attrs": "class=\"px-space-1 hover:text-on-surface font-bold\" title=\"Standard font size\" type=\"button\""
+      },
+      {
+        "text": "A+",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Increase font size\" type=\"button\""
+      },
+      {
+        "text": "translate EN | ಕನ್ನಡ",
+        "attrs": "aria-label=\"Language switch\" class=\"flex items-center gap-space-1 border border-outline-variant bg-surface-container-lowest px-space-2 py-0.5 rounded-lg text-primary hover:bg-surface-container transition-colors\" type=\"button\""
+      },
+      {
+        "text": "done_all Mark all as read",
+        "attrs": "class=\"inline-flex items-center gap-space-2 px-space-4 py-2 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container transition-colors font-label-md text-label-md\" id=\"markAllBtn\" type=\"button\""
+      },
+      {
+        "text": "All 6",
+        "attrs": "class=\"filter-tab active-tab inline-flex items-center gap-space-2 px-space-4 py-2 rounded-lg font-label-md text-label-md bg-primary text-on-primary transition-all\" data-filter=\"all\" type=\"button\""
+      },
+      {
+        "text": "Approvals &amp; Status 3",
+        "attrs": "class=\"filter-tab inline-flex items-center gap-space-2 px-space-4 py-2 rounded-lg font-label-md text-label-md bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all\" data-filter=\"approvals\" type=\"button\""
+      },
+      {
+        "text": "Document Requests 2",
+        "attrs": "class=\"filter-tab inline-flex items-center gap-space-2 px-space-4 py-2 rounded-lg font-label-md text-label-md bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all\" data-filter=\"requests\" type=\"button\""
+      },
+      {
+        "text": "Delay &amp; Advisory 1",
+        "attrs": "class=\"filter-tab inline-flex items-center gap-space-2 px-space-4 py-2 rounded-lg font-label-md text-label-md bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all\" data-filter=\"advisory\" type=\"button\""
+      },
+      {
+        "text": "Previous",
+        "attrs": "class=\"px-space-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface-variant opacity-60 cursor-not-allowed font-label-sm text-label-sm\" disabled=\"\" type=\"button\""
+      }
+    ],
+    "sampleLinks": [
+      {
+        "text": "Home",
+        "href": "#",
+        "dataPath": "home"
+      },
+      {
+        "text": "Public Land Directory",
+        "href": "#",
+        "dataPath": "public-land-directory"
+      },
+      {
+        "text": "Survey &amp; Gazette",
+        "href": "#",
+        "dataPath": "survey-gazette"
+      },
+      {
+        "text": "Verify Document",
+        "href": "#",
+        "dataPath": "verify-document"
+      },
+      {
+        "text": "Grievances",
+        "href": "#",
+        "dataPath": "grievances"
+      },
+      {
+        "text": "Helpdesk",
+        "href": "#",
+        "dataPath": "helpdesk"
+      },
+      {
+        "text": "1800-425-9900",
+        "href": "tel:18004259900",
+        "dataPath": ""
+      },
+      {
+        "text": "Sign In",
+        "href": "#",
+        "dataPath": "sign-in"
+      },
+      {
+        "text": "ಮುಖಪುಟ (Home)",
+        "href": "#",
+        "dataPath": ""
+      },
+      {
+        "text": "Citizen Services",
+        "href": "#",
+        "dataPath": ""
+      }
+    ],
+    "sampleInputs": []
+  },
+  {
+    "id": "bhoomi_setu_officer_dashboard",
+    "buttonsCount": 9,
+    "linksCount": 15,
+    "inputsCount": 0,
+    "sampleButtons": [
+      {
+        "text": "A-",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Decrease font size\" type=\"button\""
+      },
+      {
+        "text": "A",
+        "attrs": "class=\"px-space-1 hover:text-on-surface font-bold\" title=\"Standard font size\" type=\"button\""
+      },
+      {
+        "text": "A+",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Increase font size\" type=\"button\""
+      },
+      {
+        "text": "translate EN | ಕನ್ನಡ",
+        "attrs": "aria-label=\"Language switch\" class=\"flex items-center gap-space-1 border border-outline-variant bg-surface-container-lowest px-space-2 py-0.5 rounded-lg text-primary hover:bg-surface-container transition-colors\" type=\"button\""
+      },
+      {
+        "text": "download_for_offline Download Field Dock",
+        "attrs": "class=\"px-space-4 py-space-2 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors font-label-md text-label-md flex items-center gap-space-2\" type=\"button\""
+      },
+      {
+        "text": "event Schedule Joint Inspection",
+        "attrs": "class=\"px-space-4 py-space-2 rounded-lg bg-primary text-on-primary hover:bg-primary-container transition-colors font-label-md text-label-md flex items-center gap-space-2\" type=\"button\""
+      },
+      {
+        "text": "Open Survey Sheet",
+        "attrs": "class=\"px-space-3 py-1.5 rounded-lg bg-surface-container text-primary hover:bg-surface-container-high transition-colors font-label-sm text-label-sm font-semibold\" type=\"button\""
+      },
+      {
+        "text": "Open Survey Sheet",
+        "attrs": "class=\"px-space-3 py-1.5 rounded-lg bg-surface-container text-primary hover:bg-surface-container-high transition-colors font-label-sm text-label-sm font-semibold\" type=\"button\""
+      },
+      {
+        "text": "Open Survey Sheet",
+        "attrs": "class=\"px-space-3 py-1.5 rounded-lg bg-surface-container text-primary hover:bg-surface-container-high transition-colors font-label-sm text-label-sm font-semibold\" type=\"button\""
+      }
+    ],
+    "sampleLinks": [
+      {
+        "text": "Home",
+        "href": "#",
+        "dataPath": "home"
+      },
+      {
+        "text": "Public Land Directory",
+        "href": "#",
+        "dataPath": "public-land-directory"
+      },
+      {
+        "text": "Survey &amp; Gazette",
+        "href": "#",
+        "dataPath": "survey-gazette"
+      },
+      {
+        "text": "Verify Document",
+        "href": "#",
+        "dataPath": "verify-document"
+      },
+      {
+        "text": "Grievances",
+        "href": "#",
+        "dataPath": "grievances"
+      },
+      {
+        "text": "Helpdesk",
+        "href": "#",
+        "dataPath": "helpdesk"
+      },
+      {
+        "text": "1800-425-9900",
+        "href": "tel:18004259900",
+        "dataPath": ""
+      },
+      {
+        "text": "Sign In",
+        "href": "#",
+        "dataPath": "sign-in"
+      },
+      {
+        "text": "View Project Risk arrow_forward",
+        "href": "#",
+        "dataPath": ""
+      },
+      {
+        "text": "View Project Risk arrow_forward",
+        "href": "#",
+        "dataPath": ""
+      }
+    ],
+    "sampleInputs": []
+  },
+  {
+    "id": "bhoomi_setu_officer_parcel_detail",
+    "buttonsCount": 8,
+    "linksCount": 12,
+    "inputsCount": 0,
+    "sampleButtons": [
+      {
+        "text": "A-",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Decrease font size\" type=\"button\""
+      },
+      {
+        "text": "A",
+        "attrs": "class=\"px-space-1 hover:text-on-surface font-bold\" title=\"Standard font size\" type=\"button\""
+      },
+      {
+        "text": "A+",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Increase font size\" type=\"button\""
+      },
+      {
+        "text": "translate EN | ಕನ್ನಡ",
+        "attrs": "aria-label=\"Language switch\" class=\"flex items-center gap-space-1 border border-outline-variant bg-surface-container-lowest px-space-2 py-0.5 rounded-lg text-primary hover:bg-surface-container transition-colors\" type=\"button\""
+      },
+      {
+        "text": "edit_note Update Survey Inspection Note",
+        "attrs": "class=\"inline-flex items-center gap-space-2 px-space-4 py-space-2 bg-surface-container-lowest text-on-surface border border-outline-variant rounded hover:bg-surface-container transition-colors font-label-md text-label-md shadow-sm\" type=\"button\""
+      },
+      {
+        "text": "cloud_upload Upload DGPS Shapefile",
+        "attrs": "class=\"inline-flex items-center gap-space-2 px-space-4 py-space-2 bg-primary text-on-primary rounded hover:bg-primary-container transition-colors font-label-md text-label-md shadow-sm\" type=\"button\""
+      },
+      {
+        "text": "Download Official Case Dossier",
+        "attrs": "class=\"font-label-md text-label-md text-primary hover:underline\" type=\"button\""
+      },
+      {
+        "text": "Print Field Mahazar",
+        "attrs": "class=\"font-label-md text-label-md text-primary hover:underline\" type=\"button\""
+      }
+    ],
+    "sampleLinks": [
+      {
+        "text": "Home",
+        "href": "#",
+        "dataPath": "home"
+      },
+      {
+        "text": "Public Land Directory",
+        "href": "#",
+        "dataPath": "public-land-directory"
+      },
+      {
+        "text": "Survey &amp; Gazette",
+        "href": "#",
+        "dataPath": "survey-gazette"
+      },
+      {
+        "text": "Verify Document",
+        "href": "#",
+        "dataPath": "verify-document"
+      },
+      {
+        "text": "Grievances",
+        "href": "#",
+        "dataPath": "grievances"
+      },
+      {
+        "text": "Helpdesk",
+        "href": "#",
+        "dataPath": "helpdesk"
+      },
+      {
+        "text": "1800-425-9900",
+        "href": "tel:18004259900",
+        "dataPath": ""
+      },
+      {
+        "text": "Sign In",
+        "href": "#",
+        "dataPath": "sign-in"
+      },
+      {
+        "text": "Home",
+        "href": "#",
+        "dataPath": "home"
+      },
+      {
+        "text": "Officer Console",
+        "href": "#",
+        "dataPath": ""
+      }
+    ],
+    "sampleInputs": []
+  },
+  {
+    "id": "bhoomi_setu_official_login",
+    "buttonsCount": 6,
+    "linksCount": 4,
+    "inputsCount": 5,
+    "sampleButtons": [
+      {
+        "text": "Citizen / Landowner",
+        "attrs": "aria-selected=\"true\" class=\"tab-btn py-space-2 rounded bg-surface-container-lowest text-primary shadow-sm font-label-md transition-all\" id=\"tab-citizen\" onclick=\"switchTab('citizen')\" role=\"tab\" type=\"button\""
+      },
+      {
+        "text": "Field Officer",
+        "attrs": "aria-selected=\"false\" class=\"tab-btn py-space-2 rounded text-on-surface-variant hover:text-on-surface transition-all\" id=\"tab-officer\" onclick=\"switchTab('officer')\" role=\"tab\" type=\"button\""
+      },
+      {
+        "text": "Senior Official",
+        "attrs": "aria-selected=\"false\" class=\"tab-btn py-space-2 rounded text-on-surface-variant hover:text-on-surface transition-all\" id=\"tab-official\" onclick=\"switchTab('official')\" role=\"tab\" type=\"button\""
+      },
+      {
+        "text": "Send Verification OTP send",
+        "attrs": "class=\"w-full h-10 bg-primary hover:bg-primary-container text-on-primary rounded font-label-md flex items-center justify-center gap-space-2 shadow-sm transition-colors\" type=\"button\""
+      },
+      {
+        "text": "Authenticate Officer Login badge",
+        "attrs": "class=\"w-full h-10 bg-primary hover:bg-primary-container text-on-primary rounded font-label-md flex items-center justify-center gap-space-2 shadow-sm transition-colors mt-space-2\" type=\"button\""
+      },
+      {
+        "text": "Sign In with DSC Certificate vpn_key",
+        "attrs": "class=\"w-full h-10 bg-primary hover:bg-primary-container text-on-primary rounded font-label-md flex items-center justify-center gap-space-2 shadow-sm transition-colors mt-space-2\" type=\"button\""
+      }
+    ],
+    "sampleLinks": [
+      {
+        "text": "arrow_back Back to Bhoomi Setu Home",
+        "href": "#",
+        "dataPath": ""
+      },
+      {
+        "text": "Don't have mobile linked to Aadhaar? Log",
+        "href": "#",
+        "dataPath": ""
+      },
+      {
+        "text": "Forgot MPIN?",
+        "href": "#",
+        "dataPath": ""
+      },
+      {
+        "text": "Citizen Login Guide",
+        "href": "#",
+        "dataPath": ""
+      }
+    ],
+    "sampleInputs": [
+      {
+        "type": "text",
+        "name": "",
+        "placeholder": "XXXX - XXXX - XXXX"
+      },
+      {
+        "type": "checkbox",
+        "name": "",
+        "placeholder": ""
+      },
+      {
+        "type": "text",
+        "name": "",
+        "placeholder": "e.g. KA-REV-84920"
+      },
+      {
+        "type": "password",
+        "name": "",
+        "placeholder": "••••••••"
+      },
+      {
+        "type": "email",
+        "name": "",
+        "placeholder": "officer.name@karnataka.gov.in"
+      }
+    ]
+  },
+  {
+    "id": "bhoomi_setu_parcel_detail",
+    "buttonsCount": 12,
+    "linksCount": 10,
+    "inputsCount": 0,
+    "sampleButtons": [
+      {
+        "text": "A-",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Decrease font size\" type=\"button\""
+      },
+      {
+        "text": "A",
+        "attrs": "class=\"px-space-1 hover:text-on-surface font-bold\" title=\"Standard font size\" type=\"button\""
+      },
+      {
+        "text": "A+",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Increase font size\" type=\"button\""
+      },
+      {
+        "text": "translate EN | ಕನ್ನಡ",
+        "attrs": "aria-label=\"Language switch\" class=\"flex items-center gap-space-1 border border-outline-variant bg-surface-container-lowest px-space-2 py-0.5 rounded-lg text-primary hover:bg-surface-container transition-colors\" type=\"button\""
+      },
+      {
+        "text": "visibility",
+        "attrs": "class=\"w-8 h-8 rounded bg-surface-container-lowest flex items-center justify-center text-on-surface hover:text-primary transition-colors shadow-sm\" title=\"Preview Gazette Notification\" type=\"button\""
+      },
+      {
+        "text": "visibility",
+        "attrs": "class=\"w-8 h-8 rounded bg-surface-container-lowest flex items-center justify-center text-on-surface hover:text-primary transition-colors shadow-sm\" title=\"Preview Survey Document\" type=\"button\""
+      },
+      {
+        "text": "visibility",
+        "attrs": "class=\"w-8 h-8 rounded bg-surface-container-lowest flex items-center justify-center text-on-surface hover:text-primary transition-colors shadow-sm\" title=\"Preview RTC / Pahani Record\" type=\"button\""
+      },
+      {
+        "text": "verified",
+        "attrs": "class=\"w-8 h-8 rounded bg-surface-container-lowest flex items-center justify-center text-on-surface hover:text-primary transition-colors shadow-sm\" title=\"View e-KYC Attestation\" type=\"button\""
+      },
+      {
+        "text": "download_for_offline Download Complete P",
+        "attrs": "class=\"w-full h-10 bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md rounded-lg flex items-center justify-center gap-space-2 transition-all shadow-sm active:scale-[0.99]\" type=\"button\""
+      },
+      {
+        "text": "View complete audit trail &amp; officer ",
+        "attrs": "class=\"inline-flex items-center gap-space-1 font-label-md text-label-md text-primary hover:text-primary-container font-semibold transition-colors\" type=\"button\""
+      }
+    ],
+    "sampleLinks": [
+      {
+        "text": "Home",
+        "href": "#",
+        "dataPath": "home"
+      },
+      {
+        "text": "Public Land Directory",
+        "href": "#",
+        "dataPath": "public-land-directory"
+      },
+      {
+        "text": "Survey &amp; Gazette",
+        "href": "#",
+        "dataPath": "survey-gazette"
+      },
+      {
+        "text": "Verify Document",
+        "href": "#",
+        "dataPath": "verify-document"
+      },
+      {
+        "text": "Grievances",
+        "href": "#",
+        "dataPath": "grievances"
+      },
+      {
+        "text": "Helpdesk",
+        "href": "#",
+        "dataPath": "helpdesk"
+      },
+      {
+        "text": "1800-425-9900",
+        "href": "tel:18004259900",
+        "dataPath": ""
+      },
+      {
+        "text": "Sign In",
+        "href": "#",
+        "dataPath": "sign-in"
+      },
+      {
+        "text": "home Home",
+        "href": "#",
+        "dataPath": ""
+      },
+      {
+        "text": "My Land Holdings",
+        "href": "#",
+        "dataPath": ""
+      }
+    ],
+    "sampleInputs": []
+  },
+  {
+    "id": "bhoomi_setu_portal_home_1",
+    "buttonsCount": 13,
+    "linksCount": 16,
+    "inputsCount": 0,
+    "sampleButtons": [
+      {
+        "text": "A-",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Decrease font size\" type=\"button\""
+      },
+      {
+        "text": "A",
+        "attrs": "class=\"px-space-1 hover:text-on-surface font-bold\" title=\"Standard font size\" type=\"button\""
+      },
+      {
+        "text": "A+",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Increase font size\" type=\"button\""
+      },
+      {
+        "text": "translate EN | ಕನ್ನಡ",
+        "attrs": "aria-label=\"Language switch\" class=\"flex items-center gap-space-1 border border-outline-variant bg-surface-container-lowest px-space-2 py-0.5 rounded-lg text-primary hover:bg-surface-container transition-colors\" type=\"button\""
+      },
+      {
+        "text": "Citizen Portal →",
+        "attrs": "class=\"w-full inline-flex items-center justify-center gap-space-2 px-space-4 py-space-3 bg-surface-container-lowest hover:bg-primary hover:text-on-primary text-primary rounded-lg font-label-md text-label-md transition-colors shadow-sm\" type=\"button\""
+      },
+      {
+        "text": "Officer Access →",
+        "attrs": "class=\"w-full inline-flex items-center justify-center gap-space-2 px-space-4 py-space-3 bg-surface-container-lowest hover:bg-primary hover:text-on-primary text-primary rounded-lg font-label-md text-label-md transition-colors shadow-sm\" type=\"button\""
+      },
+      {
+        "text": "Departmental Login →",
+        "attrs": "class=\"w-full inline-flex items-center justify-center gap-space-2 px-space-4 py-space-3 bg-primary text-on-primary hover:bg-primary-container rounded-lg font-label-md text-label-md transition-colors shadow-sm\" type=\"button\""
+      },
+      {
+        "text": "All Projects (36)",
+        "attrs": "class=\"px-space-3 py-space-2 rounded font-label-sm text-label-sm bg-surface-container-lowest text-primary font-bold shadow-sm transition-all\" id=\"filter-all\" type=\"button\""
+      },
+      {
+        "text": "Active Acquisition (24)",
+        "attrs": "class=\"px-space-3 py-space-2 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-all\" id=\"filter-active\" type=\"button\""
+      },
+      {
+        "text": "Completed &amp; Handed Over (12)",
+        "attrs": "class=\"px-space-3 py-space-2 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-all\" id=\"filter-completed\" type=\"button\""
+      }
+    ],
+    "sampleLinks": [
+      {
+        "text": "Home",
+        "href": "#",
+        "dataPath": "home"
+      },
+      {
+        "text": "Public Land Directory",
+        "href": "#",
+        "dataPath": "public-land-directory"
+      },
+      {
+        "text": "Survey &amp; Gazette",
+        "href": "#",
+        "dataPath": "survey-gazette"
+      },
+      {
+        "text": "Verify Document",
+        "href": "#",
+        "dataPath": "verify-document"
+      },
+      {
+        "text": "Grievances",
+        "href": "#",
+        "dataPath": "grievances"
+      },
+      {
+        "text": "Helpdesk",
+        "href": "#",
+        "dataPath": "helpdesk"
+      },
+      {
+        "text": "1800-425-9900",
+        "href": "tel:18004259900",
+        "dataPath": ""
+      },
+      {
+        "text": "Sign In",
+        "href": "#",
+        "dataPath": "sign-in"
+      },
+      {
+        "text": "Read Sec 11(1) Declarations",
+        "href": "#gazette",
+        "dataPath": ""
+      },
+      {
+        "text": "Select Your Role to Continue arrow_forwa",
+        "href": "#role-access",
+        "dataPath": ""
+      }
+    ],
+    "sampleInputs": []
+  },
+  {
+    "id": "bhoomi_setu_portal_home_2",
+    "buttonsCount": 13,
+    "linksCount": 16,
+    "inputsCount": 0,
+    "sampleButtons": [
+      {
+        "text": "A-",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Decrease font size\" type=\"button\""
+      },
+      {
+        "text": "A",
+        "attrs": "class=\"px-space-1 hover:text-on-surface font-bold\" title=\"Standard font size\" type=\"button\""
+      },
+      {
+        "text": "A+",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Increase font size\" type=\"button\""
+      },
+      {
+        "text": "translate EN | ಕನ್ನಡ",
+        "attrs": "aria-label=\"Language switch\" class=\"flex items-center gap-space-1 border border-outline-variant bg-surface-container-lowest px-space-2 py-0.5 rounded-lg text-primary hover:bg-surface-container transition-colors\" type=\"button\""
+      },
+      {
+        "text": "Citizen Portal →",
+        "attrs": "class=\"w-full inline-flex items-center justify-center gap-space-2 px-space-4 py-space-3 bg-surface-container-lowest hover:bg-primary hover:text-on-primary text-primary rounded-lg font-label-md text-label-md transition-colors shadow-sm\" type=\"button\""
+      },
+      {
+        "text": "Officer Access →",
+        "attrs": "class=\"w-full inline-flex items-center justify-center gap-space-2 px-space-4 py-space-3 bg-surface-container-lowest hover:bg-primary hover:text-on-primary text-primary rounded-lg font-label-md text-label-md transition-colors shadow-sm\" type=\"button\""
+      },
+      {
+        "text": "Departmental Login →",
+        "attrs": "class=\"w-full inline-flex items-center justify-center gap-space-2 px-space-4 py-space-3 bg-primary text-on-primary hover:bg-primary-container rounded-lg font-label-md text-label-md transition-colors shadow-sm\" type=\"button\""
+      },
+      {
+        "text": "All Projects (36)",
+        "attrs": "class=\"px-space-3 py-space-2 rounded font-label-sm text-label-sm bg-surface-container-lowest text-primary font-bold shadow-sm transition-all\" id=\"filter-all\" type=\"button\""
+      },
+      {
+        "text": "Active Acquisition (24)",
+        "attrs": "class=\"px-space-3 py-space-2 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-all\" id=\"filter-active\" type=\"button\""
+      },
+      {
+        "text": "Completed &amp; Handed Over (12)",
+        "attrs": "class=\"px-space-3 py-space-2 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-all\" id=\"filter-completed\" type=\"button\""
+      }
+    ],
+    "sampleLinks": [
+      {
+        "text": "Home",
+        "href": "#",
+        "dataPath": "home"
+      },
+      {
+        "text": "Public Land Directory",
+        "href": "#",
+        "dataPath": "public-land-directory"
+      },
+      {
+        "text": "Survey &amp; Gazette",
+        "href": "#",
+        "dataPath": "survey-gazette"
+      },
+      {
+        "text": "Verify Document",
+        "href": "#",
+        "dataPath": "verify-document"
+      },
+      {
+        "text": "Grievances",
+        "href": "#",
+        "dataPath": "grievances"
+      },
+      {
+        "text": "Helpdesk",
+        "href": "#",
+        "dataPath": "helpdesk"
+      },
+      {
+        "text": "1800-425-9900",
+        "href": "tel:18004259900",
+        "dataPath": ""
+      },
+      {
+        "text": "Sign In",
+        "href": "#",
+        "dataPath": "sign-in"
+      },
+      {
+        "text": "Read Sec 11(1) Declarations",
+        "href": "#gazette",
+        "dataPath": ""
+      },
+      {
+        "text": "Select Your Role to Continue arrow_forwa",
+        "href": "#role-access",
+        "dataPath": ""
+      }
+    ],
+    "sampleInputs": []
+  },
+  {
+    "id": "bhoomi_setu_project_detail",
+    "buttonsCount": 11,
+    "linksCount": 18,
+    "inputsCount": 0,
+    "sampleButtons": [
+      {
+        "text": "A-",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Decrease font size\" type=\"button\""
+      },
+      {
+        "text": "A",
+        "attrs": "class=\"px-space-1 hover:text-on-surface font-bold\" title=\"Standard font size\" type=\"button\""
+      },
+      {
+        "text": "A+",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Increase font size\" type=\"button\""
+      },
+      {
+        "text": "translate EN | ಕನ್ನಡ",
+        "attrs": "aria-label=\"Language switch\" class=\"flex items-center gap-space-1 border border-outline-variant bg-surface-container-lowest px-space-2 py-0.5 rounded-lg text-primary hover:bg-surface-container transition-colors\" type=\"button\""
+      },
+      {
+        "text": "picture_as_pdf Download Project Dossier ",
+        "attrs": "class=\"inline-flex items-center gap-space-2 px-space-4 py-space-2 bg-surface-container-low text-on-surface hover:bg-surface-container font-label-md text-label-md rounded-lg transition-colors\" type=\"button\""
+      },
+      {
+        "text": "All (384)",
+        "attrs": "class=\"filter-btn active px-space-3 py-1 font-label-sm text-label-sm rounded-lg bg-surface-container-lowest text-on-surface shadow-sm font-semibold transition-all\" data-filter=\"all\" type=\"button\""
+      },
+      {
+        "text": "Under JMS",
+        "attrs": "class=\"filter-btn px-space-3 py-1 font-label-sm text-label-sm rounded-lg hover:text-on-surface transition-all\" data-filter=\"jms\" type=\"button\""
+      },
+      {
+        "text": "Award Passed",
+        "attrs": "class=\"filter-btn px-space-3 py-1 font-label-sm text-label-sm rounded-lg hover:text-on-surface transition-all\" data-filter=\"award\" type=\"button\""
+      },
+      {
+        "text": "Disputed",
+        "attrs": "class=\"filter-btn px-space-3 py-1 font-label-sm text-label-sm rounded-lg hover:text-on-surface transition-all\" data-filter=\"disputed\" type=\"button\""
+      },
+      {
+        "text": "Previous",
+        "attrs": "class=\"px-space-3 py-1 bg-surface-container-low text-on-surface rounded-lg font-label-md text-label-md hover:bg-surface-container transition-colors disabled:opacity-50\" disabled=\"\" type=\"button\""
+      }
+    ],
+    "sampleLinks": [
+      {
+        "text": "Home",
+        "href": "#",
+        "dataPath": "home"
+      },
+      {
+        "text": "Public Land Directory",
+        "href": "#",
+        "dataPath": "public-land-directory"
+      },
+      {
+        "text": "Survey &amp; Gazette",
+        "href": "#",
+        "dataPath": "survey-gazette"
+      },
+      {
+        "text": "Verify Document",
+        "href": "#",
+        "dataPath": "verify-document"
+      },
+      {
+        "text": "Grievances",
+        "href": "#",
+        "dataPath": "grievances"
+      },
+      {
+        "text": "Helpdesk",
+        "href": "#",
+        "dataPath": "helpdesk"
+      },
+      {
+        "text": "1800-425-9900",
+        "href": "tel:18004259900",
+        "dataPath": ""
+      },
+      {
+        "text": "Sign In",
+        "href": "#",
+        "dataPath": "sign-in"
+      },
+      {
+        "text": "home Home",
+        "href": "#",
+        "dataPath": "home"
+      },
+      {
+        "text": "Statutory Projects",
+        "href": "#",
+        "dataPath": "projects"
+      }
+    ],
+    "sampleInputs": []
+  },
+  {
+    "id": "bhoomi_setu_project_registry",
+    "buttonsCount": 19,
+    "linksCount": 10,
+    "inputsCount": 1,
+    "sampleButtons": [
+      {
+        "text": "A-",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Decrease font size\" type=\"button\""
+      },
+      {
+        "text": "A",
+        "attrs": "class=\"px-space-1 hover:text-on-surface font-bold\" title=\"Standard font size\" type=\"button\""
+      },
+      {
+        "text": "A+",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Increase font size\" type=\"button\""
+      },
+      {
+        "text": "translate EN | ಕನ್ನಡ",
+        "attrs": "aria-label=\"Language switch\" class=\"flex items-center gap-space-1 border border-outline-variant bg-surface-container-lowest px-space-2 py-0.5 rounded-lg text-primary hover:bg-surface-container transition-colors\" type=\"button\""
+      },
+      {
+        "text": "download Export Master Register (CSV/PDF",
+        "attrs": "class=\"inline-flex items-center gap-space-2 px-space-4 py-space-2 bg-surface-container-lowest text-on-surface rounded font-label-md text-label-md shadow-sm hover:bg-surface-container transition-colors\" type=\"button\""
+      },
+      {
+        "text": "All Projects (14)",
+        "attrs": "class=\"risk-tab-btn active px-space-3 py-1.5 rounded text-label-md font-label-md bg-primary text-on-primary transition-colors\" data-filter=\"ALL\" type=\"button\""
+      },
+      {
+        "text": "High Risk (3)",
+        "attrs": "class=\"risk-tab-btn px-space-3 py-1.5 rounded text-label-md font-label-md bg-surface-container-low text-on-surface hover:bg-surface-container transition-colors inline-flex items-center gap-space-2\" data-filter=\"HIGH\" type=\"button\""
+      },
+      {
+        "text": "Moderate Risk (5)",
+        "attrs": "class=\"risk-tab-btn px-space-3 py-1.5 rounded text-label-md font-label-md bg-surface-container-low text-on-surface hover:bg-surface-container transition-colors inline-flex items-center gap-space-2\" data-filter=\"MODERATE\" type=\"button\""
+      },
+      {
+        "text": "On Schedule (6)",
+        "attrs": "class=\"risk-tab-btn px-space-3 py-1.5 rounded text-label-md font-label-md bg-surface-container-low text-on-surface hover:bg-surface-container transition-colors inline-flex items-center gap-space-2\" data-filter=\"ON_SCHEDULE\" type=\"button\""
+      },
+      {
+        "text": "View Dossier chevron_right",
+        "attrs": "class=\"inline-flex items-center gap-space-1 px-space-3 py-1.5 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary-container transition-colors\" type=\"button\""
+      }
+    ],
+    "sampleLinks": [
+      {
+        "text": "Home",
+        "href": "#",
+        "dataPath": "home"
+      },
+      {
+        "text": "Public Land Directory",
+        "href": "#",
+        "dataPath": "public-land-directory"
+      },
+      {
+        "text": "Survey &amp; Gazette",
+        "href": "#",
+        "dataPath": "survey-gazette"
+      },
+      {
+        "text": "Verify Document",
+        "href": "#",
+        "dataPath": "verify-document"
+      },
+      {
+        "text": "Grievances",
+        "href": "#",
+        "dataPath": "grievances"
+      },
+      {
+        "text": "Helpdesk",
+        "href": "#",
+        "dataPath": "helpdesk"
+      },
+      {
+        "text": "1800-425-9900",
+        "href": "tel:18004259900",
+        "dataPath": ""
+      },
+      {
+        "text": "Sign In",
+        "href": "#",
+        "dataPath": "sign-in"
+      },
+      {
+        "text": "home Home",
+        "href": "#",
+        "dataPath": ""
+      },
+      {
+        "text": "Officer Console",
+        "href": "#",
+        "dataPath": ""
+      }
+    ],
+    "sampleInputs": [
+      {
+        "type": "text",
+        "name": "",
+        "placeholder": "Filter by project name, acquiring authority (BMRCL, K-RIDE, NHAI, BDA)..."
+      }
+    ]
+  },
+  {
+    "id": "bhoomi_setu_public_land_detail",
+    "buttonsCount": 7,
+    "linksCount": 13,
+    "inputsCount": 0,
+    "sampleButtons": [
+      {
+        "text": "A-",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Decrease font size\" type=\"button\""
+      },
+      {
+        "text": "A",
+        "attrs": "class=\"px-space-1 hover:text-on-surface font-bold\" title=\"Standard font size\" type=\"button\""
+      },
+      {
+        "text": "A+",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Increase font size\" type=\"button\""
+      },
+      {
+        "text": "translate EN | ಕನ್ನಡ",
+        "attrs": "aria-label=\"Language switch\" class=\"flex items-center gap-space-1 border border-outline-variant bg-surface-container-lowest px-space-2 py-0.5 rounded-lg text-primary hover:bg-surface-container transition-colors\" type=\"button\""
+      },
+      {
+        "text": "print Print Summary",
+        "attrs": "class=\"hover:text-primary inline-flex items-center gap-space-1 text-on-surface-variant transition-colors\" onclick=\"window.print()\" type=\"button\""
+      },
+      {
+        "text": "Apply for this Land Parcel arrow_forward",
+        "attrs": "class=\"w-full h-11 px-space-4 bg-primary text-on-primary rounded-lg font-headline-sm text-headline-sm hover:bg-primary-container transition-colors flex items-center justify-center gap-space-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2\" onclick=\"handleApply()\" type=\"button\""
+      },
+      {
+        "text": "picture_as_pdf Download Gazette Notifica",
+        "attrs": "class=\"w-full h-10 px-space-4 bg-surface-container-lowest text-on-surface rounded-lg font-label-md text-label-md hover:bg-surface-container transition-colors flex items-center justify-center gap-space-2\" onclick=\"handleDownloadGazette()\" type=\"button\""
+      }
+    ],
+    "sampleLinks": [
+      {
+        "text": "Home",
+        "href": "#",
+        "dataPath": "home"
+      },
+      {
+        "text": "Public Land Directory",
+        "href": "#",
+        "dataPath": "public-land-directory"
+      },
+      {
+        "text": "Survey &amp; Gazette",
+        "href": "#",
+        "dataPath": "survey-gazette"
+      },
+      {
+        "text": "Verify Document",
+        "href": "#",
+        "dataPath": "verify-document"
+      },
+      {
+        "text": "Grievances",
+        "href": "#",
+        "dataPath": "grievances"
+      },
+      {
+        "text": "Helpdesk",
+        "href": "#",
+        "dataPath": "helpdesk"
+      },
+      {
+        "text": "1800-425-9900",
+        "href": "tel:18004259900",
+        "dataPath": ""
+      },
+      {
+        "text": "Sign In",
+        "href": "#",
+        "dataPath": "sign-in"
+      },
+      {
+        "text": "Home",
+        "href": "#",
+        "dataPath": "home"
+      },
+      {
+        "text": "Public Land Directory",
+        "href": "#",
+        "dataPath": "public-land-directory"
+      }
+    ],
+    "sampleInputs": []
+  },
+  {
+    "id": "bhoomi_setu_search_results",
+    "buttonsCount": 18,
+    "linksCount": 16,
+    "inputsCount": 0,
+    "sampleButtons": [
+      {
+        "text": "A-",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Decrease font size\" type=\"button\""
+      },
+      {
+        "text": "A",
+        "attrs": "class=\"px-space-1 hover:text-on-surface font-bold\" title=\"Standard font size\" type=\"button\""
+      },
+      {
+        "text": "A+",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Increase font size\" type=\"button\""
+      },
+      {
+        "text": "translate EN | ಕನ್ನಡ",
+        "attrs": "aria-label=\"Language switch\" class=\"flex items-center gap-space-1 border border-outline-variant bg-surface-container-lowest px-space-2 py-0.5 rounded-lg text-primary hover:bg-surface-container transition-colors\" type=\"button\""
+      },
+      {
+        "text": "close",
+        "attrs": "aria-label=\"Remove Hobli filter\" class=\"hover:text-error transition-colors flex items-center\" type=\"button\""
+      },
+      {
+        "text": "close",
+        "attrs": "aria-label=\"Remove Survey filter\" class=\"hover:text-error transition-colors flex items-center\" type=\"button\""
+      },
+      {
+        "text": "close",
+        "attrs": "aria-label=\"Clear Status filter\" class=\"hover:text-error transition-colors flex items-center\" type=\"button\""
+      },
+      {
+        "text": "picture_as_pdf Export Results Summary (P",
+        "attrs": "class=\"ml-auto lg:ml-space-2 inline-flex items-center gap-space-2 px-space-4 py-2 bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:bg-primary-container transition-colors shadow-sm\" type=\"button\""
+      },
+      {
+        "text": "chevron_left Previous",
+        "attrs": "class=\"px-space-3 py-1 bg-surface-container-low text-on-surface-variant rounded-lg font-label-sm text-label-sm opacity-50 cursor-not-allowed flex items-center gap-1\" disabled=\"\" type=\"button\""
+      },
+      {
+        "text": "2",
+        "attrs": "class=\"px-space-2 py-1 bg-surface-container hover:bg-surface-container-high text-on-surface rounded-lg font-label-sm text-label-sm transition-colors\" type=\"button\""
+      }
+    ],
+    "sampleLinks": [
+      {
+        "text": "Home",
+        "href": "#",
+        "dataPath": "home"
+      },
+      {
+        "text": "Public Land Directory",
+        "href": "#",
+        "dataPath": "public-land-directory"
+      },
+      {
+        "text": "Survey &amp; Gazette",
+        "href": "#",
+        "dataPath": "survey-gazette"
+      },
+      {
+        "text": "Verify Document",
+        "href": "#",
+        "dataPath": "verify-document"
+      },
+      {
+        "text": "Grievances",
+        "href": "#",
+        "dataPath": "grievances"
+      },
+      {
+        "text": "Helpdesk",
+        "href": "#",
+        "dataPath": "helpdesk"
+      },
+      {
+        "text": "1800-425-9900",
+        "href": "tel:18004259900",
+        "dataPath": ""
+      },
+      {
+        "text": "Sign In",
+        "href": "#",
+        "dataPath": "sign-in"
+      },
+      {
+        "text": "Home",
+        "href": "#",
+        "dataPath": ""
+      },
+      {
+        "text": "Citizen Services",
+        "href": "#",
+        "dataPath": ""
+      }
+    ],
+    "sampleInputs": []
+  },
+  {
+    "id": "bhoomi_setu_statutory_gazette_publishing",
+    "buttonsCount": 17,
+    "linksCount": 10,
+    "inputsCount": 2,
+    "sampleButtons": [
+      {
+        "text": "A-",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Decrease font size\" type=\"button\""
+      },
+      {
+        "text": "A",
+        "attrs": "class=\"px-space-1 hover:text-on-surface font-bold\" title=\"Standard font size\" type=\"button\""
+      },
+      {
+        "text": "A+",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Increase font size\" type=\"button\""
+      },
+      {
+        "text": "translate EN | ಕನ್ನಡ",
+        "attrs": "aria-label=\"Language switch\" class=\"flex items-center gap-space-1 border border-outline-variant bg-surface-container-lowest px-space-2 py-0.5 rounded-lg text-primary hover:bg-surface-container transition-colors\" type=\"button\""
+      },
+      {
+        "text": "Ready for Signature 3",
+        "attrs": "class=\"flex-1 py-space-2 px-space-3 rounded bg-primary text-on-primary font-semibold flex items-center justify-center gap-space-1 shadow-sm transition-all\" id=\"tab-ready\""
+      },
+      {
+        "text": "Under Legal Scrutiny 5",
+        "attrs": "class=\"flex-1 py-space-2 px-space-3 rounded text-on-surface-variant hover:bg-surface-container-low flex items-center justify-center gap-space-1 transition-all\" id=\"tab-scrutiny\""
+      },
+      {
+        "text": "Recently Issued 18",
+        "attrs": "class=\"flex-1 py-space-2 px-space-3 rounded text-on-surface-variant hover:bg-surface-container-low flex items-center justify-center gap-space-1 transition-all\" id=\"tab-published\""
+      },
+      {
+        "text": "tune Filter",
+        "attrs": "class=\"flex items-center gap-1 px-3 py-2 bg-surface-container-low rounded-lg font-label-sm text-label-sm text-on-surface hover:bg-surface-container transition-colors\""
+      },
+      {
+        "text": "Load Preview",
+        "attrs": "class=\"text-primary font-semibold hover:underline\""
+      },
+      {
+        "text": "Load Preview",
+        "attrs": "class=\"text-primary font-semibold hover:underline\""
+      }
+    ],
+    "sampleLinks": [
+      {
+        "text": "Home",
+        "href": "#",
+        "dataPath": "home"
+      },
+      {
+        "text": "Public Land Directory",
+        "href": "#",
+        "dataPath": "public-land-directory"
+      },
+      {
+        "text": "Survey &amp; Gazette",
+        "href": "#",
+        "dataPath": "survey-gazette"
+      },
+      {
+        "text": "Verify Document",
+        "href": "#",
+        "dataPath": "verify-document"
+      },
+      {
+        "text": "Grievances",
+        "href": "#",
+        "dataPath": "grievances"
+      },
+      {
+        "text": "Helpdesk",
+        "href": "#",
+        "dataPath": "helpdesk"
+      },
+      {
+        "text": "1800-425-9900",
+        "href": "tel:18004259900",
+        "dataPath": ""
+      },
+      {
+        "text": "Sign In",
+        "href": "#",
+        "dataPath": "sign-in"
+      },
+      {
+        "text": "Home",
+        "href": "#",
+        "dataPath": "home"
+      },
+      {
+        "text": "View Audit Trail open_in_new",
+        "href": "#",
+        "dataPath": ""
+      }
+    ],
+    "sampleInputs": [
+      {
+        "type": "text",
+        "name": "",
+        "placeholder": "Search by Project, Section, or Notification No..."
+      },
+      {
+        "type": "password",
+        "name": "",
+        "placeholder": "Enter Token PIN"
+      }
+    ]
+  },
+  {
+    "id": "bhoomi_setu_utility_relocation_matrix",
+    "buttonsCount": 20,
+    "linksCount": 8,
+    "inputsCount": 6,
+    "sampleButtons": [
+      {
+        "text": "A-",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Decrease font size\" type=\"button\""
+      },
+      {
+        "text": "A",
+        "attrs": "class=\"px-space-1 hover:text-on-surface font-bold\" title=\"Standard font size\" type=\"button\""
+      },
+      {
+        "text": "A+",
+        "attrs": "class=\"px-space-1 hover:text-on-surface\" title=\"Increase font size\" type=\"button\""
+      },
+      {
+        "text": "translate EN | ಕನ್ನಡ",
+        "attrs": "aria-label=\"Language switch\" class=\"flex items-center gap-space-1 border border-outline-variant bg-surface-container-lowest px-space-2 py-0.5 rounded-lg text-primary hover:bg-surface-container transition-colors\" type=\"button\""
+      },
+      {
+        "text": "map Cadastral Overlay (GIS)",
+        "attrs": "class=\"inline-flex items-center gap-space-2 px-space-4 py-space-2 bg-surface-container-lowest text-on-surface rounded-lg font-label-md text-label-md hover:bg-surface-container transition-colors shadow-sm\" type=\"button\""
+      },
+      {
+        "text": "group_add Convene Emergency Taskforce",
+        "attrs": "class=\"inline-flex items-center gap-space-2 px-space-4 py-space-2 bg-error text-on-error rounded-lg font-label-md text-label-md hover:bg-on-error-container transition-colors shadow-sm\" onclick=\"toggleTaskforceModal(true)\" type=\"button\""
+      },
+      {
+        "text": "gavel Issue Notice Under Essential Servi",
+        "attrs": "class=\"w-full inline-flex items-center justify-center gap-space-2 px-space-4 py-space-2 bg-surface-container text-on-surface rounded-lg font-label-md text-label-md hover:bg-surface-container-high transition-colors\" onclick=\"toggleNoticeModal(true)\" type=\"button\""
+      },
+      {
+        "text": "Open Dossier",
+        "attrs": "class=\"px-space-3 py-1 bg-surface-container text-primary rounded font-label-md text-label-md hover:bg-surface-container-high transition-colors\" onclick=\"openDossier('BESCOM-66KV-142')\" type=\"button\""
+      },
+      {
+        "text": "Open Dossier",
+        "attrs": "class=\"px-space-3 py-1 bg-surface-container text-primary rounded font-label-md text-label-md hover:bg-surface-container-high transition-colors\" onclick=\"openDossier('BWSSB-900MS-88')\" type=\"button\""
+      },
+      {
+        "text": "Open Dossier",
+        "attrs": "class=\"px-space-3 py-1 bg-surface-container text-primary rounded font-label-md text-label-md hover:bg-surface-container-high transition-colors\" onclick=\"openDossier('GAIL-12HP-204')\" type=\"button\""
+      }
+    ],
+    "sampleLinks": [
+      {
+        "text": "Home",
+        "href": "#",
+        "dataPath": "home"
+      },
+      {
+        "text": "Public Land Directory",
+        "href": "#",
+        "dataPath": "public-land-directory"
+      },
+      {
+        "text": "Survey &amp; Gazette",
+        "href": "#",
+        "dataPath": "survey-gazette"
+      },
+      {
+        "text": "Verify Document",
+        "href": "#",
+        "dataPath": "verify-document"
+      },
+      {
+        "text": "Grievances",
+        "href": "#",
+        "dataPath": "grievances"
+      },
+      {
+        "text": "Helpdesk",
+        "href": "#",
+        "dataPath": "helpdesk"
+      },
+      {
+        "text": "1800-425-9900",
+        "href": "tel:18004259900",
+        "dataPath": ""
+      },
+      {
+        "text": "Sign In",
+        "href": "#",
+        "dataPath": "sign-in"
+      }
+    ],
+    "sampleInputs": [
+      {
+        "type": "text",
+        "name": "",
+        "placeholder": "Search Corridor or Utility..."
+      },
+      {
+        "type": "text",
+        "name": "",
+        "placeholder": ""
+      },
+      {
+        "type": "text",
+        "name": "",
+        "placeholder": ""
+      },
+      {
+        "type": "text",
+        "name": "",
+        "placeholder": ""
+      },
+      {
+        "type": "text",
+        "name": "",
+        "placeholder": ""
+      }
+    ]
+  }
+]

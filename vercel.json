@@ -1,21 +1,27 @@
 {
   "version": 2,
-  "cleanUrls": true,
-  "trailingSlash": false,
-  "rewrites": [
+  "public": true,
+  "routes": [
     {
-      "source": "/((?!api/|.*\\..*).*)",
-      "destination": "/index.html"
+      "src": "/api/health",
+      "dest": "/api/health.js"
+    },
+    {
+      "src": "/api/parcels",
+      "dest": "/api/parcels.js"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
-        },
         {
           "key": "Access-Control-Allow-Origin",
           "value": "*"

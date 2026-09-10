@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",
-    "build": "node build_screens_data.js"
+    "compile-screens": "node build_screens_data.js",
+    "test": "node test_prototype.js"
   },
   "keywords": [
     "bhoomi-setu",

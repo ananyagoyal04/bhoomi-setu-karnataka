@@ -74,6 +74,7 @@
     }
 
     init() {
+      this.initTheme();
       window.addEventListener('DOMContentLoaded', () => this.renderHUD());
     }
 
@@ -111,6 +112,10 @@
 
           <!-- Action Buttons -->
           <div class="flex items-center gap-1.5">
+            <!-- Theme Toggle Button -->
+            <button type="button" id="hud-btn-theme" title="Toggle Dark / Light Theme" class="p-1.5 bg-surface-container hover:bg-surface-container-high text-on-surface rounded-lg text-xs font-bold transition-colors flex items-center gap-1" onclick="window.PrototypeHUD.toggleTheme()">
+              <span id="hud-theme-icon" class="material-symbols-outlined text-[18px] text-amber-500">dark_mode</span>
+            </button>
             <button type="button" id="hud-btn-screens" class="flex items-center gap-1 px-3 py-1.5 bg-primary text-on-primary rounded-lg text-xs font-label-md hover:bg-primary-container transition-all shadow-sm" onclick="window.PrototypeHUD.toggleScreensModal()">
               <span class="material-symbols-outlined text-[16px]">grid_view</span>
               <span>All 32 Screens</span>
@@ -403,6 +408,38 @@
       this.tourStepIndex = 0;
       const card = document.getElementById('hud-tour-active-card');
       if (card) card.classList.add('hidden');
+    }
+
+    initTheme() {
+      const savedTheme = localStorage.getItem('bhoomi_theme') || 'light';
+      if (savedTheme === 'dark') {
+        document.documentElement.classList.add('dark');
+        this.updateThemeIcon(true);
+      } else {
+        document.documentElement.classList.remove('dark');
+        this.updateThemeIcon(false);
+      }
+    }
+
+    toggleTheme() {
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('bhoomi_theme', isDark ? 'dark' : 'light');
+      this.updateThemeIcon(isDark);
+      if (window.BhoomiInteractions) {
+        window.BhoomiInteractions.showToast(
+          isDark ? 'Dark Mode Activated' : 'Light Mode Activated',
+          'info',
+          'Theme Switcher'
+        );
+      }
+    }
+
+    updateThemeIcon(isDark) {
+      const icon = document.getElementById('hud-theme-icon');
+      if (icon) {
+        icon.innerText = isDark ? 'light_mode' : 'dark_mode';
+        icon.className = isDark ? 'material-symbols-outlined text-[18px] text-amber-300' : 'material-symbols-outlined text-[18px] text-amber-500';
+      }
     }
   }
 

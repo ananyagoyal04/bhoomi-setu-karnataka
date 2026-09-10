@@ -145,46 +145,55 @@
         quickLoginDiv.innerHTML = `
           <div class="flex items-center justify-between border-b border-outline-variant/60 pb-2">
             <span class="font-bold text-xs text-primary uppercase tracking-wider flex items-center gap-1.5">
-              <span class="material-symbols-outlined text-[18px]">key</span> Select Access Portal:
+              <span class="material-symbols-outlined text-[18px]">badge</span> 3 Demo Aadhaar Logins:
             </span>
-            <span class="text-[10px] bg-primary/10 text-primary px-2 py-0.5 rounded font-bold">1-Click Sign In</span>
+            <span class="text-[10px] bg-primary/10 text-primary px-2 py-0.5 rounded font-bold">Pre-Fed Cards</span>
           </div>
 
-          <div class="space-y-2">
+          <div class="space-y-2.5">
             <!-- Citizen -->
             <button type="button" class="w-full p-3 bg-surface-container-lowest border border-outline-variant hover:border-emerald-600 rounded-lg text-left transition-all hover:shadow-md flex items-center justify-between group" onclick="window.BhoomiBackend.login('citizen')">
               <div class="flex items-center gap-2.5">
-                <span class="material-symbols-outlined text-emerald-700 text-[24px]">person</span>
+                <span class="material-symbols-outlined text-emerald-700 text-[26px]">person</span>
                 <div>
-                  <span class="font-bold text-xs text-on-surface group-hover:text-emerald-700 block">1. Landowner / Citizen (Rajesh Kumar)</span>
-                  <span class="text-[11px] text-gray-500">Check your ₹6.78 Cr compensation, bank payout & land map</span>
+                  <div class="flex items-center gap-2">
+                    <span class="font-bold text-xs text-on-surface group-hover:text-emerald-700">1. Citizen / Landowner (Rajesh Kumar)</span>
+                    <span class="font-code-sm text-[10px] bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 px-1.5 py-0.2 rounded font-bold">5489-1204-4819</span>
+                  </div>
+                  <span class="text-[11px] text-gray-500 block">Sy 48/2A Bellandur • ₹6.78 Cr Compensation & Bank Escrow</span>
                 </div>
               </div>
-              <span class="text-xs text-emerald-700 font-bold group-hover:translate-x-1 transition-transform">Enter ➔</span>
+              <span class="text-xs text-emerald-700 font-bold group-hover:translate-x-1 transition-transform shrink-0">Enter ➔</span>
             </button>
 
             <!-- Officer -->
             <button type="button" class="w-full p-3 bg-surface-container-lowest border border-outline-variant hover:border-blue-600 rounded-lg text-left transition-all hover:shadow-md flex items-center justify-between group" onclick="window.BhoomiBackend.login('officer')">
               <div class="flex items-center gap-2.5">
-                <span class="material-symbols-outlined text-blue-700 text-[24px]">badge</span>
+                <span class="material-symbols-outlined text-blue-700 text-[26px]">badge</span>
                 <div>
-                  <span class="font-bold text-xs text-on-surface group-hover:text-blue-700 block">2. Land Acquisition Officer (Sri. B. Shivaram)</span>
-                  <span class="text-[11px] text-gray-500">Verify property papers, apply digital stamp & approve files</span>
+                  <div class="flex items-center gap-2">
+                    <span class="font-bold text-xs text-on-surface group-hover:text-blue-700">2. SLAO Officer (Sri. B. Shivaram, KAS)</span>
+                    <span class="font-code-sm text-[10px] bg-blue-100 dark:bg-blue-950 text-blue-800 dark:text-blue-300 px-1.5 py-0.2 rounded font-bold">8921-4421-0894</span>
+                  </div>
+                  <span class="text-[11px] text-gray-500 block">KAS Officer Token • Verify Title Deeds & Apply Digital DSC Seal</span>
                 </div>
               </div>
-              <span class="text-xs text-blue-700 font-bold group-hover:translate-x-1 transition-transform">Enter ➔</span>
+              <span class="text-xs text-blue-700 font-bold group-hover:translate-x-1 transition-transform shrink-0">Enter ➔</span>
             </button>
 
             <!-- Executive -->
             <button type="button" class="w-full p-3 bg-surface-container-lowest border border-outline-variant hover:border-purple-600 rounded-lg text-left transition-all hover:shadow-md flex items-center justify-between group" onclick="window.BhoomiBackend.login('executive')">
               <div class="flex items-center gap-2.5">
-                <span class="material-symbols-outlined text-purple-700 text-[24px]">query_stats</span>
+                <span class="material-symbols-outlined text-purple-700 text-[26px]">query_stats</span>
                 <div>
-                  <span class="font-bold text-xs text-on-surface group-hover:text-purple-700 block">3. Chief Secretary (State Executive Desk)</span>
-                  <span class="text-[11px] text-gray-500">Monitor Metro & Highway projects + AI time-saver engine</span>
+                  <div class="flex items-center gap-2">
+                    <span class="font-bold text-xs text-on-surface group-hover:text-purple-700">3. Chief Secretary (Executive Desk)</span>
+                    <span class="font-code-sm text-[10px] bg-purple-100 dark:bg-purple-950 text-purple-800 dark:text-purple-300 px-1.5 py-0.2 rounded font-bold">1102-9934-0001</span>
+                  </div>
+                  <span class="text-[11px] text-gray-500 block">Statewide Command • Metro Phase 2A Tracker & AI Delay Mitigation</span>
                 </div>
               </div>
-              <span class="text-xs text-purple-700 font-bold group-hover:translate-x-1 transition-transform">Enter ➔</span>
+              <span class="text-xs text-purple-700 font-bold group-hover:translate-x-1 transition-transform shrink-0">Enter ➔</span>
             </button>
           </div>
         `;
@@ -398,6 +407,64 @@
           window.FramesEngine.openHelpdeskModal();
           return;
         }
+      }
+
+      // 6b. Screenshot-specific Action Buttons Handlers
+      if (text.includes('Download Gazette PDF') || text.includes('Download Original')) {
+        e.preventDefault();
+        if (window.BhoomiModals) window.BhoomiModals.openGazetteDocument();
+        this.showToast('Official Gazette / Form 9 Instrument downloaded (NIC-Gazette-Signed.pdf)', 'success', 'Document Download');
+        return;
+      }
+      if (text.includes('Audit Trail')) {
+        e.preventDefault();
+        this.showToast('Audit Trail: Form 9 uploaded by Field RI on 14 Feb 2025. DGPS hash verified.', 'info', 'Statutory Audit Trail');
+        return;
+      }
+      if (text.includes('Approve & Digital Sign') || text.includes('Approve & Seal')) {
+        e.preventDefault();
+        if (window.FramesEngine) {
+          window.FramesEngine.openDocumentScanFrame();
+        } else if (window.BhoomiModals) {
+          window.BhoomiModals.openDSCSignModal();
+        }
+        return;
+      }
+      if (text.includes('Reject & Issue Defect Notice') || text.includes('Reject with Statutory Query')) {
+        e.preventDefault();
+        this.showToast('7-Day Curative Defect Notice dispatched to claimant via SMS & Registered Post.', 'warning', 'Defect Notice Issued');
+        return;
+      }
+      if (text.includes('Escalate to Tahsildar')) {
+        e.preventDefault();
+        this.showToast('File escalated to Tahsildar (Bengaluru East) for field spot mahazar.', 'info', 'File Escalation');
+        return;
+      }
+      if (text.includes('Print Cause List')) {
+        e.preventDefault();
+        this.showToast('Quasi-Judicial Cause List for Tuesday, 25 March 2025 sent to printer.', 'success', 'Print Queue');
+        window.print();
+        return;
+      }
+      if (text.includes('Issue Mass Summons')) {
+        e.preventDefault();
+        this.showToast('Statutory Section 15(2) Summons dispatched to all 5 Listed Objectors via e-Gazette Notice.', 'success', 'Mass Summons Dispatched');
+        return;
+      }
+      if (text.includes('Log New Objection')) {
+        e.preventDefault();
+        if (window.FramesEngine) window.FramesEngine.openDisputeFrame();
+        return;
+      }
+      if (text.includes('Record Mahazar')) {
+        e.preventDefault();
+        this.showToast('Field Inspection Mahazar recorded by ADLR Surveyor for Docket ' + (text.replace('Record Mahazar', '').trim() || 'Active Matter'), 'success', 'Mahazar Recorded');
+        return;
+      }
+      if (text.includes('Dossier') && target.tagName === 'BUTTON') {
+        e.preventDefault();
+        window.BhoomiRouter.navigate('parcel-detail');
+        return;
       }
 
       // 7. Header Navigation

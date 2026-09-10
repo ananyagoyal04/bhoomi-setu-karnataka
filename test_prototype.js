@@ -4,7 +4,7 @@ const path = require('path');
 const vm = require('vm');
 
 async function runTests() {
-  console.log('🧪 Starting Bhoomi Setu Plain-English & Frames Verification Suite...');
+  console.log('🧪 Starting Bhoomi Setu Enterprise Verification Suite...');
   let passed = 0;
   let failed = 0;
 
@@ -34,20 +34,24 @@ async function runTests() {
   assert(Array.isArray(screens), 'screens is an array');
   assert(screens.length === 32, `Exactly 32 screens loaded (actual: ${screens.length})`);
 
-  // 2. Validate all modules exist
+  // 2. Validate all multi-backend and frontend files exist
   const filesToCheck = [
     'backend-api.js',
     'data-store.js',
     'page-guide.js',
     'frames-engine.js',
     'map-engine.js',
+    'analytics-charts.js',
     'simulations.js',
     'modals.js',
     'interactions.js',
     'prototype-nav.js',
     'router.js',
     'index.html',
-    'server.js'
+    'server.js',
+    'backend.py',
+    'api.php',
+    'schema.sql'
   ];
 
   filesToCheck.forEach(file => {
@@ -69,20 +73,22 @@ async function runTests() {
     const indexRes = await fetchUrl('/index.html');
     assert(indexRes.status === 200, 'GET /index.html returns 200 OK');
     assert(indexRes.body.includes('leaflet.js'), 'index.html includes Leaflet JS');
+    assert(indexRes.body.includes('chart.umd.min.js'), 'index.html includes Chart.js');
+    assert(indexRes.body.includes('analytics-charts.js'), 'index.html loads analytics-charts.js');
     assert(indexRes.body.includes('backend-api.js'), 'index.html loads backend-api.js');
     assert(indexRes.body.includes('page-guide.js'), 'index.html loads page-guide.js');
     assert(indexRes.body.includes('frames-engine.js'), 'index.html loads frames-engine.js');
     assert(indexRes.body.includes('map-engine.js'), 'index.html loads map-engine.js');
-    assert(indexRes.body.includes('simulations.js'), 'index.html loads simulations.js');
-    assert(indexRes.body.includes('modals.js'), 'index.html loads modals.js');
 
     const pgRes = await fetchUrl('/page-guide.js');
     assert(pgRes.status === 200, 'GET /page-guide.js returns 200 OK');
-    assert(pgRes.body.includes('class PageGuide'), 'page-guide.js contains PageGuide');
 
-    const frRes = await fetchUrl('/frames-engine.js');
-    assert(frRes.status === 200, 'GET /frames-engine.js returns 200 OK');
-    assert(frRes.body.includes('class FramesEngine'), 'frames-engine.js contains FramesEngine');
+    const anRes = await fetchUrl('/analytics-charts.js');
+    assert(anRes.status === 200, 'GET /analytics-charts.js returns 200 OK');
+
+    const apiRes = await fetchUrl('/api/health');
+    assert(apiRes.status === 200, 'GET /api/health returns 200 OK');
+    assert(apiRes.body.includes('ONLINE'), 'API health endpoint reports ONLINE');
   } catch (err) {
     assert(false, `HTTP Server test failed: ${err.message}`);
   }

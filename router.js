@@ -46,6 +46,18 @@
       this.currentRoute = screen.id;
       this.renderScreen(screen);
       this.updateActiveNavs(screen.id);
+
+      if (window.PageGuide && typeof window.PageGuide.renderGuide === 'function') {
+        window.PageGuide.renderGuide(screen.id);
+      }
+
+      if (window.BhoomiMapEngine && typeof window.BhoomiMapEngine.initMapForScreen === 'function') {
+        window.BhoomiMapEngine.initMapForScreen(screen.id);
+      }
+
+      if (window.BhoomiAnalytics && typeof window.BhoomiAnalytics.initChartsForScreen === 'function') {
+        window.BhoomiAnalytics.initChartsForScreen(screen.id);
+      }
       
       if (window.BhoomiInteractions && typeof window.BhoomiInteractions.onScreenMounted === 'function') {
         window.BhoomiInteractions.onScreenMounted(screen);

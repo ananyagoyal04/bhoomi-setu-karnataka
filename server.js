@@ -36,7 +36,7 @@ let DB_STORE = {
   ]
 };
 
-const server = http.createServer((req, res) => {
+const requestHandler = (req, res) => {
   const parsedUrl = new URL(req.url, `http://${req.headers.host}`);
   let reqPath = parsedUrl.pathname;
 
@@ -163,13 +163,19 @@ const server = http.createServer((req, res) => {
     const stream = fs.createReadStream(filePath);
     stream.pipe(res);
   });
-});
+};
 
-server.listen(PORT, () => {
-  console.log(`=======================================================`);
-  console.log(`🏛️  Bhoomi Setu (ಭೂಮಿ ಸೇತು) Multi-Tier Server Running`);
-  console.log(`🌐 Local URL: http://localhost:${PORT}`);
-  console.log(`🚀 REST API: http://localhost:${PORT}/api/health`);
-  console.log(`📱 32 Interactive UI Screens with 2 Clean Demo Records`);
-  console.log(`=======================================================`);
-});
+const server = http.createServer(requestHandler);
+
+if (require.main === module) {
+  server.listen(PORT, () => {
+    console.log(`=======================================================`);
+    console.log(`🏛️  Bhoomi Setu (ಭೂಮಿ ಸೇತು) Multi-Tier Server Running`);
+    console.log(`🌐 Local URL: http://localhost:${PORT}`);
+    console.log(`🚀 REST API: http://localhost:${PORT}/api/health`);
+    console.log(`📱 32 Interactive UI Screens with 2 Clean Demo Records`);
+    console.log(`=======================================================`);
+  });
+}
+
+module.exports = requestHandler;

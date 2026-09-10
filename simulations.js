@@ -22,7 +22,7 @@
           <div class="flex items-center gap-2.5">
             <span class="material-symbols-outlined text-secondary text-[24px]">tune</span>
             <div>
-              <h4 class="font-headline-sm text-sm font-bold text-on-surface">Interactive AI Turnaround Simulator (SIH Live Engine)</h4>
+              <h4 class="font-headline-sm text-sm font-bold text-on-surface">Interactive AI Turnaround Simulator (Karnataka State Engine)</h4>
               <p class="font-body-sm text-xs text-on-surface-variant">Toggle statutory legal & financial turnaround levers to calculate optimized project timeline</p>
             </div>
           </div>

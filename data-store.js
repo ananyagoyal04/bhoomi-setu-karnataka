@@ -1,6 +1,209 @@
-// Bhoomi Setu — Central In-Memory Dynamic Dataset (Government of Karnataka)
+// Bhoomi Setu — Authentic Karnataka Land Acquisition Dataset
+// Schema aligned with Karnataka Bhoomi, BhoomiRashi (MoRTH), and data.gov.in
 window.BHOOMI_DATA = {
-  // Administrative Hierarchy
+  // 3 Clear Demo Personas
+  demoUsers: {
+    citizen: {
+      id: "CITIZEN_RAJESH_01",
+      role: "citizen",
+      roleLabel: "👨‍🌾 Landowner / Citizen",
+      name: "Sri. Rajesh Kumar",
+      fatherName: "Late S. Muniyappa",
+      aadhaarMasked: "XXXX-XXXX-4819",
+      mobile: "+91 98450 12894",
+      district: "Bengaluru Urban",
+      taluk: "Bengaluru East",
+      hobli: "Varthur",
+      village: "Bellandur",
+      khataNo: "1842/48",
+      primarySurveyNo: "48/2A",
+      extentAcres: "1.45 Acres (58 Guntas)",
+      totalAward: "₹ 6,78,40,000",
+      bankName: "Canara Bank (Bellandur Branch)",
+      accountNoMasked: "XXXX-XXXX-9182",
+      ifsc: "CNRB0001892",
+      pfmsRef: "PFMS2025KA048912",
+      pfmsStatus: "Direct Escrow Credit Initiated"
+    },
+    officer: {
+      id: "SLAO_SHIVARAM_02",
+      role: "officer",
+      roleLabel: "👔 Land Acquisition Officer (SLAO)",
+      name: "Sri. B. Shivaram, KAS",
+      designation: "Special Land Acquisition Officer (SLAO) — Bengaluru East & North",
+      empCode: "KAS-2012-0894",
+      department: "Revenue Department, Govt of Karnataka",
+      dscTokenId: "ePass2003Auto-98FC-4421",
+      dscStatus: "Class-3 Cryptographic Token Active (Valid till 2027)"
+    },
+    executive: {
+      id: "EXEC_CHIEF_SEC_03",
+      role: "executive",
+      roleLabel: "🏢 Chief Secretary (State Command)",
+      name: "Chief Secretary to Government of Karnataka",
+      designation: "Head of Infrastructure Oversight & High Power Committee",
+      department: "Cabinet Secretariat, Vidhana Soudha",
+      projectScope: "Namma Metro Phase 2A/2B, PRR Stage 1, K-RIDE Suburban Rail"
+    }
+  },
+
+  // 13 Namma Metro Phase 2A Stations (Outer Ring Road Line - Silk Board to KR Puram, 18.2 km)
+  metroStations: [
+    { id: 1, name: "Central Silk Board", coords: [12.9175, 77.6234], chainage: "CH 0+000", acquiredParcels: "28/28", status: "100% Acquired • Piers 84%", type: "Interchange Hub" },
+    { id: 2, name: "HSR Layout", coords: [12.9168, 77.6385], chainage: "CH 1+850", acquiredParcels: "24/24", status: "100% Acquired • Concourse Cast", type: "Elevated Station" },
+    { id: 3, name: "Agara Lake", coords: [12.9242, 77.6620], chainage: "CH 4+200", acquiredParcels: "30/30", status: "100% Acquired • Pier Caps Erected", type: "Elevated Station" },
+    { id: 4, name: "Iblur Junction", coords: [12.9255, 77.6710], chainage: "CH 5+400", acquiredParcels: "22/22", status: "100% Acquired • Viaduct Span 70%", type: "Elevated Station" },
+    { id: 5, name: "Bellandur (Near Sy 48/2A)", coords: [12.9265, 77.6770], chainage: "CH 6+850", acquiredParcels: "32/32", status: "100% Acquired (Sec 19 Gazetted)", type: "Elevated Station" },
+    { id: 6, name: "Kadubeesanahalli", coords: [12.9320, 77.6890], chainage: "CH 8+300", acquiredParcels: "26/28", status: "Utility Shifting (BESCOM 66kV)", type: "Elevated Station" },
+    { id: 7, name: "Kodibeesanahalli", coords: [12.9390, 77.6940], chainage: "CH 9+600", acquiredParcels: "24/24", status: "100% Acquired • Foundation Ready", type: "Elevated Station" },
+    { id: 8, name: "Marathahalli", coords: [12.9460, 77.6980], chainage: "CH 11+100", acquiredParcels: "36/36", status: "100% Acquired • Viaduct Erected", type: "Elevated Station" },
+    { id: 9, name: "ISRO / Karthik Nagar", coords: [12.9650, 77.7010], chainage: "CH 13+200", acquiredParcels: "20/20", status: "100% Acquired • Girders Placed", type: "Elevated Station" },
+    { id: 10, name: "Doddanekundi", coords: [12.9750, 77.6920], chainage: "CH 14+700", acquiredParcels: "22/22", status: "100% Acquired • Concourse Work", type: "Elevated Station" },
+    { id: 11, name: "DRDO Sports Complex", coords: [12.9860, 77.6800], chainage: "CH 16+100", acquiredParcels: "18/18", status: "100% Acquired • Track Slab Cast", type: "Elevated Station" },
+    { id: 12, name: "Sarasvathi Nagar", coords: [12.9940, 77.6770], chainage: "CH 17+200", acquiredParcels: "16/16", status: "100% Acquired • Civil Structure 90%", type: "Elevated Station" },
+    { id: 13, name: "KR Puram Terminal", coords: [13.0000, 77.6750], chainage: "CH 18+200", acquiredParcels: "40/40", status: "Intermodal Hub Underway", type: "Interchange Terminal" }
+  ],
+
+  // Cadastral Survey Plots (Bhoomi Schema)
+  parcels: [
+    {
+      id: "48-2A",
+      surveyNo: "48/2A",
+      hissaNo: "2A",
+      khataNo: "1842/48",
+      district: "Bengaluru Urban",
+      taluk: "Bengaluru East",
+      hobli: "Varthur",
+      village: "Bellandur",
+      owner: "Rajesh Kumar S/o Late S. Muniyappa",
+      aadhaarMasked: "XXXX-XXXX-4819",
+      extentAcres: "1.45 Acres (58 Guntas)",
+      landClass: "Dry Agricultural (Converted)",
+      project: "Bengaluru Metro Phase 2A (ORR Line)",
+      stage: "Section 19(1) Final Declaration Published",
+      statusCode: "SEC_19_DECLARED",
+      colorTag: "#ba1a1a", // Red: Acquired
+      guidanceValue: "₹ 3,20,00,000",
+      solatium100: "₹ 3,20,00,000",
+      interest12Pct: "₹ 38,40,000",
+      totalAward: "₹ 6,78,40,000",
+      pfmsStatus: "PFMS Direct Credit Initiated (Canara Bank XXXX-9182)",
+      disputeNotes: "Section 15(1) Valuation Objection: 14 Coconut Trees & Borewell valuation requested (+₹18.5 Lakhs)",
+      coordinates: [12.9279, 77.6771],
+      polygon: [
+        [12.9270, 77.6755],
+        [12.9290, 77.6760],
+        [12.9285, 77.6785],
+        [12.9265, 77.6775]
+      ]
+    },
+    {
+      id: "48-1",
+      surveyNo: "48/1",
+      hissaNo: "1",
+      khataNo: "1840/48",
+      district: "Bengaluru Urban",
+      taluk: "Bengaluru East",
+      hobli: "Varthur",
+      village: "Bellandur",
+      owner: "Smt. Shanthamma & 2 Others",
+      extentAcres: "2.10 Acres (84 Guntas)",
+      landClass: "Agricultural",
+      project: "Bengaluru Metro Phase 2A",
+      stage: "Section 23 Award Finalized & Disbursed",
+      statusCode: "DISBURSED",
+      colorTag: "#006b5b", // Blue/Teal: Disbursed
+      totalAward: "₹ 9,45,00,000",
+      pfmsStatus: "Disbursed to Beneficiary Bank A/c",
+      coordinates: [12.9300, 77.6740],
+      polygon: [
+        [12.9295, 77.6730],
+        [12.9315, 77.6735],
+        [12.9310, 77.6755],
+        [12.9290, 77.6750]
+      ]
+    },
+    {
+      id: "48-2B",
+      surveyNo: "48/2B",
+      hissaNo: "2B",
+      khataNo: "1843/48",
+      district: "Bengaluru Urban",
+      taluk: "Bengaluru East",
+      hobli: "Varthur",
+      village: "Bellandur",
+      owner: "Sri. K. Venkataramanappa",
+      extentAcres: "0.85 Acres (34 Guntas)",
+      landClass: "Dry Agricultural",
+      project: "Bengaluru Metro Phase 2A",
+      stage: "Section 11(1) Preliminary Notification Active",
+      statusCode: "SEC_11_ACTIVE",
+      colorTag: "#b45309", // Amber: Preliminary
+      totalAward: "₹ 3,82,50,000",
+      pfmsStatus: "Dossier under SLAO Technical Scrutiny",
+      coordinates: [12.9255, 77.6790],
+      polygon: [
+        [12.9250, 77.6780],
+        [12.9265, 77.6785],
+        [12.9260, 77.6805],
+        [12.9245, 77.6800]
+      ]
+    },
+    {
+      id: "56-2",
+      surveyNo: "56/2",
+      hissaNo: "2",
+      khataNo: "GOVT-56",
+      district: "Bengaluru Urban",
+      taluk: "Bengaluru North",
+      hobli: "Hesaraghatta",
+      village: "Chikkabanavara",
+      owner: "Government of Karnataka (Revenue Dept)",
+      extentAcres: "3.20 Acres (128 Guntas)",
+      landClass: "Vacant Public Gomal Land",
+      project: "Civic Amenity Allotment (Primary Healthcare Centre)",
+      stage: "Available for Civic Allotment (Form 49-B)",
+      statusCode: "GOVT_AVAILABLE",
+      colorTag: "#15803d", // Green: Public Land
+      totalAward: "₹ 0 (Government Asset)",
+      pfmsStatus: "Public Allotment Single Window",
+      coordinates: [13.0722, 77.5085],
+      polygon: [
+        [13.0710, 77.5070],
+        [13.0735, 77.5075],
+        [13.0730, 77.5100],
+        [13.0705, 77.5090]
+      ]
+    },
+    {
+      id: "12-4",
+      surveyNo: "12/4",
+      hissaNo: "4",
+      khataNo: "982/12",
+      district: "Bengaluru Urban",
+      taluk: "Bengaluru North",
+      hobli: "Yelahanka",
+      village: "Yelahanka Amanikere",
+      owner: "Rajesh Kumar (Ancestral Title)",
+      extentAcres: "2.10 Acres (84 Guntas)",
+      landClass: "Wetland Lake Buffer Protected",
+      project: "Bengaluru Suburban Railway (K-RIDE Corridor 2)",
+      stage: "Section 11(1) Survey Verified",
+      statusCode: "SEC_11_ACTIVE",
+      colorTag: "#b45309",
+      totalAward: "₹ 5,25,00,000",
+      pfmsStatus: "Title Verification Approved",
+      coordinates: [13.1005, 77.5960],
+      polygon: [
+        [13.0995, 77.5950],
+        [13.1020, 77.5955],
+        [13.1015, 77.5980],
+        [13.0990, 77.5975]
+      ]
+    }
+  ],
+
+  // Administrative Cascaded Hierarchy
   locations: {
     "Bengaluru Urban": {
       "Bengaluru East": {
@@ -18,262 +221,6 @@ window.BHOOMI_DATA = {
         "Kengeri": ["Hemmigepura", "Kengeri Satellite Town", "Kumbalgodu"],
         "Uttarahalli": ["Channasandra", "Subramanyapura", "Vajarahalli"]
       }
-    },
-    "Bengaluru Rural": {
-      "Devanahalli": {
-        "Kasaba": ["Devanahalli Town", "Binnamangala", "Vijayapura"],
-        "Kundana": ["Arisinakunte", "Kundana", "Vishwanathapura"]
-      },
-      "Hosakote": {
-        "Kasaba": ["Hosakote Town", "Doddagattiganabbe"],
-        "Anugondanahalli": ["Anugondanahalli", "Devangonthi"]
-      },
-      "Nelamangala": {
-        "Kasaba": ["Nelamangala Town", "Arasinakunte"],
-        "Sompura": ["Dabaspete", "Niduvanda", "Sompura"]
-      }
     }
-  },
-
-  // Registered Cadastral Survey Parcels
-  parcels: [
-    {
-      id: "48-2A",
-      surveyNo: "48/2A",
-      district: "Bengaluru Urban",
-      taluk: "Bengaluru East",
-      hobli: "Varthur",
-      village: "Bellandur",
-      owner: "Rajesh Kumar S/o S. Muniyappa",
-      aadhaarMasked: "XXXX-XXXX-4819",
-      extentAcres: "1.45 Acres (58 Guntas)",
-      landClass: "Dry Agricultural (Converted)",
-      project: "Bengaluru Metro Phase 2A (Outer Ring Road Line)",
-      stage: "Section 19(1) Declared",
-      stageCode: "SEC_19_1",
-      guidanceValue: "₹ 3,20,00,000",
-      solatium100: "₹ 3,20,00,000",
-      additionalInterest: "₹ 38,40,000",
-      totalAward: "₹ 6,78,40,000",
-      pfmsStatus: "PFMS Escrow Direct Credit Initiated",
-      disputeStatus: "Lok Adalat Hearing Scheduled (Valuation Objection)",
-      coordinates: [12.9279, 77.6771],
-      polygon: [
-        [12.9270, 77.6755],
-        [12.9290, 77.6760],
-        [12.9285, 77.6785],
-        [12.9265, 77.6775]
-      ]
-    },
-    {
-      id: "48-1",
-      surveyNo: "48/1",
-      district: "Bengaluru Urban",
-      taluk: "Bengaluru East",
-      hobli: "Varthur",
-      village: "Bellandur",
-      owner: "Smt. Shanthamma & 2 Others",
-      extentAcres: "2.10 Acres",
-      landClass: "Agricultural",
-      project: "Bengaluru Metro Phase 2A",
-      stage: "Section 23 Award Finalized",
-      totalAward: "₹ 9,45,00,000",
-      pfmsStatus: "Disbursed to Canara Bank A/c",
-      coordinates: [12.9300, 77.6740]
-    },
-    {
-      id: "48-2B",
-      surveyNo: "48/2B",
-      district: "Bengaluru Urban",
-      taluk: "Bengaluru East",
-      hobli: "Varthur",
-      village: "Bellandur",
-      owner: "Sri. K. Venkataramanappa",
-      extentAcres: "0.85 Acres",
-      landClass: "Commercial Encroachment Free",
-      project: "Bengaluru Metro Phase 2A",
-      stage: "Section 11(1) Preliminary Notice",
-      totalAward: "₹ 3,82,50,000",
-      pfmsStatus: "Dossier under SLAO Scrutiny",
-      coordinates: [12.9255, 77.6790]
-    },
-    {
-      id: "56-2",
-      surveyNo: "56/2",
-      district: "Bengaluru Urban",
-      taluk: "Bengaluru North",
-      hobli: "Hesaraghatta",
-      village: "Chikkabanavara",
-      owner: "Government of Karnataka (Revenue Dept)",
-      extentAcres: "3.20 Acres (Gomal Land)",
-      landClass: "Government Public Land (Vacant)",
-      project: "Primary Healthcare & Civic Amenity Allotment",
-      stage: "Available for Statutory Allotment (Form 49-B)",
-      stageCode: "GOVT_AVAILABLE",
-      allotmentCategory: "Civic Amenity / Public Health",
-      coordinates: [13.0722, 77.5085],
-      polygon: [
-        [13.0710, 77.5070],
-        [13.0735, 77.5075],
-        [13.0730, 77.5100],
-        [13.0705, 77.5090]
-      ]
-    },
-    {
-      id: "12-4",
-      surveyNo: "12/4",
-      district: "Bengaluru Urban",
-      taluk: "Bengaluru North",
-      hobli: "Yelahanka",
-      village: "Yelahanka Amanikere",
-      owner: "Rajesh Kumar (Inherited Ancestral Title)",
-      extentAcres: "2.10 Acres",
-      landClass: "Wet Land (Buffer Protected)",
-      project: "Suburban Rail Corridor 2 (K-RIDE)",
-      stage: "Section 11(1) Survey Verified",
-      totalAward: "₹ 5,25,00,000",
-      pfmsStatus: "Title Verification Complete",
-      coordinates: [13.1005, 77.5960]
-    }
-  ],
-
-  // State Mega Infrastructure Projects
-  projects: [
-    {
-      id: "bmrcl-phase-2a",
-      name: "Bengaluru Metro Phase 2A (Silk Board to KR Puram)",
-      agency: "BMRCL",
-      lengthKm: "18.2 km",
-      stations: 13,
-      totalParcels: 348,
-      acquiredParcels: 312,
-      pendingParcels: 36,
-      progressPercent: 89.6,
-      budgetCr: "₹ 5,994 Cr",
-      disbursedCr: "₹ 1,842 Cr",
-      predictedDelayMonths: 4.2,
-      mitigatedDelayMonths: 0.8,
-      primaryDelayCause: "High Court Writs & BESCOM 66kV Utility Shifting"
-    },
-    {
-      id: "bda-prr-1",
-      name: "Bengaluru Peripheral Ring Road (PRR Stage 1)",
-      agency: "BDA",
-      lengthKm: "73.5 km",
-      stations: 0,
-      totalParcels: 1420,
-      acquiredParcels: 980,
-      pendingParcels: 440,
-      progressPercent: 69.0,
-      budgetCr: "₹ 21,091 Cr",
-      disbursedCr: "₹ 4,320 Cr",
-      predictedDelayMonths: 6.8,
-      mitigatedDelayMonths: 1.5,
-      primaryDelayCause: "Section 27 Valuation Revision Demands"
-    },
-    {
-      id: "kride-corridor-2",
-      name: "Bengaluru Suburban Rail Project (Corridor 2 - Mallige Line)",
-      agency: "K-RIDE",
-      lengthKm: "25.0 km",
-      stations: 14,
-      totalParcels: 210,
-      acquiredParcels: 188,
-      pendingParcels: 22,
-      progressPercent: 89.5,
-      budgetCr: "₹ 4,200 Cr",
-      disbursedCr: "₹ 890 Cr",
-      predictedDelayMonths: 2.1,
-      mitigatedDelayMonths: 0.4,
-      primaryDelayCause: "Defense Land & Railway Concurrence"
-    }
-  ],
-
-  // Statutory Litigations & Caveats
-  litigations: [
-    {
-      wpNo: "WP 18492/2024",
-      court: "Hon'ble High Court of Karnataka (Bench 3)",
-      petitioner: "Rajesh Kumar vs State of Karnataka & BMRCL",
-      surveyNo: "48/2A Bellandur",
-      stage: "Interim Stay on Physical Possession pending Solatium Re-computation",
-      govtPleader: "Sri. K. Raghavendra (Advocate General Desk)",
-      actionRequired: "File Urgent Vacation Application under Sec 64 Escrow Undertaking",
-      daysSavedIfVacated: 45
-    },
-    {
-      wpNo: "WP 22104/2024",
-      court: "City Civil Court Bengaluru (Lok Adalat)",
-      petitioner: "Partition Claim: Venkatamma vs Muniyappa Heirs",
-      surveyNo: "104/1B Kadubeesanahalli",
-      stage: "Section 77 Statutory Escrow Deposit Recommended",
-      govtPleader: "District Govt Pleader (Civil)",
-      actionRequired: "Deposit ₹2.40 Cr in Principal District Court Escrow Account",
-      daysSavedIfVacated: 30
-    }
-  ],
-
-  // Inter-Agency Utility Relocations
-  utilities: [
-    {
-      agency: "BESCOM",
-      type: "66kV High-Tension Transmission Overhead Lines (Span 12-16)",
-      location: "Outer Ring Road - Bellandur Flyover",
-      costEstimate: "₹ 14.80 Cr",
-      status: "Joint Deposit Deposited • Physical Shifting 65%",
-      criticality: "High"
-    },
-    {
-      agency: "BWSSB",
-      type: "1200mm Bulk Water Supply Pipeline (Cauvery Stage IV)",
-      location: "Kadubeesanahalli Junction",
-      costEstimate: "₹ 8.40 Cr",
-      status: "Tender Awarded • ROW Clearance In Progress",
-      criticality: "Medium"
-    },
-    {
-      agency: "GAIL Gas",
-      type: "Natural Gas Distribution Steel Mains",
-      location: "Silk Board interchange",
-      costEstimate: "₹ 3.20 Cr",
-      status: "Safety Clearance Granted • Night Works Active",
-      criticality: "Low"
-    }
-  ],
-
-  // AI Mitigation Recommendations Presets
-  mitigationActions: [
-    {
-      id: "action-escrow",
-      title: "File Section 64/77 Disputed Escrow Motion",
-      agency: "Revenue Dept / BMRCL",
-      timelineSavingDays: 45,
-      costSavingCr: 32.4,
-      defaultActive: true
-    },
-    {
-      id: "action-hc-vacation",
-      title: "Special Motion for High Court Stay Vacation",
-      agency: "Advocate General Desk",
-      timelineSavingDays: 30,
-      costSavingCr: 24.0,
-      defaultActive: true
-    },
-    {
-      id: "action-utility-tripartite",
-      title: "Authorize Tripartite Escrow Fund with BESCOM/BWSSB",
-      agency: "Infrastructure Finance Desk",
-      timelineSavingDays: 27,
-      costSavingCr: 18.5,
-      defaultActive: true
-    },
-    {
-      id: "action-lok-adalat",
-      title: "Fast-Track Special Lok Adalat Hearing Desk",
-      agency: "District Legal Services Authority (DLSA)",
-      timelineSavingDays: 15,
-      costSavingCr: 9.1,
-      defaultActive: true
-    }
-  ]
+  }
 };

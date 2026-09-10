@@ -204,14 +204,96 @@
 <body class="bg-background font-body-md text-on-surface antialiased selection:bg-secondary-container selection:text-on-secondary-container">
 
   <!-- Master App Root Mount Container -->
-  <div id="app-root" class="min-h-screen flex flex-col">
-    <!-- Screen content dynamically mounted here by BhoomiRouter -->
-    <div class="flex items-center justify-center min-h-screen p-8 text-center text-on-surface-variant">
-      <div class="space-y-4">
-        <div class="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto"></div>
-        <p class="font-headline-sm text-sm font-bold text-primary">Loading Bhoomi Setu Portal...</p>
+  <div id="app-root" class="min-h-screen flex items-center justify-center p-gutter-desktop">
+    <!-- Pre-rendered Instant Gateway Interface -->
+    <main class="w-full max-w-md mx-auto">
+      <div class="flex flex-col w-full">
+        <div class="w-full mb-space-5">
+          <a class="inline-flex items-center gap-space-2 text-primary font-label-md hover:underline" href="#/home">
+            <span class="material-symbols-outlined text-[16px]">arrow_back</span>
+            <span>Back to Bhoomi Setu Home</span>
+          </a>
+        </div>
+        <div class="w-full bg-surface-container-lowest rounded-xl shadow-md p-space-6 sm:p-space-8 flex flex-col gap-space-6">
+          <div class="flex flex-col gap-space-3 pb-space-4 bg-surface-container-low p-space-4 rounded-lg">
+            <div class="flex items-center justify-between gap-space-2">
+              <div class="flex items-center gap-space-2">
+                <span class="material-symbols-outlined text-primary text-[28px]">account_balance</span>
+                <div class="flex flex-col">
+                  <span class="font-label-sm uppercase tracking-wider text-on-surface-variant">Government of Karnataka</span>
+                  <span class="font-headline-sm text-on-surface">ಕರ್ನಾಟಕ ಸರ್ಕಾರ • ಕಂದಾಯ ಇಲಾಖೆ</span>
+                </div>
+              </div>
+              <span class="inline-flex items-center gap-space-1 px-space-2 py-space-1 rounded bg-secondary-container text-on-secondary-container font-label-sm">
+                <span class="material-symbols-outlined text-[14px]">verified_user</span>
+                Official Govt. Portal
+              </span>
+            </div>
+            <div class="flex flex-col gap-space-1 mt-space-2">
+              <h1 class="font-headline-md text-on-surface">Bhoomi Setu Portal Sign In</h1>
+              <p class="font-body-sm text-on-surface-variant">Access your land records, survey dockets, or executive administration dashboard.</p>
+            </div>
+          </div>
+
+          <!-- 3 Pre-Fed Aadhaar Logins -->
+          <div id="quick-login-pills" class="p-4 bg-surface-container-low border-2 border-primary/30 rounded-xl space-y-3">
+            <div class="flex items-center justify-between border-b border-outline-variant/60 pb-2">
+              <span class="font-bold text-xs text-primary uppercase tracking-wider flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-[18px]">badge</span> 3 Demo Aadhaar Logins:
+              </span>
+              <span class="text-[10px] bg-primary/10 text-primary px-2 py-0.5 rounded font-bold">Pre-Fed Cards</span>
+            </div>
+
+            <div class="space-y-2.5">
+              <!-- Citizen -->
+              <button type="button" class="w-full p-3 bg-surface-container-lowest border border-outline-variant hover:border-emerald-600 rounded-lg text-left transition-all hover:shadow-md flex items-center justify-between group" onclick="if(window.BhoomiBackend){window.BhoomiBackend.login('citizen')}else{window.location.hash='#/citizen-dashboard'}">
+                <div class="flex items-center gap-2.5">
+                  <span class="material-symbols-outlined text-emerald-700 text-[26px]">person</span>
+                  <div>
+                    <div class="flex items-center gap-2">
+                      <span class="font-bold text-xs text-on-surface group-hover:text-emerald-700">1. Citizen / Landowner (Rajesh Kumar)</span>
+                      <span class="font-code-sm text-[10px] bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 px-1.5 py-0.2 rounded font-bold">5489-1204-4819</span>
+                    </div>
+                    <span class="text-[11px] text-gray-500 block">Sy 48/2A Bellandur • ₹6.78 Cr Compensation & Bank Escrow</span>
+                  </div>
+                </div>
+                <span class="text-xs text-emerald-700 font-bold group-hover:translate-x-1 transition-transform shrink-0">Enter ➔</span>
+              </button>
+
+              <!-- Officer -->
+              <button type="button" class="w-full p-3 bg-surface-container-lowest border border-outline-variant hover:border-blue-600 rounded-lg text-left transition-all hover:shadow-md flex items-center justify-between group" onclick="if(window.BhoomiBackend){window.BhoomiBackend.login('officer')}else{window.location.hash='#/officer-dashboard'}">
+                <div class="flex items-center gap-2.5">
+                  <span class="material-symbols-outlined text-blue-700 text-[26px]">badge</span>
+                  <div>
+                    <div class="flex items-center gap-2">
+                      <span class="font-bold text-xs text-on-surface group-hover:text-blue-700">2. SLAO Officer (Sri. B. Shivaram, KAS)</span>
+                      <span class="font-code-sm text-[10px] bg-blue-100 dark:bg-blue-950 text-blue-800 dark:text-blue-300 px-1.5 py-0.2 rounded font-bold">8921-4421-0894</span>
+                    </div>
+                    <span class="text-[11px] text-gray-500 block">KAS Officer Token • Verify Title Deeds & Apply Digital DSC Seal</span>
+                  </div>
+                </div>
+                <span class="text-xs text-blue-700 font-bold group-hover:translate-x-1 transition-transform shrink-0">Enter ➔</span>
+              </button>
+
+              <!-- Executive -->
+              <button type="button" class="w-full p-3 bg-surface-container-lowest border border-outline-variant hover:border-purple-600 rounded-lg text-left transition-all hover:shadow-md flex items-center justify-between group" onclick="if(window.BhoomiBackend){window.BhoomiBackend.login('executive')}else{window.location.hash='#/executive-dashboard-1'}">
+                <div class="flex items-center gap-2.5">
+                  <span class="material-symbols-outlined text-purple-700 text-[26px]">query_stats</span>
+                  <div>
+                    <div class="flex items-center gap-2">
+                      <span class="font-bold text-xs text-on-surface group-hover:text-purple-700">3. Chief Secretary (Executive Desk)</span>
+                      <span class="font-code-sm text-[10px] bg-purple-100 dark:bg-purple-950 text-purple-800 dark:text-purple-300 px-1.5 py-0.2 rounded font-bold">1102-9934-0001</span>
+                    </div>
+                    <span class="text-[11px] text-gray-500 block">Statewide Command • Metro Phase 2A Tracker & AI Delay Mitigation</span>
+                  </div>
+                </div>
+                <span class="text-xs text-purple-700 font-bold group-hover:translate-x-1 transition-transform shrink-0">Enter ➔</span>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </main>
   </div>
 
   <!-- Leaflet GIS Library -->

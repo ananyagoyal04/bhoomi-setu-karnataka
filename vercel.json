@@ -1,21 +1,17 @@
 {
-  "version": 2,
-  "public": true,
-  "routes": [
+  "cleanUrls": true,
+  "rewrites": [
     {
-      "src": "/api/health",
-      "dest": "/api/health.js"
+      "source": "/api/health",
+      "destination": "/api/health.js"
     },
     {
-      "src": "/api/parcels",
-      "dest": "/api/parcels.js"
+      "source": "/api/parcels",
+      "destination": "/api/parcels.js"
     },
     {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/((?!api/|.*\\..*).*)",
+      "destination": "/index.html"
     }
   ],
   "headers": [

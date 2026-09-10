@@ -141,19 +141,22 @@ const requestHandler = (req, res) => {
   const safePath = path.normalize(reqPath).replace(/^(\.\.[\/\\])+/, '');
   let filePath = path.join(__dirname, safePath);
 
-  if (!fs.existsSync(filePath)) {
-    filePath = path.join(__dirname, 'stitch_bhoomi_setu_land_portal', safePath);
+  if (!fs.existsSync(filePath) || fs.statSync(filePath).isDirectory()) {
+    const stitchPath = path.join(__dirname, 'stitch_bhoomi_setu_land_portal', safePath);
+    if (fs.existsSync(stitchPath) && fs.statSync(stitchPath).isFile()) {
+      filePath = stitchPath;
+    } else {
+      filePath = path.join(__dirname, 'index.html');
+    }
   }
 
   fs.stat(filePath, (err, stats) => {
     if (err || !stats.isFile()) {
-      res.writeHead(404, { 'Content-Type': 'text/plain' });
-      res.end('404 Not Found');
-      return;
+      filePath = path.join(__dirname, 'index.html');
     }
 
     const ext = path.extname(filePath).toLowerCase();
-    const contentType = MIME_TYPES[ext] || 'application/octet-stream';
+    const contentType = MIME_TYPES[ext] || 'text/html; charset=utf-8';
 
     res.writeHead(200, {
       'Content-Type': contentType,

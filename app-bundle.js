@@ -5,7 +5,7 @@
 // 1. STATE & USER SESSION ENGINE (BhoomiBackend)
 // ============================================================================
 (function () {
-  const STORAGE_KEY = 'BHOOMI_ENTERPRISE_STATE_V3';
+  const STORAGE_KEY = 'BHOOMI_ENTERPRISE_STATE_V4';
 
   const DEFAULT_USERS = {
     citizen: {
@@ -74,14 +74,13 @@
 
       if (window.BhoomiInteractions) {
         window.BhoomiInteractions.showToast(
-          `Logged in as ${user.name} (${user.roleName})`,
+          `Switched to ${user.name} (${user.roleName})`,
           'success',
-          'Authentication Gateway'
+          'Role Switcher'
         );
       }
 
-      // Synchronous navigation mapping
-      let targetRoute = 'home';
+      let targetRoute = 'citizen-dashboard';
       if (role === 'citizen') targetRoute = 'citizen-dashboard';
       else if (role === 'officer') targetRoute = 'officer-dashboard';
       else if (role === 'executive') targetRoute = 'executive-dashboard-1';
@@ -107,7 +106,7 @@
 // 2. CLIENT-SIDE ROUTER (BhoomiRouter)
 // ============================================================================
 (function () {
-  const DEFAULT_ROUTE = 'official-login';
+  const DEFAULT_ROUTE = 'citizen-dashboard';
 
   class BhoomiRouter {
     constructor() {
@@ -127,12 +126,12 @@
     init() {
       this.loadScreens();
       window.addEventListener('hashchange', () => this.handleHashChange());
+      
+      // Execute immediately and on DOM load
+      this.handleHashChange();
       if (document.readyState === 'loading') {
         window.addEventListener('DOMContentLoaded', () => this.handleHashChange());
-      } else {
-        this.handleHashChange();
       }
-      setTimeout(() => this.handleHashChange(), 20);
     }
 
     getRouteFromHash() {
@@ -144,7 +143,6 @@
       this.loadScreens();
       const target = this.routes[routeId] ? routeId : DEFAULT_ROUTE;
       window.location.hash = `#/${target}`;
-      // Trigger synchronous handleHashChange in case hash was already same
       this.handleHashChange();
     }
 
@@ -156,10 +154,16 @@
       if (!screen) return;
 
       this.currentRoute = screen.id;
+
+      // Auto-sync persona state with route
+      if (screen.id.includes('officer') || screen.id.includes('verification') || screen.id.includes('approval')) {
+        if (window.BhoomiBackend) window.BhoomiBackend.state.currentUser = window.BhoomiBackend.loadState().currentUser;
+      }
+
       this.renderScreen(screen);
       this.updateActiveNavs(screen.id);
 
-      // Progressive Non-blocking Lifecycle Enhancements
+      // Non-blocking Lifecycle Enhancements
       try { if (window.PageGuide) window.PageGuide.renderGuide(screen.id); } catch(e) {}
       try { if (window.BhoomiMapEngine) window.BhoomiMapEngine.initMapForScreen(screen.id); } catch(e) {}
       try { if (window.BhoomiAnalytics) window.BhoomiAnalytics.initChartsForScreen(screen.id); } catch(e) {}
@@ -175,15 +179,8 @@
       const appRoot = document.getElementById('app-root');
       if (!appRoot) return;
       document.title = `${screen.title} | Bhoomi Setu — Government of Karnataka`;
-
-      if (screen.id === 'official-login') {
-        document.body.className = 'bg-background font-body-md text-on-surface antialiased min-h-screen flex items-center justify-center p-gutter-desktop';
-        appRoot.className = 'w-full max-w-md mx-auto';
-      } else {
-        document.body.className = 'bg-background font-body-md text-on-surface antialiased selection:bg-secondary-container selection:text-on-secondary-container';
-        appRoot.className = 'w-full min-h-screen';
-      }
-
+      document.body.className = screen.bodyClass || 'bg-background font-body-md text-on-surface antialiased selection:bg-secondary-container selection:text-on-secondary-container';
+      appRoot.className = 'w-full min-h-screen';
       appRoot.innerHTML = screen.html;
     }
 
@@ -295,11 +292,6 @@
 // ============================================================================
 (function () {
   const PAGE_EXPLAINERS = {
-    'official-login': {
-      title: '🔐 Bhoomi Setu Gateway — Government of Karnataka',
-      simpleWhat: 'Select any of the 3 pre-fed Aadhaar login credentials to test Landowner, SLAO Officer, or Chief Secretary flows.',
-      actions: ['Landowner (5489-1204-4819)', 'SLAO Officer (8921-4421-0894)', 'Chief Secretary (1102-9934-0001)']
-    },
     'citizen-dashboard': {
       title: '👨‍🌾 Landowner Portal — Sri. Rajesh Kumar (Bellandur)',
       simpleWhat: 'Track your ₹6.78 Cr statutory compensation award, view satellite boundary, and direct bank escrow payout status.',
@@ -364,9 +356,6 @@
           <div class="flex items-center gap-2 shrink-0">
             <button type="button" class="px-2.5 py-1 bg-emerald-700/80 hover:bg-emerald-600 text-white rounded font-bold flex items-center gap-1 transition-colors" onclick="window.FramesEngine.openCompensationFrame()">
               <span class="material-symbols-outlined text-[15px]">calculate</span> Solatium Calc
-            </button>
-            <button type="button" class="px-2.5 py-1 bg-white/10 hover:bg-white/20 text-white rounded font-bold flex items-center gap-1 transition-colors" onclick="window.BhoomiRouter.navigate('official-login')">
-              <span class="material-symbols-outlined text-[15px]">switch_account</span> Switch User
             </button>
           </div>
         </div>
@@ -557,7 +546,7 @@
       if (!document.getElementById('bhoomi-toast-container')) {
         const c = document.createElement('div');
         c.id = 'bhoomi-toast-container';
-        c.className = 'fixed top-5 right-5 z-[99999] flex flex-col gap-2 pointer-events-none max-w-md w-full px-4';
+        c.className = 'fixed top-12 right-5 z-[99999] flex flex-col gap-2 pointer-events-none max-w-md w-full px-4';
         document.body.appendChild(c);
       }
       document.addEventListener('click', (e) => this.handleClick(e));
@@ -590,7 +579,7 @@
       const target = e.target.closest('a, button, [data-path], [data-route], [data-role], [data-action]');
       if (!target) return;
 
-      // 1. Explicit data-role (Login Cards)
+      // 1. Explicit data-role (Role Switcher)
       const dataRole = target.getAttribute('data-role');
       if (dataRole) {
         e.preventDefault();
@@ -611,13 +600,13 @@
       if (dataPath) {
         e.preventDefault();
         const map = {
-          'home': 'home',
+          'home': 'citizen-dashboard',
           'public-land-directory': 'available-government-land',
           'survey-gazette': 'statutory-gazette-publishing',
           'verify-document': 'document-verification-queue',
           'grievances': 'grievance-hearing-desk',
           'helpdesk': 'grievance-hearing-desk',
-          'sign-in': 'official-login',
+          'sign-in': 'citizen-dashboard',
           'my-land-list': 'my-land-list',
           'parcel-record-dossier': 'parcel-detail'
         };
@@ -778,7 +767,7 @@
           <button type="button" title="Toggle Dark / Light Theme" class="p-1.5 bg-surface-container hover:bg-surface-container-high rounded-lg text-on-surface flex items-center gap-1 font-bold" onclick="window.PrototypeHUD.toggleTheme()">
             <span id="hud-theme-icon" class="material-symbols-outlined text-[16px] text-amber-500">dark_mode</span>
           </button>
-          <button type="button" class="px-2.5 py-1.5 bg-primary text-white rounded-lg font-bold flex items-center gap-1 shadow-sm" onclick="window.BhoomiRouter.navigate('official-login')">
+          <button type="button" class="px-2.5 py-1.5 bg-primary text-white rounded-lg font-bold flex items-center gap-1 shadow-sm" onclick="window.BhoomiRouter.navigate('citizen-dashboard')">
             <span class="material-symbols-outlined text-[16px]">grid_view</span>
             <span>20 Screens</span>
           </button>

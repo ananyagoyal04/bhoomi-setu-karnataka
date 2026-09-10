@@ -9,15 +9,27 @@
       this.init();
     }
 
-    init() {
+    loadScreens() {
       if (window.BHOOMI_SCREENS && Array.isArray(window.BHOOMI_SCREENS)) {
         window.BHOOMI_SCREENS.forEach(screen => {
           this.routes[screen.id] = screen;
         });
       }
+    }
 
+    init() {
+      this.loadScreens();
       window.addEventListener('hashchange', () => this.handleHashChange());
-      window.addEventListener('DOMContentLoaded', () => this.handleHashChange());
+      
+      if (document.readyState === 'loading') {
+        window.addEventListener('DOMContentLoaded', () => this.handleHashChange());
+      } else {
+        this.handleHashChange();
+      }
+
+      // Safeguard retry in case scripts loaded slightly asynchronously
+      setTimeout(() => this.handleHashChange(), 50);
+      setTimeout(() => this.handleHashChange(), 200);
     }
 
     getRouteFromHash() {
@@ -26,6 +38,7 @@
     }
 
     navigate(routeId) {
+      this.loadScreens();
       if (this.routes[routeId] || routeId === DEFAULT_ROUTE) {
         window.location.hash = `#/${routeId}`;
       } else {
@@ -35,11 +48,13 @@
     }
 
     handleHashChange() {
+      this.loadScreens();
+
       const routeId = this.getRouteFromHash();
-      const screen = this.routes[routeId] || this.routes[DEFAULT_ROUTE];
+      const screen = this.routes[routeId] || this.routes[DEFAULT_ROUTE] || (window.BHOOMI_SCREENS ? window.BHOOMI_SCREENS[0] : null);
 
       if (!screen) {
-        console.error('No screens available to render.');
+        console.warn('Waiting for screens dataset...');
         return;
       }
 
@@ -47,29 +62,42 @@
       this.renderScreen(screen);
       this.updateActiveNavs(screen.id);
 
-      if (window.PageGuide && typeof window.PageGuide.renderGuide === 'function') {
-        window.PageGuide.renderGuide(screen.id);
-      }
+      // Safe hooks execution with try-catch so nothing blocks rendering
+      try {
+        if (window.PageGuide && typeof window.PageGuide.renderGuide === 'function') {
+          window.PageGuide.renderGuide(screen.id);
+        }
+      } catch (err) { console.warn('PageGuide error:', err); }
 
-      if (window.BhoomiMapEngine && typeof window.BhoomiMapEngine.initMapForScreen === 'function') {
-        window.BhoomiMapEngine.initMapForScreen(screen.id);
-      }
+      try {
+        if (window.BhoomiMapEngine && typeof window.BhoomiMapEngine.initMapForScreen === 'function') {
+          window.BhoomiMapEngine.initMapForScreen(screen.id);
+        }
+      } catch (err) { console.warn('MapEngine error:', err); }
 
-      if (window.BhoomiAnalytics && typeof window.BhoomiAnalytics.initChartsForScreen === 'function') {
-        window.BhoomiAnalytics.initChartsForScreen(screen.id);
-      }
+      try {
+        if (window.BhoomiAnalytics && typeof window.BhoomiAnalytics.initChartsForScreen === 'function') {
+          window.BhoomiAnalytics.initChartsForScreen(screen.id);
+        }
+      } catch (err) { console.warn('Analytics error:', err); }
       
-      if (window.BhoomiInteractions && typeof window.BhoomiInteractions.onScreenMounted === 'function') {
-        window.BhoomiInteractions.onScreenMounted(screen);
-      }
+      try {
+        if (window.BhoomiInteractions && typeof window.BhoomiInteractions.onScreenMounted === 'function') {
+          window.BhoomiInteractions.onScreenMounted(screen);
+        }
+      } catch (err) { console.warn('Interactions error:', err); }
 
-      if (window.PrototypeHUD && typeof window.PrototypeHUD.onRouteChanged === 'function') {
-        window.PrototypeHUD.onRouteChanged(screen);
-      }
+      try {
+        if (window.PrototypeHUD && typeof window.PrototypeHUD.onRouteChanged === 'function') {
+          window.PrototypeHUD.onRouteChanged(screen);
+        }
+      } catch (err) { console.warn('PrototypeHUD error:', err); }
 
-      if (window.BhoomiBackend && typeof window.BhoomiBackend.updateAppHeader === 'function') {
-        window.BhoomiBackend.updateAppHeader();
-      }
+      try {
+        if (window.BhoomiBackend && typeof window.BhoomiBackend.updateAppHeader === 'function') {
+          window.BhoomiBackend.updateAppHeader();
+        }
+      } catch (err) { console.warn('Backend update error:', err); }
 
       window.scrollTo({ top: 0, behavior: 'instant' });
     }

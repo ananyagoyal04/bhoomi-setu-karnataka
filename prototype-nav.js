@@ -118,7 +118,7 @@
             </button>
             <button type="button" id="hud-btn-screens" class="flex items-center gap-1 px-3 py-1.5 bg-primary text-on-primary rounded-lg text-xs font-label-md hover:bg-primary-container transition-all shadow-sm" onclick="window.PrototypeHUD.toggleScreensModal()">
               <span class="material-symbols-outlined text-[16px]">grid_view</span>
-              <span>All 32 Screens</span>
+              <span>All 20 Screens</span>
             </button>
             <button type="button" id="hud-btn-tours" class="flex items-center gap-1 px-2.5 py-1.5 bg-surface-container hover:bg-surface-container-high rounded-lg text-xs font-label-md text-on-surface transition-colors" onclick="window.PrototypeHUD.toggleToursModal()">
               <span class="material-symbols-outlined text-[16px] text-secondary">explore</span>
@@ -133,7 +133,7 @@
         <!-- Minimized Pill -->
         <button id="hud-minimized-pill" type="button" class="hidden bg-primary text-on-primary border border-primary-container rounded-full shadow-2xl px-4 py-2 flex items-center gap-2 hover:bg-primary-container transition-all" onclick="window.PrototypeHUD.toggleMinimize()">
           <span class="material-symbols-outlined text-[18px]">account_balance</span>
-          <span class="font-label-md text-xs font-bold">Bhoomi Setu (32 Screens)</span>
+          <span class="font-label-md text-xs font-bold">Bhoomi Setu (20 Screens)</span>
           <span class="material-symbols-outlined text-[16px]">open_in_full</span>
         </button>
 

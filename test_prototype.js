@@ -32,7 +32,7 @@ async function runTests() {
 
   const screens = sandbox.window.BHOOMI_SCREENS;
   assert(Array.isArray(screens), 'screens is an array');
-  assert(screens.length === 32, `Exactly 32 screens loaded (actual: ${screens.length})`);
+  assert(screens.length === 20, `Exactly 20 screens loaded (actual: ${screens.length})`);
 
   // 2. Validate all multi-backend and frontend files exist
   const filesToCheck = [

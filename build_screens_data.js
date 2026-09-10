@@ -4,6 +4,15 @@ const path = require('path');
 const baseDir = path.join(__dirname, 'stitch_bhoomi_setu_land_portal');
 
 const screenMetadata = {
+  'bhoomi_setu_official_login': {
+    id: 'official-login',
+    folder: 'bhoomi_setu_official_login',
+    name: 'Official Sign-In Gateway',
+    role: 'auth',
+    category: 'Authentication',
+    icon: 'lock',
+    description: 'Department authentication gateway with 3 pre-fed Aadhaar login cards'
+  },
   'bhoomi_setu_portal_home_2': {
     id: 'home',
     folder: 'bhoomi_setu_portal_home_2',
@@ -12,15 +21,6 @@ const screenMetadata = {
     category: 'Public Services',
     icon: 'home',
     description: 'Karnataka Land Acquisition & Spatial Portal home page with role selector and corridor overview'
-  },
-  'bhoomi_setu_portal_home_1': {
-    id: 'home-alt',
-    folder: 'bhoomi_setu_portal_home_1',
-    name: 'Portal Home (Alternate View)',
-    role: 'public',
-    category: 'Public Services',
-    icon: 'cottage',
-    description: 'Alternate public portal home view variant'
   },
   'bhoomi_setu_land_search': {
     id: 'land-search',
@@ -40,15 +40,6 @@ const screenMetadata = {
     icon: 'manage_search',
     description: 'Search results for Survey No. 48 Series in Varthur Hobli'
   },
-  'bhoomi_setu_parcel_detail': {
-    id: 'parcel-detail',
-    folder: 'bhoomi_setu_parcel_detail',
-    name: 'Citizen Parcel Record (Sy 48/2A)',
-    role: 'citizen',
-    category: 'Citizen & Landowner',
-    icon: 'description',
-    description: 'Statutory acquisition lifecycle, land attributes, and compensation breakdown for Sy 48/2A Bellandur'
-  },
   'bhoomi_setu_available_government_land': {
     id: 'available-government-land',
     folder: 'bhoomi_setu_available_government_land',
@@ -56,7 +47,7 @@ const screenMetadata = {
     role: 'public',
     category: 'Public Services',
     icon: 'holiday_village',
-    description: 'Directory of 38 public and government land parcels available for allotment'
+    description: 'Directory of public and government land parcels available for civic allotment'
   },
   'bhoomi_setu_public_land_detail': {
     id: 'public-land-detail',
@@ -112,23 +103,23 @@ const screenMetadata = {
     icon: 'map',
     description: 'Spatial cadastral viewer showing survey boundaries and Metro Phase 2A buffer zone'
   },
-  'bhoomi_setu_notifications_center': {
-    id: 'notifications',
-    folder: 'bhoomi_setu_notifications_center',
-    name: 'Statutory Notifications & Alerts',
+  'bhoomi_setu_parcel_detail': {
+    id: 'parcel-detail',
+    folder: 'bhoomi_setu_parcel_detail',
+    name: 'Citizen Parcel Record (Sy 48/2A)',
     role: 'citizen',
     category: 'Citizen & Landowner',
-    icon: 'notifications_active',
-    description: 'Section 11(1) notices, Joint Measurement schedules, and SMS/Email dispatch center'
+    icon: 'description',
+    description: 'Statutory acquisition lifecycle, land attributes, and compensation breakdown for Sy 48/2A Bellandur'
   },
-  'bhoomi_setu_official_login': {
-    id: 'official-login',
-    folder: 'bhoomi_setu_official_login',
-    name: 'Official Sign-In Gateway',
-    role: 'auth',
-    category: 'Authentication',
-    icon: 'lock',
-    description: 'Department authentication gateway with role presets for SLAO, Executive, and Citizen'
+  'bhoomi_setu_financial_escrow_ledger': {
+    id: 'financial-escrow-ledger',
+    folder: 'bhoomi_setu_financial_escrow_ledger',
+    name: 'Financial Compensation & PFMS Ledger',
+    role: 'citizen',
+    category: 'Citizen & Landowner',
+    icon: 'account_balance',
+    description: 'Statutory PFMS direct credit ledger with statutory interest and TDS computation'
   },
   'bhoomi_setu_officer_dashboard': {
     id: 'officer-dashboard',
@@ -138,15 +129,6 @@ const screenMetadata = {
     category: 'Revenue Officer & SLAO',
     icon: 'badge',
     description: 'Command console for Sri B. Shivaram with ML delay alerts and document verification pipeline'
-  },
-  'bhoomi_setu_officer_parcel_detail': {
-    id: 'officer-parcel-detail',
-    folder: 'bhoomi_setu_officer_parcel_detail',
-    name: 'Officer Hearing Dossier (Sy 48/2A)',
-    role: 'officer',
-    category: 'Revenue Officer & SLAO',
-    icon: 'folder_shared',
-    description: 'Official inspection case, title deed verification, and statutory award docket'
   },
   'bhoomi_setu_document_verification_queue': {
     id: 'document-verification-queue',
@@ -178,168 +160,75 @@ const screenMetadata = {
   'bhoomi_setu_statutory_gazette_publishing': {
     id: 'statutory-gazette-publishing',
     folder: 'bhoomi_setu_statutory_gazette_publishing',
-    name: 'Official Gazette Publishing & DSC Hub',
+    name: 'Official State Gazette Publishing Hub',
     role: 'officer',
     category: 'Revenue Officer & SLAO',
     icon: 'newspaper',
-    description: 'State gazette compiler with DSC cryptographic token signing and instant publishing'
-  },
-  'bhoomi_setu_cadastral_export_reports_hub': {
-    id: 'cadastral-export-hub',
-    folder: 'bhoomi_setu_cadastral_export_reports_hub',
-    name: 'Cadastral Export & Statutory Reports Hub',
-    role: 'officer',
-    category: 'Revenue Officer & SLAO',
-    icon: 'download_for_offline',
-    description: 'Official export center for Gazette bundles, GIS shapefiles, and CAG financial audits'
+    description: 'State Gazette notification compiler with Kannada/English parity and DSC digital signature'
   },
   'bhoomi_setu_executive_state_dashboard_1': {
     id: 'executive-dashboard-1',
     folder: 'bhoomi_setu_executive_state_dashboard_1',
-    name: 'Executive State Dashboard (Macro & Corridors)',
+    name: 'Executive State Command Desk',
     role: 'executive',
-    category: 'Executive State Command',
+    category: 'Executive & State Command',
     icon: 'query_stats',
-    description: 'State-level executive command center for Chief Secretary with corridor health matrix'
-  },
-  'bhoomi_setu_executive_state_dashboard_2': {
-    id: 'executive-dashboard-2',
-    folder: 'bhoomi_setu_executive_state_dashboard_2',
-    name: 'Executive State Dashboard (District Velocity)',
-    role: 'executive',
-    category: 'Executive State Command',
-    icon: 'analytics',
-    description: 'District-wise acquisition velocity, SLAO rankings, and bottleneck origin analysis'
-  },
-  'bhoomi_setu_project_registry': {
-    id: 'project-registry',
-    folder: 'bhoomi_setu_project_registry',
-    name: 'Acquisition Projects Registry',
-    role: 'executive',
-    category: 'Executive State Command',
-    icon: 'folder_open',
-    description: 'State infrastructure directory covering Metro Phase 2A, PRR, STRR, and Suburban Rail'
-  },
-  'bhoomi_setu_project_detail': {
-    id: 'project-detail',
-    folder: 'bhoomi_setu_project_detail',
-    name: 'Bengaluru Metro Phase 2A Project Detail',
-    role: 'executive',
-    category: 'Executive State Command',
-    icon: 'train',
-    description: 'Comprehensive project dossier with 348 linked survey parcels and station alignment'
+    description: 'High-level macro acquisition monitoring with corridor health indices and budget disbursement'
   },
   'bhoomi_setu_interactive_acquisition_map': {
     id: 'interactive-acquisition-map',
     folder: 'bhoomi_setu_interactive_acquisition_map',
-    name: 'GIS Interactive Acquisition Corridor Map',
+    name: 'Statewide Infrastructure GIS Corridor Map',
     role: 'executive',
-    category: 'Executive State Command',
-    icon: 'layers',
-    description: 'Full GIS spatial corridor map with layer controls and parcel boundary popups'
-  },
-  'bhoomi_setu_ml_delay_prediction_panel': {
-    id: 'ml-delay-prediction',
-    folder: 'bhoomi_setu_ml_delay_prediction_panel',
-    name: 'ML Delay Prediction & Risk Attribution',
-    role: 'executive',
-    category: 'Executive State Command',
-    icon: 'psychology',
-    description: 'Machine learning timeline projection, risk attribution factors, and historical precedents'
-  },
-  'bhoomi_setu_ai_mitigation_recommendations_panel': {
-    id: 'ai-mitigation-panel',
-    folder: 'bhoomi_setu_ai_mitigation_recommendations_panel',
-    name: 'AI Mitigation & Turnaround Recommendations',
-    role: 'executive',
-    category: 'Executive State Command',
-    icon: 'auto_awesome',
-    description: 'Automated legal and financial turnaround action matrix with live simulation engine'
-  },
-  'bhoomi_setu_financial_escrow_ledger': {
-    id: 'financial-escrow-ledger',
-    folder: 'bhoomi_setu_financial_escrow_ledger',
-    name: 'Statutory Compensation & Court Escrow Ledger',
-    role: 'executive',
-    category: 'Executive State Command',
-    icon: 'account_balance',
-    description: 'PFMS direct bank transfers and Civil Court Section 64/77 disputed title escrow vault'
-  },
-  'bhoomi_setu_legal_caveats_registry': {
-    id: 'legal-caveats-registry',
-    folder: 'bhoomi_setu_legal_caveats_registry',
-    name: 'Litigation & High Court Caveat Registry',
-    role: 'executive',
-    category: 'Executive State Command',
-    icon: 'balance',
-    description: 'High Court writ petitions registry with stay order tracking and vacation motions'
-  },
-  'bhoomi_setu_utility_relocation_matrix': {
-    id: 'utility-relocation-matrix',
-    folder: 'bhoomi_setu_utility_relocation_matrix',
-    name: 'Inter-Agency Utility Relocation & ROW Matrix',
-    role: 'executive',
-    category: 'Executive State Command',
-    icon: 'electrical_services',
-    description: 'Multi-agency shifting matrix for BESCOM power lines, BWSSB water mains, and GAIL gas'
-  },
-  'bhoomi_setu_climate_flood_hazard_map_overlay': {
-    id: 'climate-flood-hazard',
-    folder: 'bhoomi_setu_climate_flood_hazard_map_overlay',
-    name: 'Climate & Flood Hazard Map Overlay',
-    role: 'executive',
-    category: 'Executive State Command',
-    icon: 'flood',
-    description: 'Hydrological spatial overlay for SWD Raja Kaluve buffer zones and flood risk mitigation'
+    category: 'Executive & State Command',
+    icon: 'travel_explore',
+    description: 'Full spatial GIS corridor map with Metro Phase 2A route and 13 stations'
   }
 };
 
-const screens = [];
+const processedScreens = [];
 
-for (const [folderName, meta] of Object.entries(screenMetadata)) {
-  const codePath = path.join(baseDir, folderName, 'code.html');
-  if (!fs.existsSync(codePath)) {
-    console.warn(`Warning: Missing code.html for ${folderName}`);
+for (const [folderKey, meta] of Object.entries(screenMetadata)) {
+  const filePath = path.join(baseDir, folderKey, 'code.html');
+  if (!fs.existsSync(filePath)) {
+    console.warn(`File not found: ${filePath}`);
     continue;
   }
-  const html = fs.readFileSync(codePath, 'utf8');
 
-  // Extract body classes
-  const bodyClassMatch = html.match(/<body[^>]*class=["']([^"']*)["']/i);
+  let htmlContent = fs.readFileSync(filePath, 'utf8');
+
+  // Extract body content
+  const bodyMatch = htmlContent.match(/<body[^>]*>([\s\S]*)<\/body>/i);
+  let innerHtml = bodyMatch ? bodyMatch[1] : htmlContent;
+
+  // Extract body classes if any
+  const bodyClassMatch = htmlContent.match(/<body[^>]*class=["']([^"']*)["']/i);
   const bodyClass = bodyClassMatch ? bodyClassMatch[1] : 'bg-background font-body-md text-on-surface antialiased';
 
-  // Extract inner body content
-  const bodyInnerMatch = html.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
-  let bodyContent = bodyInnerMatch ? bodyInnerMatch[1] : html;
+  // Sanitize path references
+  innerHtml = innerHtml
+    .replace(/href="#"/g, `data-route="${meta.id}"`)
+    .replace(/href="javascript:void\(0\)"/g, `data-route="${meta.id}"`);
 
-  // Remove any inline tailwind script tags or google font link tags inside body to prevent duplication
-  bodyContent = bodyContent.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, (tag) => {
-    if (tag.includes('cdn.tailwindcss.com') || tag.includes('tailwind-config')) {
-      return '';
-    }
-    return tag;
-  });
-
-  screens.push({
+  processedScreens.push({
     id: meta.id,
-    folder: folderName,
+    folder: meta.folder,
     title: meta.name,
     role: meta.role,
     category: meta.category,
     icon: meta.icon,
     description: meta.description,
     bodyClass: bodyClass,
-    html: bodyContent.trim()
+    html: innerHtml
   });
 }
 
-console.log(`Successfully processed ${screens.length} screens.`);
-
 // Generate screens-data.js
-const outputCode = `// Bhoomi Setu Screen Templates & Metadata
-// Auto-generated from Stitch project screens
-window.BHOOMI_SCREENS = ${JSON.stringify(screens, null, 2)};
+const outputJs = `// Bhoomi Setu — 20 High-Impact Prototype Screens Data
+// Generated automatically for ultra-fast loading and flawless rendering
+window.BHOOMI_SCREENS = ${JSON.stringify(processedScreens, null, 2)};
 `;
 
-fs.writeFileSync(path.join(__dirname, 'screens-data.js'), outputCode);
+fs.writeFileSync(path.join(__dirname, 'screens-data.js'), outputJs, 'utf8');
+console.log(`Successfully processed ${processedScreens.length} core screens.`);
 console.log('Saved screens-data.js successfully.');

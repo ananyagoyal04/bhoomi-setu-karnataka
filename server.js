@@ -57,9 +57,10 @@ const requestHandler = (req, res) => {
   // ==========================================
   if (reqPath.startsWith('/api/')) {
     res.setHeader('Content-Type', 'application/json; charset=utf-8');
+    const apiRoute = reqPath.replace(/\.js$/, '');
 
     // 1. Health
-    if (reqPath === '/api/health') {
+    if (apiRoute === '/api/health') {
       res.writeHead(200);
       res.end(JSON.stringify({
         status: "ONLINE",
@@ -72,7 +73,7 @@ const requestHandler = (req, res) => {
     }
 
     // 2. Stats
-    if (reqPath === '/api/stats') {
+    if (apiRoute === '/api/stats') {
       res.writeHead(200);
       res.end(JSON.stringify({
         success: true,
@@ -88,7 +89,7 @@ const requestHandler = (req, res) => {
     }
 
     // 3. GET /api/land/:surveyNo
-    const landMatch = reqPath.match(/^\/api\/land\/([^/]+)/);
+    const landMatch = apiRoute.match(/^\/api\/land\/([^/]+)/);
     if (landMatch && req.method === 'GET') {
       const sKey = decodeURIComponent(landMatch[1]).replace('/', '-');
       const db = readDb();
@@ -99,7 +100,7 @@ const requestHandler = (req, res) => {
     }
 
     // 4. GET /api/compensation/:surveyNo
-    const compMatch = reqPath.match(/^\/api\/compensation\/([^/]+)/);
+    const compMatch = apiRoute.match(/^\/api\/compensation\/([^/]+)/);
     if (compMatch && req.method === 'GET') {
       const sKey = decodeURIComponent(compMatch[1]).replace('/', '-');
       const db = readDb();
@@ -119,7 +120,7 @@ const requestHandler = (req, res) => {
     }
 
     // 5. POST /api/objection
-    if (reqPath === '/api/objection' && req.method === 'POST') {
+    if (apiRoute === '/api/objection' && req.method === 'POST') {
       let body = '';
       req.on('data', chunk => { body += chunk; });
       req.on('end', () => {

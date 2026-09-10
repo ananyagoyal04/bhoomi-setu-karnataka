@@ -2,38 +2,6 @@
   "cleanUrls": true,
   "rewrites": [
     {
-      "source": "/api/health",
-      "destination": "/api/health.js"
-    },
-    {
-      "source": "/api/stats",
-      "destination": "/api/stats.js"
-    },
-    {
-      "source": "/api/land/:surveyNo",
-      "destination": "/api/land/[surveyNo].js"
-    },
-    {
-      "source": "/api/land",
-      "destination": "/api/land/index.js"
-    },
-    {
-      "source": "/api/compensation/:surveyNo",
-      "destination": "/api/compensation/[surveyNo].js"
-    },
-    {
-      "source": "/api/compensation",
-      "destination": "/api/compensation/index.js"
-    },
-    {
-      "source": "/api/objection",
-      "destination": "/api/objection.js"
-    },
-    {
-      "source": "/api/parcels",
-      "destination": "/api/parcels.js"
-    },
-    {
       "source": "/((?!api/|.*\\..*).*)",
       "destination": "/index.html"
     }

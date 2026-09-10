@@ -28,7 +28,7 @@ async function runTests() {
   assert(screensDataContent.includes('window.BHOOMI_SCREENS = ['), 'screens-data.js defines window.BHOOMI_SCREENS');
 
   // Evaluate in VM context
-  const sandbox = { window: {} };
+  const sandbox = { window: {}, document: { addEventListener: () => {} } };
   vm.createContext(sandbox);
   vm.runInContext(screensDataContent, sandbox);
 
@@ -46,14 +46,56 @@ async function runTests() {
     'server.js',
     'backend.py',
     'api.php',
-    'schema.sql'
+    'schema.sql',
+    'vercel.json'
   ];
 
   filesToCheck.forEach(file => {
     assert(fs.existsSync(path.join(rootDir, file)), `Runtime file "${file}" exists`);
   });
 
-  // 3. Test HTTP Server endpoints on Port 3000
+  // 3. Validate Vercel Serverless Functions in api/
+  const serverlessFiles = [
+    'api/health.js',
+    'api/stats.js',
+    'api/land/[surveyNo].js',
+    'api/land/index.js',
+    'api/compensation/[surveyNo].js',
+    'api/compensation/index.js',
+    'api/objection.js',
+    'api/parcels.js'
+  ];
+
+  serverlessFiles.forEach(file => {
+    assert(fs.existsSync(path.join(rootDir, file)), `Serverless function "${file}" exists`);
+  });
+
+  // Test executing serverless functions directly
+  try {
+    const healthFn = require(path.join(rootDir, 'api/health.js'));
+    let mockRes = {
+      setHeader: () => {},
+      status: function(code) { this.statusCode = code; return this; },
+      json: function(data) { this.data = data; return this; },
+      end: function() {}
+    };
+    healthFn({}, mockRes);
+    assert(mockRes.statusCode === 200 && mockRes.data.status === 'ONLINE', 'api/health.js executes successfully');
+
+    const landFn = require(path.join(rootDir, 'api/land/[surveyNo].js'));
+    mockRes = {
+      setHeader: () => {},
+      status: function(code) { this.statusCode = code; return this; },
+      json: function(data) { this.data = data; return this; },
+      end: function() {}
+    };
+    landFn({ query: { surveyNo: '48-2A' } }, mockRes);
+    assert(mockRes.statusCode === 200 && mockRes.data.parcel.surveyNo === '48/2A', 'api/land/[surveyNo].js executes successfully');
+  } catch (err) {
+    assert(false, `Serverless function execution: ${err.message}`);
+  }
+
+  // 4. Test HTTP Server endpoints on Port 3000
   const fetchUrl = (urlPath) => {
     return new Promise((resolve, reject) => {
       http.get(`http://localhost:3000${urlPath}`, (res) => {

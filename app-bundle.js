@@ -1,11 +1,11 @@
-// Bhoomi Setu — Consolidated Core Runtime Bundle
+// Bhoomi Setu — Consolidated Core Runtime Bundle (Zero-Dependency & Progressive Enhancement)
 // Government of Karnataka | Land Acquisition & Statutory Revenue System
 
 // ============================================================================
 // 1. STATE & USER SESSION ENGINE (BhoomiBackend)
 // ============================================================================
 (function () {
-  const STORAGE_KEY = 'BHOOMI_ENTERPRISE_STATE_V1';
+  const STORAGE_KEY = 'BHOOMI_ENTERPRISE_STATE_V2';
 
   const DEFAULT_USERS = {
     citizen: {
@@ -56,7 +56,7 @@
         if (stored) return JSON.parse(stored);
       } catch (e) {}
       return {
-        currentUser: DEFAULT_USERS.officer,
+        currentUser: DEFAULT_USERS.citizen,
         theme: localStorage.getItem('bhoomi_theme') || 'light'
       };
     }
@@ -80,10 +80,16 @@
         );
       }
 
-      if (role === 'citizen') window.BhoomiRouter.navigate('citizen-dashboard');
-      else if (role === 'officer') window.BhoomiRouter.navigate('officer-dashboard');
-      else if (role === 'executive') window.BhoomiRouter.navigate('executive-dashboard-1');
-      else window.BhoomiRouter.navigate('home');
+      // Synchronous navigation mapping
+      if (role === 'citizen') {
+        window.location.hash = '#/citizen-dashboard';
+      } else if (role === 'officer') {
+        window.location.hash = '#/officer-dashboard';
+      } else if (role === 'executive') {
+        window.location.hash = '#/executive-dashboard-1';
+      } else {
+        window.location.hash = '#/home';
+      }
     }
 
     updateAppHeader() {
@@ -125,7 +131,7 @@
       } else {
         this.handleHashChange();
       }
-      setTimeout(() => this.handleHashChange(), 50);
+      setTimeout(() => this.handleHashChange(), 30);
     }
 
     getRouteFromHash() {
@@ -135,12 +141,8 @@
 
     navigate(routeId) {
       this.loadScreens();
-      if (this.routes[routeId] || routeId === DEFAULT_ROUTE) {
-        window.location.hash = `#/${routeId}`;
-      } else {
-        console.warn(`Route not found: ${routeId}, falling back to ${DEFAULT_ROUTE}`);
-        window.location.hash = `#/${DEFAULT_ROUTE}`;
-      }
+      const target = this.routes[routeId] ? routeId : DEFAULT_ROUTE;
+      window.location.hash = `#/${target}`;
     }
 
     handleHashChange() {
@@ -154,12 +156,14 @@
       this.renderScreen(screen);
       this.updateActiveNavs(screen.id);
 
+      // Progressive Non-blocking Lifecycle Enhancements
       try { if (window.PageGuide) window.PageGuide.renderGuide(screen.id); } catch(e) {}
       try { if (window.BhoomiMapEngine) window.BhoomiMapEngine.initMapForScreen(screen.id); } catch(e) {}
       try { if (window.BhoomiAnalytics) window.BhoomiAnalytics.initChartsForScreen(screen.id); } catch(e) {}
       try { if (window.BhoomiInteractions) window.BhoomiInteractions.onScreenMounted(screen); } catch(e) {}
       try { if (window.PrototypeHUD) window.PrototypeHUD.onRouteChanged(screen); } catch(e) {}
       try { if (window.BhoomiBackend) window.BhoomiBackend.updateAppHeader(); } catch(e) {}
+      try { if (window.BhoomiAPIClient) window.BhoomiAPIClient.enrichScreen(screen.id); } catch(e) {}
 
       window.scrollTo({ top: 0, behavior: 'instant' });
     }
@@ -178,7 +182,7 @@
         const dataPath = link.getAttribute('data-path');
         let isActive = false;
         if (dataPath) {
-          if (dataPath === 'home' && (routeId === 'home' || routeId === 'home-alt')) isActive = true;
+          if (dataPath === 'home' && (routeId === 'home')) isActive = true;
           else if (dataPath === 'public-land-directory' && (routeId === 'available-government-land' || routeId === 'public-land-detail')) isActive = true;
           else if (dataPath === 'survey-gazette' && (routeId === 'statutory-gazette-publishing' || routeId === 'land-search' || routeId === 'search-results')) isActive = true;
           else if (dataPath === 'verify-document' && (routeId === 'document-verification-queue')) isActive = true;
@@ -197,23 +201,99 @@
 })();
 
 // ============================================================================
-// 3. CONTEXTUAL PAGE GUIDE (PageGuide)
+// 3. PROGRESSIVE API CLIENT (BhoomiAPIClient — Non-Blocking with Fallbacks)
+// ============================================================================
+(function () {
+  class BhoomiAPIClient {
+    constructor() {
+      this.isLocal = typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
+      this.timeoutMs = 2500;
+    }
+
+    async safeFetch(url, options = {}) {
+      const controller = new AbortController();
+      const id = setTimeout(() => controller.abort(), this.timeoutMs);
+      try {
+        const res = await fetch(url, { ...options, signal: controller.signal });
+        clearTimeout(id);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return await res.json();
+      } catch (err) {
+        clearTimeout(id);
+        return null;
+      }
+    }
+
+    async enrichScreen(screenId) {
+      // 1. Citizen & Land Details Screen
+      if (screenId === 'parcel-detail' || screenId === 'citizen-dashboard') {
+        const landData = await this.safeFetch('/api/land/48-2A');
+        if (landData && landData.parcel) {
+          const awardEl = document.querySelector('[data-statutory-award]');
+          if (awardEl) awardEl.innerText = landData.parcel.totalAward || '₹ 6,78,40,000';
+        }
+      }
+
+      // 2. Executive Delay Matrix Screen
+      if (screenId === 'ai-mitigation-panel' || screenId === 'executive-dashboard-1') {
+        if (this.isLocal) {
+          const pyPrediction = await this.safeFetch('http://localhost:8000/api/py/delay-prediction');
+          if (pyPrediction && pyPrediction.predictedDelayDays) {
+            const delayBadge = document.querySelector('[data-delay-days]');
+            if (delayBadge) delayBadge.innerText = `+${pyPrediction.predictedDelayDays} Days Delay Risk`;
+          }
+        }
+      }
+    }
+
+    async submitObjection(data) {
+      const res = await this.safeFetch('/api/objection', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      return res || { success: true, message: 'Objection logged locally in session docket.' };
+    }
+
+    async publishGazette(data) {
+      if (this.isLocal) {
+        const res = await this.safeFetch('http://localhost:8080/api.php?action=gazette-publish', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        if (res) return res;
+      }
+      return {
+        success: true,
+        gazetteId: `KA-GAZ-2025-LAQ-${Math.floor(1000 + Math.random() * 9000)}`,
+        status: 'PUBLISHED',
+        publishedAt: new Date().toISOString()
+      };
+    }
+  }
+
+  window.BhoomiAPIClient = new BhoomiAPIClient();
+})();
+
+// ============================================================================
+// 4. CONTEXTUAL PAGE GUIDE (PageGuide)
 // ============================================================================
 (function () {
   const PAGE_EXPLAINERS = {
     'official-login': {
       title: '🔐 Bhoomi Setu Gateway — Government of Karnataka',
-      simpleWhat: 'Choose one of 3 pre-fed Aadhaar login credentials to test Landowner, SLAO Officer, or Chief Secretary flows.',
+      simpleWhat: 'Select any of the 3 pre-fed Aadhaar login credentials to test Landowner, SLAO Officer, or Chief Secretary flows.',
       actions: ['Landowner (5489-1204-4819)', 'SLAO Officer (8921-4421-0894)', 'Chief Secretary (1102-9934-0001)']
     },
     'citizen-dashboard': {
       title: '👨‍🌾 Landowner Portal — Sri. Rajesh Kumar (Bellandur)',
-      simpleWhat: 'Track your ₹6.78 Cr statutory compensation money, view satellite boundary, and direct bank escrow payout.',
+      simpleWhat: 'Track your ₹6.78 Cr statutory compensation award, view satellite boundary, and direct bank escrow payout status.',
       actions: ['Inspect Survey 48/2A Dossier', 'Open Satellite GIS Map', 'Raise Valuation Objection']
     },
     'parcel-detail': {
       title: '📄 Land Record & Compensation Breakdown — Sy. No. 48/2A',
-      simpleWhat: 'Market Value (₹3.20 Cr) + 100% Solatium Bonus (₹3.20 Cr) + 12% Interest = ₹6.78 Cr Total Statutory Award.',
+      simpleWhat: 'Base Value (₹3.20 Cr) + 100% Solatium Statutory Bonus (₹3.20 Cr) + 12% Interest = ₹6.78 Cr Total Award.',
       actions: ['View Solatium Calculator', 'Open Satellite Map', 'Download Gazette Notice']
     },
     'my-land-map': {
@@ -271,7 +351,7 @@
             <button type="button" class="px-2.5 py-1 bg-emerald-700/80 hover:bg-emerald-600 text-white rounded font-bold flex items-center gap-1 transition-colors" onclick="window.FramesEngine.openCompensationFrame()">
               <span class="material-symbols-outlined text-[15px]">calculate</span> Solatium Calc
             </button>
-            <button type="button" class="px-2.5 py-1 bg-white/10 hover:bg-white/20 text-white rounded font-bold flex items-center gap-1 transition-colors" onclick="window.BhoomiRouter.navigate('official-login')">
+            <button type="button" class="px-2.5 py-1 bg-white/10 hover:bg-white/20 text-white rounded font-bold flex items-center gap-1 transition-colors" onclick="window.location.hash='#/official-login'">
               <span class="material-symbols-outlined text-[15px]">switch_account</span> Switch User
             </button>
           </div>
@@ -292,7 +372,7 @@
 })();
 
 // ============================================================================
-// 4. INTERACTIVE MODAL FRAMES ENGINE (FramesEngine & Modals)
+// 5. INTERACTIVE MODAL FRAMES ENGINE (FramesEngine)
 // ============================================================================
 (function () {
   class FramesEngine {
@@ -372,14 +452,10 @@
 })();
 
 // ============================================================================
-// 5. LIVE VISUAL TELEMETRY & CHARTS (BhoomiAnalytics - Chart.js)
+// 6. LIVE VISUAL TELEMETRY & CHARTS (BhoomiAnalytics — Chart.js)
 // ============================================================================
 (function () {
   class BhoomiAnalytics {
-    constructor() {
-      this.charts = {};
-    }
-
     initChartsForScreen(screenId) {
       if (typeof Chart === 'undefined') return;
       if (screenId === 'executive-dashboard-1' || screenId === 'interactive-acquisition-map') {
@@ -455,7 +531,7 @@
 })();
 
 // ============================================================================
-// 6. EVENT DELEGATION & UI INTERACTIONS (BhoomiInteractions)
+// 7. EVENT DELEGATION & UI INTERACTIONS (BhoomiInteractions)
 // ============================================================================
 (function () {
   class BhoomiInteractions {
@@ -497,13 +573,27 @@
     onScreenMounted(screen) {}
 
     handleClick(e) {
-      const target = e.target.closest('a, button, [data-path], [data-route]');
+      const target = e.target.closest('a, button, [data-path], [data-route], [data-role]');
       if (!target) return;
 
-      const dataPath = target.getAttribute('data-path');
-      const href = target.getAttribute('href');
-      const text = (target.innerText || '').trim();
+      // 1. Explicit Role Login Cards
+      const dataRole = target.getAttribute('data-role');
+      if (dataRole) {
+        e.preventDefault();
+        window.BhoomiBackend.login(dataRole);
+        return;
+      }
 
+      // 2. Explicit data-route navigation
+      const dataRoute = target.getAttribute('data-route');
+      if (dataRoute) {
+        e.preventDefault();
+        window.location.hash = `#/${dataRoute}`;
+        return;
+      }
+
+      // 3. Header / Nav data-path navigation
+      const dataPath = target.getAttribute('data-path');
       if (dataPath) {
         e.preventDefault();
         const map = {
@@ -514,49 +604,55 @@
           'grievances': 'grievance-hearing-desk',
           'sign-in': 'official-login'
         };
-        window.BhoomiRouter.navigate(map[dataPath] || 'home');
+        window.location.hash = `#/${map[dataPath] || 'home'}`;
         return;
       }
 
-      if (href && href.startsWith('#/')) return;
+      const href = target.getAttribute('href');
+      if (href && href.startsWith('#/')) {
+        return; // Natural hash navigation
+      }
 
-      if (text.includes('Compensation') || text.includes('₹ 6,78,40,000') || text.includes('Solatium')) {
+      const text = (target.innerText || '').trim();
+
+      // Explicit Action Buttons
+      if (target.matches('[data-action="solatium-calc"], button[onclick*="openCompensationFrame"]')) {
         e.preventDefault();
         window.FramesEngine.openCompensationFrame();
         return;
       }
 
-      if (text.includes('Approve & Digital Sign') || text.includes('DSC')) {
+      if (target.matches('[data-action="dsc-sign"], button[onclick*="openDocumentScanFrame"]')) {
         e.preventDefault();
         window.FramesEngine.openDocumentScanFrame();
         return;
       }
 
-      if (text.includes('Download Gazette PDF') || text.includes('Download Original')) {
+      if (text === 'Download Gazette PDF' || text === 'Download Original') {
         e.preventDefault();
         this.showToast('Karnataka State Gazette (Sec 19) downloaded: RD-LAQ-SH17-2025.pdf', 'success', 'PDF Export');
         return;
       }
 
-      if (text.includes('Print Cause List')) {
+      if (text === 'Print Cause List') {
         e.preventDefault();
         window.print();
         return;
       }
 
-      if (text.includes('Audit Trail')) {
+      if (text.startsWith('Audit Trail')) {
         e.preventDefault();
         this.showToast('Audit Trail: Form 9 uploaded by Field RI on 14 Feb 2025. Geo-hash verified.', 'info', 'Audit Trail');
         return;
       }
 
-      if (text.includes('Reject & Issue Defect Notice')) {
+      if (text === 'Reject & Issue Defect Notice') {
         e.preventDefault();
         this.showToast('7-Day Curative Defect Notice dispatched to claimant via SMS & Registered Post.', 'warning', 'Defect Notice');
         return;
       }
 
-      if (text.includes('Escalate to Tahsildar')) {
+      if (text === 'Escalate to Tahsildar') {
         e.preventDefault();
         this.showToast('File escalated to Tahsildar (Bengaluru East) for field spot mahazar.', 'info', 'File Escalation');
         return;
@@ -568,7 +664,7 @@
 })();
 
 // ============================================================================
-// 7. PROTOTYPE HUD & THEME SWITCHER (PrototypeHUD)
+// 8. PROTOTYPE HUD & THEME SWITCHER (PrototypeHUD)
 // ============================================================================
 (function () {
   class PrototypeHUD {
@@ -578,7 +674,11 @@
 
     init() {
       this.initTheme();
-      window.addEventListener('DOMContentLoaded', () => this.renderHUD());
+      if (document.readyState === 'loading') {
+        window.addEventListener('DOMContentLoaded', () => this.renderHUD());
+      } else {
+        this.renderHUD();
+      }
     }
 
     initTheme() {
@@ -608,7 +708,7 @@
           <button type="button" title="Toggle Dark / Light Theme" class="p-1.5 bg-surface-container hover:bg-surface-container-high rounded-lg text-on-surface flex items-center gap-1 font-bold" onclick="window.PrototypeHUD.toggleTheme()">
             <span id="hud-theme-icon" class="material-symbols-outlined text-[16px] text-amber-500">dark_mode</span>
           </button>
-          <button type="button" class="px-2.5 py-1.5 bg-primary text-white rounded-lg font-bold flex items-center gap-1 shadow-sm" onclick="window.BhoomiRouter.navigate('official-login')">
+          <button type="button" class="px-2.5 py-1.5 bg-primary text-white rounded-lg font-bold flex items-center gap-1 shadow-sm" onclick="window.location.hash='#/official-login'">
             <span class="material-symbols-outlined text-[16px]">grid_view</span>
             <span>20 Screens</span>
           </button>

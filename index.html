@@ -246,7 +246,7 @@
 
             <div class="space-y-2.5">
               <!-- Citizen -->
-              <button type="button" class="w-full p-3 bg-surface-container-lowest border border-outline-variant hover:border-emerald-600 rounded-lg text-left transition-all hover:shadow-md flex items-center justify-between group" onclick="if(window.BhoomiBackend){window.BhoomiBackend.login('citizen')}else{window.location.hash='#/citizen-dashboard'}">
+              <button type="button" data-role="citizen" class="w-full p-3 bg-surface-container-lowest border border-outline-variant hover:border-emerald-600 rounded-lg text-left transition-all hover:shadow-md flex items-center justify-between group" onclick="if(window.BhoomiBackend){window.BhoomiBackend.login('citizen')}else{window.location.hash='#/citizen-dashboard'}">
                 <div class="flex items-center gap-2.5">
                   <span class="material-symbols-outlined text-emerald-700 text-[26px]">person</span>
                   <div>
@@ -261,7 +261,7 @@
               </button>
 
               <!-- Officer -->
-              <button type="button" class="w-full p-3 bg-surface-container-lowest border border-outline-variant hover:border-blue-600 rounded-lg text-left transition-all hover:shadow-md flex items-center justify-between group" onclick="if(window.BhoomiBackend){window.BhoomiBackend.login('officer')}else{window.location.hash='#/officer-dashboard'}">
+              <button type="button" data-role="officer" class="w-full p-3 bg-surface-container-lowest border border-outline-variant hover:border-blue-600 rounded-lg text-left transition-all hover:shadow-md flex items-center justify-between group" onclick="if(window.BhoomiBackend){window.BhoomiBackend.login('officer')}else{window.location.hash='#/officer-dashboard'}">
                 <div class="flex items-center gap-2.5">
                   <span class="material-symbols-outlined text-blue-700 text-[26px]">badge</span>
                   <div>
@@ -276,7 +276,7 @@
               </button>
 
               <!-- Executive -->
-              <button type="button" class="w-full p-3 bg-surface-container-lowest border border-outline-variant hover:border-purple-600 rounded-lg text-left transition-all hover:shadow-md flex items-center justify-between group" onclick="if(window.BhoomiBackend){window.BhoomiBackend.login('executive')}else{window.location.hash='#/executive-dashboard-1'}">
+              <button type="button" data-role="executive" class="w-full p-3 bg-surface-container-lowest border border-outline-variant hover:border-purple-600 rounded-lg text-left transition-all hover:shadow-md flex items-center justify-between group" onclick="if(window.BhoomiBackend){window.BhoomiBackend.login('executive')}else{window.location.hash='#/executive-dashboard-1'}">
                 <div class="flex items-center gap-2.5">
                   <span class="material-symbols-outlined text-purple-700 text-[26px]">query_stats</span>
                   <div>

@@ -1,42 +1,39 @@
 # Bhoomi Setu (ಭೂಮಿ ಸೇತು)
 ### Government of Karnataka | Land Acquisition & Statutory Revenue System (SIH Prototype)
 
-An interactive, multi-role digital platform for the **Government of Karnataka (Revenue Department)** built for the Smart India Hackathon (SIH). It features 20 streamlined core screens mapping directly to 3 authoritative user flows (Landowner Citizen, SLAO Officer, Chief Secretary Executive Desk), multi-backend integration (Node.js, Python, PHP), and Google Maps Satellite GIS mapping.
+An interactive, multi-role digital platform for the **Government of Karnataka (Revenue Department)** built for the Smart India Hackathon (SIH). It features 20 streamlined core screens mapping directly to 3 authoritative user flows (Landowner Citizen, SLAO Officer, Chief Secretary Executive Desk), Google Maps Satellite GIS mapping, and progressive backend API integration.
 
 ---
 
-## 🚀 Starting the Prototype Backends
+## 🌐 Live Demo vs. Full Local Multi-Backend Demo
 
-The platform operates as a multi-tier prototype with 3 independent microservices:
+### 1. 🚀 Live Web Demo (Vercel / Standalone)
+- **Live URL**: [https://bhoomi-setu-karnataka-t53q.vercel.app](https://bhoomi-setu-karnataka-t53q.vercel.app)
+- **Zero Configuration**: Click any of the 3 pre-fed Aadhaar login cards to immediately explore all 20 screens.
+- **Vercel Serverless Functions**: Native `/api/health`, `/api/stats`, `/api/land/:surveyNo`, `/api/compensation/:surveyNo`, `/api/objection`, and `/api/parcels` execute as edge serverless functions.
+- **Standalone Navigation**: Fully decoupled and synchronous navigation with client-side mock fallbacks ensuring zero blocked screens or 404s.
 
-### 1. 🟢 Node.js Core Web & REST Server (Port 3000)
-Serves the responsive single-page portal, static assets, and REST API endpoints (`/api/land/:surveyNo`, `/api/compensation/:surveyNo`, `/api/objection`).
+### 2. 💻 Full Local Multi-Backend Demo (Node + Python + PHP)
+For evaluators and judges who want to inspect and test all 3 language services simultaneously:
+
 ```bash
+# Terminal 1: Node.js Core Web & REST Server (Port 3000)
 npm start
-# or: node server.js
-```
-- **Web App**: [http://localhost:3000](http://localhost:3000)
-- **Health Check**: [http://localhost:3000/api/health](http://localhost:3000/api/health)
-- **Parcel API**: [http://localhost:3000/api/land/48-2A](http://localhost:3000/api/land/48-2A)
-- **Compensation API**: [http://localhost:3000/api/compensation/48-2A](http://localhost:3000/api/compensation/48-2A)
 
-### 2. 🐍 Python ML & Delay Prediction Microservice (Port 8000)
-Provides machine learning delay risk predictions and AI turnaround simulations for the Executive Command Desk.
-```bash
+# Terminal 2: Python ML & Delay Prediction Microservice (Port 8000)
 python backend.py
-```
-- **Service Root**: [http://localhost:8000/api/py/health](http://localhost:8000/api/py/health)
-- **ML Delay Prediction**: `GET http://localhost:8000/api/py/delay-prediction`
-- **AI Turnaround Simulation**: `POST http://localhost:8000/api/py/turnaround-simulation`
 
-### 3. 🐘 PHP Statutory Gazette & DSC Signing Gateway (Port 8080)
-Handles statutory Section 19(1) Gazette generation and Class-3 DSC digital certificate sealing.
-```bash
+# Terminal 3: PHP Statutory Gazette & DSC Signing Gateway (Port 8080)
 php -S localhost:8080 api.php
 ```
-- **Service Root**: [http://localhost:8080/api/php/health](http://localhost:8080/api/php/health)
-- **Gazette Publishing Action**: `POST http://localhost:8080/api.php?action=gazette-publish`
-- **DSC Token Signing Action**: `POST http://localhost:8080/api.php?action=dsc-sign`
+
+| Microservice | Port | Key Endpoints |
+| :--- | :--- | :--- |
+| **Node.js** | `3000` | `GET /api/health`, `GET /api/land/48-2A`, `GET /api/compensation/48-2A`, `POST /api/objection` |
+| **Python** | `8000` | `GET /api/py/delay-prediction`, `POST /api/py/turnaround-simulation`, `GET /api/py/parcels` |
+| **PHP** | `8080` | `POST /api.php?action=gazette-publish`, `POST /api.php?action=dsc-sign`, `GET /api/php/health` |
+
+*(Note: The frontend automatically detects if it is running on `localhost`. When running locally, it communicates with the Python and PHP daemons on ports 8000 and 8080. When hosted remotely on Vercel, it uses silent local mock fallbacks so no connection timeouts or errors occur).*
 
 ---
 
@@ -77,6 +74,13 @@ bhoomi-setu-karnataka/
 ├── server.js               # Node.js REST API & static server (Port 3000)
 ├── backend.py              # Python ML delay prediction service (Port 8000)
 ├── api.php                 # PHP Gazette publishing & DSC service (Port 8080)
+├── api/                    # Vercel serverless edge functions
+│   ├── health.js           # /api/health
+│   ├── stats.js            # /api/stats
+│   ├── objection.js        # /api/objection
+│   ├── parcels.js          # /api/parcels
+│   ├── land/               # /api/land/:surveyNo
+│   └── compensation/       # /api/compensation/:surveyNo
 ├── bhoomi_db.json          # Dynamic JSON database for runtime records & objections
 ├── schema.sql              # Relational SQL schema for Karnataka Revenue database
 ├── vercel.json             # Edge routing configuration for Vercel deployment
@@ -88,8 +92,8 @@ bhoomi-setu-karnataka/
 
 ## 🧪 Automated Testing
 
-Run the automated test suite to verify route integrity, bundle consistency, and server endpoints:
+Run the automated test suite to verify route integrity, bundle consistency, and serverless endpoints:
 ```bash
 npm test
 ```
-All 20 test checks validate screens, runtime assets, and REST endpoints.
+All 31 test checks validate screens, runtime assets, serverless functions, and REST endpoints.

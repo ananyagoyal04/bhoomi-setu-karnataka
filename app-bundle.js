@@ -1,11 +1,11 @@
-// Bhoomi Setu — Consolidated Core Runtime Bundle (Zero-Dependency & Progressive Enhancement)
+// Bhoomi Setu — Consolidated Core Runtime Bundle
 // Government of Karnataka | Land Acquisition & Statutory Revenue System
 
 // ============================================================================
 // 1. STATE & USER SESSION ENGINE (BhoomiBackend)
 // ============================================================================
 (function () {
-  const STORAGE_KEY = 'BHOOMI_ENTERPRISE_STATE_V2';
+  const STORAGE_KEY = 'BHOOMI_ENTERPRISE_STATE_V3';
 
   const DEFAULT_USERS = {
     citizen: {
@@ -81,14 +81,15 @@
       }
 
       // Synchronous navigation mapping
-      if (role === 'citizen') {
-        window.location.hash = '#/citizen-dashboard';
-      } else if (role === 'officer') {
-        window.location.hash = '#/officer-dashboard';
-      } else if (role === 'executive') {
-        window.location.hash = '#/executive-dashboard-1';
+      let targetRoute = 'home';
+      if (role === 'citizen') targetRoute = 'citizen-dashboard';
+      else if (role === 'officer') targetRoute = 'officer-dashboard';
+      else if (role === 'executive') targetRoute = 'executive-dashboard-1';
+
+      if (window.BhoomiRouter) {
+        window.BhoomiRouter.navigate(targetRoute);
       } else {
-        window.location.hash = '#/home';
+        window.location.hash = `#/${targetRoute}`;
       }
     }
 
@@ -131,7 +132,7 @@
       } else {
         this.handleHashChange();
       }
-      setTimeout(() => this.handleHashChange(), 30);
+      setTimeout(() => this.handleHashChange(), 20);
     }
 
     getRouteFromHash() {
@@ -143,6 +144,8 @@
       this.loadScreens();
       const target = this.routes[routeId] ? routeId : DEFAULT_ROUTE;
       window.location.hash = `#/${target}`;
+      // Trigger synchronous handleHashChange in case hash was already same
+      this.handleHashChange();
     }
 
     handleHashChange() {
@@ -165,14 +168,22 @@
       try { if (window.BhoomiBackend) window.BhoomiBackend.updateAppHeader(); } catch(e) {}
       try { if (window.BhoomiAPIClient) window.BhoomiAPIClient.enrichScreen(screen.id); } catch(e) {}
 
-      window.scrollTo({ top: 0, behavior: 'instant' });
+      window.scrollTo(0, 0);
     }
 
     renderScreen(screen) {
       const appRoot = document.getElementById('app-root');
       if (!appRoot) return;
       document.title = `${screen.title} | Bhoomi Setu — Government of Karnataka`;
-      document.body.className = screen.bodyClass || 'bg-background font-body-md text-on-surface antialiased selection:bg-secondary-container selection:text-on-secondary-container';
+
+      if (screen.id === 'official-login') {
+        document.body.className = 'bg-background font-body-md text-on-surface antialiased min-h-screen flex items-center justify-center p-gutter-desktop';
+        appRoot.className = 'w-full max-w-md mx-auto';
+      } else {
+        document.body.className = 'bg-background font-body-md text-on-surface antialiased selection:bg-secondary-container selection:text-on-secondary-container';
+        appRoot.className = 'w-full min-h-screen';
+      }
+
       appRoot.innerHTML = screen.html;
     }
 
@@ -207,25 +218,29 @@
   class BhoomiAPIClient {
     constructor() {
       this.isLocal = typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
-      this.timeoutMs = 2500;
+      this.timeoutMs = 2000;
     }
 
     async safeFetch(url, options = {}) {
-      const controller = new AbortController();
-      const id = setTimeout(() => controller.abort(), this.timeoutMs);
       try {
-        const res = await fetch(url, { ...options, signal: controller.signal });
-        clearTimeout(id);
+        let signal = undefined;
+        let id = undefined;
+        if (typeof AbortController !== 'undefined') {
+          const controller = new AbortController();
+          id = setTimeout(() => controller.abort(), this.timeoutMs);
+          signal = controller.signal;
+        }
+
+        const res = await fetch(url, { ...options, signal });
+        if (id) clearTimeout(id);
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         return await res.json();
       } catch (err) {
-        clearTimeout(id);
         return null;
       }
     }
 
     async enrichScreen(screenId) {
-      // 1. Citizen & Land Details Screen
       if (screenId === 'parcel-detail' || screenId === 'citizen-dashboard') {
         const landData = await this.safeFetch('/api/land/48-2A');
         if (landData && landData.parcel) {
@@ -234,7 +249,6 @@
         }
       }
 
-      // 2. Executive Delay Matrix Screen
       if (screenId === 'ai-mitigation-panel' || screenId === 'executive-dashboard-1') {
         if (this.isLocal) {
           const pyPrediction = await this.safeFetch('http://localhost:8000/api/py/delay-prediction');
@@ -351,7 +365,7 @@
             <button type="button" class="px-2.5 py-1 bg-emerald-700/80 hover:bg-emerald-600 text-white rounded font-bold flex items-center gap-1 transition-colors" onclick="window.FramesEngine.openCompensationFrame()">
               <span class="material-symbols-outlined text-[15px]">calculate</span> Solatium Calc
             </button>
-            <button type="button" class="px-2.5 py-1 bg-white/10 hover:bg-white/20 text-white rounded font-bold flex items-center gap-1 transition-colors" onclick="window.location.hash='#/official-login'">
+            <button type="button" class="px-2.5 py-1 bg-white/10 hover:bg-white/20 text-white rounded font-bold flex items-center gap-1 transition-colors" onclick="window.BhoomiRouter.navigate('official-login')">
               <span class="material-symbols-outlined text-[15px]">switch_account</span> Switch User
             </button>
           </div>
@@ -573,10 +587,10 @@
     onScreenMounted(screen) {}
 
     handleClick(e) {
-      const target = e.target.closest('a, button, [data-path], [data-route], [data-role]');
+      const target = e.target.closest('a, button, [data-path], [data-route], [data-role], [data-action]');
       if (!target) return;
 
-      // 1. Explicit Role Login Cards
+      // 1. Explicit data-role (Login Cards)
       const dataRole = target.getAttribute('data-role');
       if (dataRole) {
         e.preventDefault();
@@ -588,7 +602,7 @@
       const dataRoute = target.getAttribute('data-route');
       if (dataRoute) {
         e.preventDefault();
-        window.location.hash = `#/${dataRoute}`;
+        window.BhoomiRouter.navigate(dataRoute);
         return;
       }
 
@@ -602,20 +616,76 @@
           'survey-gazette': 'statutory-gazette-publishing',
           'verify-document': 'document-verification-queue',
           'grievances': 'grievance-hearing-desk',
-          'sign-in': 'official-login'
+          'helpdesk': 'grievance-hearing-desk',
+          'sign-in': 'official-login',
+          'my-land-list': 'my-land-list',
+          'parcel-record-dossier': 'parcel-detail'
         };
-        window.location.hash = `#/${map[dataPath] || 'home'}`;
+        window.BhoomiRouter.navigate(map[dataPath] || dataPath);
         return;
       }
 
+      // 4. Natural href links
       const href = target.getAttribute('href');
-      if (href && href.startsWith('#/')) {
-        return; // Natural hash navigation
+      if (href && href.startsWith('#/') && href.length > 2) {
+        e.preventDefault();
+        const routeId = href.replace(/^#\/?/, '');
+        window.BhoomiRouter.navigate(routeId);
+        return;
       }
 
+      // 5. Button Text Matching for Intended Actions
       const text = (target.innerText || '').trim();
 
-      // Explicit Action Buttons
+      if (text.includes('Citizen Portal') || text.includes('Send Verification OTP')) {
+        e.preventDefault();
+        window.BhoomiBackend.login('citizen');
+        return;
+      }
+
+      if (text.includes('Officer Access') || text.includes('Authenticate Officer Login')) {
+        e.preventDefault();
+        window.BhoomiBackend.login('officer');
+        return;
+      }
+
+      if (text.includes('Departmental Login') || text.includes('Sign In with DSC Certificate')) {
+        e.preventDefault();
+        window.BhoomiBackend.login('executive');
+        return;
+      }
+
+      if (text.includes('Launch Full GIS Cadastral Explorer')) {
+        e.preventDefault();
+        window.BhoomiRouter.navigate('interactive-acquisition-map');
+        return;
+      }
+
+      if (text.includes('Check Survey Number')) {
+        e.preventDefault();
+        window.BhoomiRouter.navigate('land-search');
+        return;
+      }
+
+      if (text.includes('Section 4(1) Public Notices') || text.includes('Search Gazette Notifications')) {
+        e.preventDefault();
+        window.BhoomiRouter.navigate('statutory-gazette-publishing');
+        return;
+      }
+
+      if (text.includes('Download Form 11-A') || text.includes('Apply for Land Allotment')) {
+        e.preventDefault();
+        window.BhoomiRouter.navigate('application-form');
+        return;
+      }
+
+      if (text.includes('File Land Grievance')) {
+        e.preventDefault();
+        window.BhoomiRouter.navigate('grievance-hearing-desk');
+        return;
+      }
+
+      // 6. Explicit Modal Action Triggers
       if (target.matches('[data-action="solatium-calc"], button[onclick*="openCompensationFrame"]')) {
         e.preventDefault();
         window.FramesEngine.openCompensationFrame();
@@ -708,7 +778,7 @@
           <button type="button" title="Toggle Dark / Light Theme" class="p-1.5 bg-surface-container hover:bg-surface-container-high rounded-lg text-on-surface flex items-center gap-1 font-bold" onclick="window.PrototypeHUD.toggleTheme()">
             <span id="hud-theme-icon" class="material-symbols-outlined text-[16px] text-amber-500">dark_mode</span>
           </button>
-          <button type="button" class="px-2.5 py-1.5 bg-primary text-white rounded-lg font-bold flex items-center gap-1 shadow-sm" onclick="window.location.hash='#/official-login'">
+          <button type="button" class="px-2.5 py-1.5 bg-primary text-white rounded-lg font-bold flex items-center gap-1 shadow-sm" onclick="window.BhoomiRouter.navigate('official-login')">
             <span class="material-symbols-outlined text-[16px]">grid_view</span>
             <span>20 Screens</span>
           </button>

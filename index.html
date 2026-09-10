@@ -296,21 +296,14 @@
     </main>
   </div>
 
-  <!-- Leaflet GIS Library -->
+  <!-- GIS Mapping Engines: Google Maps JS API & Leaflet Fallback -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=geometry,drawing" async defer></script>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
-  <!-- Core Platform Scripts & Interactive Engines -->
-  <script src="backend-api.js"></script>
+  <!-- Core Platform Runtime Scripts (Consolidated) -->
   <script src="data-store.js"></script>
   <script src="screens-data.js"></script>
-  <script src="router.js"></script>
-  <script src="page-guide.js"></script>
   <script src="map-engine.js"></script>
-  <script src="analytics-charts.js"></script>
-  <script src="simulations.js"></script>
-  <script src="modals.js"></script>
-  <script src="frames-engine.js"></script>
-  <script src="interactions.js"></script>
-  <script src="prototype-nav.js"></script>
+  <script src="app-bundle.js"></script>
 </body>
 </html>

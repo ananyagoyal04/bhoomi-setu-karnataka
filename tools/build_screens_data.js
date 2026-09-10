@@ -1,7 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const baseDir = path.join(__dirname, 'stitch_bhoomi_setu_land_portal');
+const rootDir = path.join(__dirname, '..');
+const baseDir = path.join(rootDir, 'stitch_bhoomi_setu_land_portal');
 
 const screenMetadata = {
   'bhoomi_setu_official_login': {
@@ -94,15 +95,6 @@ const screenMetadata = {
     icon: 'format_list_bulleted',
     description: 'Comprehensive table of all citizen-owned survey parcels with statutory notice badges'
   },
-  'bhoomi_setu_my_land_map_view': {
-    id: 'my-land-map',
-    folder: 'bhoomi_setu_my_land_map_view',
-    name: 'My Registered Land (Spatial GIS Map)',
-    role: 'citizen',
-    category: 'Citizen & Landowner',
-    icon: 'map',
-    description: 'Spatial cadastral viewer showing survey boundaries and Metro Phase 2A buffer zone'
-  },
   'bhoomi_setu_parcel_detail': {
     id: 'parcel-detail',
     folder: 'bhoomi_setu_parcel_detail',
@@ -112,14 +104,14 @@ const screenMetadata = {
     icon: 'description',
     description: 'Statutory acquisition lifecycle, land attributes, and compensation breakdown for Sy 48/2A Bellandur'
   },
-  'bhoomi_setu_financial_escrow_ledger': {
-    id: 'financial-escrow-ledger',
-    folder: 'bhoomi_setu_financial_escrow_ledger',
-    name: 'Financial Compensation & PFMS Ledger',
+  'bhoomi_setu_my_land_map_view': {
+    id: 'my-land-map',
+    folder: 'bhoomi_setu_my_land_map_view',
+    name: 'My Registered Land (Spatial GIS Map)',
     role: 'citizen',
     category: 'Citizen & Landowner',
-    icon: 'account_balance',
-    description: 'Statutory PFMS direct credit ledger with statutory interest and TDS computation'
+    icon: 'map',
+    description: 'Spatial cadastral viewer showing survey boundaries and Metro Phase 2A buffer zone'
   },
   'bhoomi_setu_officer_dashboard': {
     id: 'officer-dashboard',
@@ -183,6 +175,15 @@ const screenMetadata = {
     category: 'Executive & State Command',
     icon: 'travel_explore',
     description: 'Full spatial GIS corridor map with Metro Phase 2A route and 13 stations'
+  },
+  'bhoomi_setu_ai_mitigation_recommendations_panel': {
+    id: 'ai-mitigation-panel',
+    folder: 'bhoomi_setu_ai_mitigation_recommendations_panel',
+    name: 'AI Project Delay Prediction & Turnaround Matrix',
+    role: 'executive',
+    category: 'Executive & State Command',
+    icon: 'psychology',
+    description: 'AI delay attribution matrix with automated escrow and litigation turnaround levers'
   }
 };
 
@@ -223,12 +224,22 @@ for (const [folderKey, meta] of Object.entries(screenMetadata)) {
   });
 }
 
-// Generate screens-data.js
-const outputJs = `// Bhoomi Setu — 20 High-Impact Prototype Screens Data
+// Generate screens-data.js in root
+const outputJs = `// Bhoomi Setu — Core Prototype Screens Data (20 Targeted Flows)
 // Generated automatically for ultra-fast loading and flawless rendering
 window.BHOOMI_SCREENS = ${JSON.stringify(processedScreens, null, 2)};
 `;
 
-fs.writeFileSync(path.join(__dirname, 'screens-data.js'), outputJs, 'utf8');
-console.log(`Successfully processed ${processedScreens.length} core screens.`);
-console.log('Saved screens-data.js successfully.');
+fs.writeFileSync(path.join(rootDir, 'screens-data.js'), outputJs, 'utf8');
+
+// Generate clean screens_info.json in root
+fs.writeFileSync(path.join(rootDir, 'screens_info.json'), JSON.stringify(processedScreens.map(s => ({
+  id: s.id,
+  title: s.title,
+  role: s.role,
+  category: s.category,
+  icon: s.icon,
+  description: s.description
+})), null, 2), 'utf8');
+
+console.log(`Successfully compiled ${processedScreens.length} core screens into screens-data.js and screens_info.json.`);

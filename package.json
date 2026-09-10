@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",
-    "test": "node test_prototype.js"
+    "test": "node tools/test_prototype.js"
   },
   "keywords": [
     "bhoomi-setu",

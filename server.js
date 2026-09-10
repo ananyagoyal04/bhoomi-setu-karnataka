@@ -1,10 +1,12 @@
-// Bhoomi Setu — Enterprise Node.js & REST API Gateway Server
-// Government of Karnataka | Land Acquisition & Statutory Revenue System
+// Bhoomi Setu — Node.js REST API & Prototype Web Server
+// Government of Karnataka | Revenue Department Land Acquisition Portal
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
 const PORT = process.env.PORT || 3000;
+const DB_FILE = path.join(__dirname, 'bhoomi_db.json');
+
 const MIME_TYPES = {
   '.html': 'text/html; charset=utf-8',
   '.js': 'text/javascript; charset=utf-8',
@@ -13,7 +15,6 @@ const MIME_TYPES = {
   '.png': 'image/png',
   '.jpg': 'image/jpeg',
   '.jpeg': 'image/jpeg',
-  '.gif': 'image/gif',
   '.svg': 'image/svg+xml',
   '.ico': 'image/x-icon',
   '.woff2': 'font/woff2',
@@ -21,28 +22,28 @@ const MIME_TYPES = {
   '.ttf': 'font/ttf'
 };
 
-// In-Memory & File Database Store
-let DB_STORE = {
-  stats: {
-    totalAcquisitionHa: 1420.5,
-    disbursedCrores: 4820.4,
-    pendingEscrowCrores: 1174.2,
-    activeLitigations: 2,
-    projectsTracked: 2,
-    syncTimestamp: new Date().toISOString()
-  },
-  auditLogs: [
-    { id: 1, timestamp: new Date().toISOString(), action: "SYSTEM_INITIALIZED", user: "SYSTEM_DAEMON", ip: "127.0.0.1" }
-  ]
-};
+function readDb() {
+  try {
+    if (fs.existsSync(DB_FILE)) {
+      return JSON.parse(fs.readFileSync(DB_FILE, 'utf8'));
+    }
+  } catch (e) {}
+  return { parcels: {}, objections: [] };
+}
+
+function writeDb(data) {
+  try {
+    fs.writeFileSync(DB_FILE, JSON.stringify(data, null, 2), 'utf8');
+  } catch (e) {}
+}
 
 const requestHandler = (req, res) => {
-  const parsedUrl = new URL(req.url, `http://${req.headers.host}`);
-  let reqPath = parsedUrl.pathname;
+  const parsedUrl = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
+  const reqPath = parsedUrl.pathname;
 
-  // CORS Headers
+  // CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-DSC-Token');
 
   if (req.method === 'OPTIONS') {
@@ -57,88 +58,106 @@ const requestHandler = (req, res) => {
   if (reqPath.startsWith('/api/')) {
     res.setHeader('Content-Type', 'application/json; charset=utf-8');
 
-    // 1. System Health & Metadata
-    if (reqPath === '/api/health' && req.method === 'GET') {
+    // 1. Health
+    if (reqPath === '/api/health') {
       res.writeHead(200);
       res.end(JSON.stringify({
         status: "ONLINE",
         portal: "Bhoomi Setu (Government of Karnataka)",
         version: "3.2.0-PROD",
-        engine: "Node.js / V8 + SQLite & GIS Leaflet",
-        uptimeSeconds: Math.floor(process.uptime()),
+        engine: "Node.js REST API + JSON/SQLite Database",
         timestamp: new Date().toISOString()
       }, null, 2));
       return;
     }
 
-    // 2. Telemetry & Macro Statistics
-    if (reqPath === '/api/stats' && req.method === 'GET') {
+    // 2. Stats
+    if (reqPath === '/api/stats') {
       res.writeHead(200);
-      res.end(JSON.stringify({ success: true, data: DB_STORE.stats }));
+      res.end(JSON.stringify({
+        success: true,
+        data: {
+          totalAcquisitionHa: 1420.5,
+          disbursedCrores: 4820.4,
+          pendingEscrowCrores: 1174.2,
+          parcelsTracked: 348,
+          activeMetroStations: 13
+        }
+      }));
       return;
     }
 
-    // 3. Aadhaar 3-Role Demo Authentication
-    if (reqPath === '/api/auth/aadhaar-login' && req.method === 'POST') {
+    // 3. GET /api/land/:surveyNo
+    const landMatch = reqPath.match(/^\/api\/land\/([^/]+)/);
+    if (landMatch && req.method === 'GET') {
+      const sKey = decodeURIComponent(landMatch[1]).replace('/', '-');
+      const db = readDb();
+      const parcel = db.parcels[sKey] || db.parcels['48-2A'];
+      res.writeHead(200);
+      res.end(JSON.stringify({ success: true, parcel }));
+      return;
+    }
+
+    // 4. GET /api/compensation/:surveyNo
+    const compMatch = reqPath.match(/^\/api\/compensation\/([^/]+)/);
+    if (compMatch && req.method === 'GET') {
+      const sKey = decodeURIComponent(compMatch[1]).replace('/', '-');
+      const db = readDb();
+      const parcel = db.parcels[sKey] || db.parcels['48-2A'];
+      res.writeHead(200);
+      res.end(JSON.stringify({
+        success: true,
+        surveyNo: parcel.surveyNo,
+        guidanceValue: parcel.guidanceValue,
+        solatium100: parcel.solatium100,
+        interest12Pct: parcel.interest12Pct,
+        totalAward: parcel.totalAward,
+        pfmsRef: parcel.pfmsRef,
+        pfmsStatus: parcel.pfmsStatus
+      }));
+      return;
+    }
+
+    // 5. POST /api/objection
+    if (reqPath === '/api/objection' && req.method === 'POST') {
       let body = '';
       req.on('data', chunk => { body += chunk; });
       req.on('end', () => {
         try {
           const payload = JSON.parse(body || '{}');
-          const aadhaar = (payload.aadhaar || '').replace(/[\s-]/g, '');
-          
-          let userProfile = null;
-          if (aadhaar.includes('4819') || payload.role === 'citizen') {
-            userProfile = { role: 'citizen', name: 'Sri. Rajesh Kumar', aadhaar: '5489-1204-4819', primarySurveyNo: '48/2A' };
-          } else if (aadhaar.includes('0894') || payload.role === 'officer') {
-            userProfile = { role: 'officer', name: 'Sri. B. Shivaram, KAS', dscToken: 'ePass2003Auto-98FC-4421' };
-          } else {
-            userProfile = { role: 'executive', name: 'Chief Secretary', department: 'Cabinet Secretariat' };
-          }
-
-          DB_STORE.auditLogs.unshift({
-            id: DB_STORE.auditLogs.length + 1,
-            timestamp: new Date().toISOString(),
-            action: `AADHAAR_AUTH_SUCCESS:${userProfile.role.toUpperCase()}`,
-            user: userProfile.name,
-            ip: req.socket.remoteAddress || '127.0.0.1'
-          });
-
+          const db = readDb();
+          const newObj = {
+            id: `OBJ-${Date.now().toString().slice(-4)}`,
+            surveyNo: payload.surveyNo || '48/2A',
+            claimant: payload.claimant || 'Sri. Rajesh Kumar',
+            objectionType: payload.objectionType || 'Valuation Rectification',
+            demandedExtra: payload.demandedExtra || 1850000,
+            status: 'SCHEDULED_FOR_HEARING',
+            createdAt: new Date().toISOString()
+          };
+          db.objections.push(newObj);
+          writeDb(db);
           res.writeHead(200);
-          res.end(JSON.stringify({
-            success: true,
-            token: `BHOOMI_JWT_${Buffer.from(JSON.stringify(userProfile)).toString('base64')}`,
-            user: userProfile
-          }));
+          res.end(JSON.stringify({ success: true, message: 'Section 15(1) Objection Registered in Gazette Docket', objection: newObj }));
         } catch (e) {
           res.writeHead(400);
-          res.end(JSON.stringify({ success: false, error: "Invalid JSON Payload" }));
+          res.end(JSON.stringify({ success: false, error: 'Invalid JSON payload' }));
         }
       });
       return;
     }
 
-    // 4. Audit Log
-    if (reqPath === '/api/audit-logs' && req.method === 'GET') {
-      res.writeHead(200);
-      res.end(JSON.stringify({ success: true, count: DB_STORE.auditLogs.length, logs: DB_STORE.auditLogs }));
-      return;
-    }
-
-    // 404 for unknown API routes
+    // Default API 404
     res.writeHead(404);
     res.end(JSON.stringify({ success: false, error: `API route ${reqPath} not found` }));
     return;
   }
 
   // ==========================================
-  // 🌐 Static Files Delivery
+  // 🌐 Static Files & SPA Routing Fallback
   // ==========================================
-  if (reqPath === '/' || reqPath === '') {
-    reqPath = '/index.html';
-  }
-
-  const safePath = path.normalize(reqPath).replace(/^(\.\.[\/\\])+/, '');
+  let normalizedPath = reqPath === '/' || reqPath === '' ? '/index.html' : reqPath;
+  const safePath = path.normalize(normalizedPath).replace(/^(\.\.[\/\\])+/, '');
   let filePath = path.join(__dirname, safePath);
 
   if (!fs.existsSync(filePath) || fs.statSync(filePath).isDirectory()) {
@@ -173,10 +192,9 @@ const server = http.createServer(requestHandler);
 if (require.main === module) {
   server.listen(PORT, () => {
     console.log(`=======================================================`);
-    console.log(`🏛️  Bhoomi Setu (ಭೂಮಿ ಸೇತು) Multi-Tier Server Running`);
-    console.log(`🌐 Local URL: http://localhost:${PORT}`);
-    console.log(`🚀 REST API: http://localhost:${PORT}/api/health`);
-    console.log(`📱 32 Interactive UI Screens with 2 Clean Demo Records`);
+    console.log(`🏛️  Bhoomi Setu (ಭೂಮಿ ಸೇತು) Node.js Server Running`);
+    console.log(`🌐 Local Web: http://localhost:${PORT}`);
+    console.log(`🚀 REST API:  http://localhost:${PORT}/api/health`);
     console.log(`=======================================================`);
   });
 }

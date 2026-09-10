@@ -1,6 +1,7 @@
 """
-Bhoomi Setu — Python FastAPI / Flask Backend Gateway
-Government of Karnataka | Revenue Department Land Acquisition API
+Bhoomi Setu — Python Microservice (FastAPI / Standard HTTP)
+Government of Karnataka | Land Acquisition & Statutory Delay Prediction Service
+Port: 8000
 """
 
 import sys
@@ -75,11 +76,35 @@ class BhoomiPythonHandler(BaseHTTPRequestHandler):
         if path == "/api/py/health":
             self._send_json({
                 "status": "ONLINE",
+                "service": "Bhoomi Python ML & Analytics Microservice",
                 "runtime": f"Python {sys.version.split()[0]}",
-                "framework": "Bhoomi Python Microservice",
-                "database": "SQLite 3 Engine",
-                "portal": "Bhoomi Setu (Govt of Karnataka)"
+                "port": PORT,
+                "endpoints": [
+                    "GET /api/py/health",
+                    "GET /api/py/delay-prediction",
+                    "POST /api/py/turnaround-simulation",
+                    "GET /api/py/parcels",
+                    "GET /api/py/gazette"
+                ]
             })
+        elif path == "/api/py/delay-prediction":
+            prediction = {
+                "corridor": "Namma Metro Phase 2A (Silk Board to KR Puram)",
+                "totalParcels": 312,
+                "acquiredParcels": 264,
+                "pendingParcels": 48,
+                "predictedDelayDays": 38,
+                "riskLevel": "MODERATE",
+                "confidenceScore": 0.942,
+                "bottlenecks": [
+                    {"category": "High Court Writs", "impactPercent": 42, "criticalParcels": 6},
+                    {"category": "BESCOM 66kV Utility Shifting", "impactPercent": 31, "criticalParcels": 4},
+                    {"category": "Section 15(1) Valuations", "impactPercent": 18, "criticalParcels": 8},
+                    {"category": "Forest Dept Tree Clearance NOC", "impactPercent": 9, "criticalParcels": 2}
+                ],
+                "recommendation": "Deploy Special Lok Adalat bench for Bellandur cluster (Sy 48/2A) to compress 45 calendar days."
+            }
+            self._send_json(prediction)
         elif path == "/api/py/parcels":
             conn = sqlite3.connect(DB_FILE)
             cursor = conn.cursor()
@@ -103,13 +128,57 @@ class BhoomiPythonHandler(BaseHTTPRequestHandler):
             ]
             self._send_json({"success": True, "count": len(gazettes), "notices": gazettes})
         else:
-            self._send_json({"error": "Endpoint not found"}, status=404)
+            self._send_json({"error": "Endpoint not found", "path": path}, status=404)
 
-if __name__ == "__main__":
+    def do_POST(self):
+        parsed = urlparse(self.path)
+        path = parsed.path
+
+        if path == "/api/py/turnaround-simulation":
+            content_length = int(self.headers.get('Content-Length', 0))
+            body = self.rfile.read(content_length).decode('utf-8') if content_length > 0 else "{}"
+            try:
+                payload = json.loads(body)
+            except Exception:
+                payload = {}
+
+            baseline_days = payload.get("baselineDays", 180)
+            ai_acceleration_factor = 0.233
+            simulated_days = int(baseline_days * ai_acceleration_factor)
+
+            simulation_result = {
+                "success": True,
+                "simulationId": "SIM-2025-KA-882",
+                "baselineTurnaroundDays": baseline_days,
+                "simulatedTurnaroundDays": simulated_days,
+                "daysSaved": baseline_days - simulated_days,
+                "costEfficiencyGainPercent": 34.5,
+                "disputeReductionProbability": "88.4%",
+                "parametersApplied": {
+                    "automatedSolatiumCalc": True,
+                    "blockchainTitleVerification": True,
+                    "pfmsDirectEscrow": True,
+                    "digitalDscStamping": True
+                },
+                "status": "SIMULATION_COMPLETED"
+            }
+            self._send_json(simulation_result)
+        else:
+            self._send_json({"error": "Endpoint not found", "path": path}, status=404)
+
+def run():
     init_db()
     print("=======================================================")
-    print("🐍 Python Backend Gateway for Bhoomi Setu Running")
-    print(f"🌐 REST API: http://localhost:{PORT}/api/py/health")
+    print("🐍 Python Backend Microservice for Bhoomi Setu Running")
+    print(f"🌐 Server: http://localhost:{PORT}")
+    print(f"📡 Delay Prediction: http://localhost:{PORT}/api/py/delay-prediction")
+    print(f"⚙️ Simulation API: POST http://localhost:{PORT}/api/py/turnaround-simulation")
     print("=======================================================")
     httpd = HTTPServer(('0.0.0.0', PORT), BhoomiPythonHandler)
-    httpd.serve_forever()
+    try:
+        httpd.serve_forever()
+    except KeyboardInterrupt:
+        print("\nStopping Python microservice...")
+
+if __name__ == "__main__":
+    run()
